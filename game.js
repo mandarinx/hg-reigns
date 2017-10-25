@@ -2,7 +2,9 @@ var config;
 var cards;
 var state = {};
 var transitions = {};
-var buttons = {};
+var btnClickHandlers = {};
+var btnMouseOverHandlers = {};
+var btnMouseOutHandlers = {};
 
 function OnLoad() {
     transitions = {
@@ -20,8 +22,20 @@ function OnLoad() {
         }
     };
 
-    buttons = {
-        i_btn_start: OnStartGame
+    btnClickHandlers = {
+        i_btn_start: OnStartGame,
+        option_yes: OnClickOptionYes,
+        option_no: OnClickOptionNo
+    };
+
+    btnMouseOverHandlers = {
+        option_yes: OnOverOptionYes,
+        option_no: OnOverOptionNo
+    };
+
+    btnMouseOutHandlers = {
+        option_yes: OnOutOptionYes,
+        option_no: OnOutOptionNo
     };
 
     var file_config = FetchJSON('config.json', function(json) {
@@ -39,6 +53,9 @@ function OnLoad() {
                 curCard: 0,
                 // the names of the cards picked out for current play through
                 cards: [],
+                // references to various DOM elements beloning to an axis,
+                // indexed by axis name
+                axisElms: {}
             };
             Transition(null, config.startPanel);
         });
@@ -56,11 +73,13 @@ function OnTransitionToGame() {
     state.cards = GetRandomCards(config.numCardsPerGame);
     state.curCard = 0;
 
-    CreateAxesDOMElements(config.axes);
+    SetAxes(config.axes);
 
     ClearCard();
-    var curCardName = state.cards[state.curCard];
-    LoadCard(cards[curCardName]);
+    LoadCard(GetCurCard());
+
+    EnableButton('option_yes');
+    EnableButton('option_no');
 }
 
 function OnTransitionFromGame() {
@@ -77,4 +96,37 @@ function OnTransitionFromEndGame() {
 
 function OnStartGame() {
     Transition('panel_intro', 'panel_game');
+}
+
+function OnClickOptionYes() {
+    var card = GetCurCard();
+
+}
+
+function OnClickOptionNo() {
+
+}
+
+function OnOverOptionYes() {
+    var card = GetCurCard();
+    ShowOption(card.options.yes);
+    ShowDots(card.influences.yes);
+}
+
+function OnOverOptionNo() {
+    var card = GetCurCard();
+    ShowOption(card.options.no);
+    ShowDots(card.influences.no);
+}
+
+function OnOutOptionYes() {
+    var card = GetCurCard();
+    HideOption();
+    HideDots(card.influences.yes);
+}
+
+function OnOutOptionNo() {
+    var card = GetCurCard();
+    HideOption();
+    HideDots(card.influences.no);
 }

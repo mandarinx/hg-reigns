@@ -12,19 +12,36 @@ function Transition(from_panel, to_panel) {
 function EnableButton(id) {
     var elm = document.getElementById(id);
     if (typeof elm === 'undefined') {
-        console.error('Cannot add click handler to '+id+' because it cannot be found');
+        console.error('Cannot enable button '+id+' because it cannot be found');
         return;
     }
-    elm.addEventListener('click', buttons[id]);
+
+    if (typeof btnClickHandlers[id] !== 'undefined') {
+        elm.addEventListener('click', btnClickHandlers[id]);
+    }
+    if (typeof btnMouseOverHandlers[id] !== 'undefined') {
+        elm.addEventListener('mouseover', btnMouseOverHandlers[id]);
+    }
+    if (typeof btnMouseOutHandlers[id] !== 'undefined') {
+        elm.addEventListener('mouseout', btnMouseOutHandlers[id]);
+    }
 }
 
 function DisableButton(id) {
     var elm = document.getElementById(id);
     if (typeof elm === 'undefined') {
-        console.error('Cannot remove click handler from '+id+' because it cannot be found');
+        console.error('Cannot disable button '+id+' because it cannot be found');
         return;
     }
-    elm.removeEventListener('click', buttons[id]);
+    if (typeof btnClickHandlers[id] !== 'undefined') {
+        elm.removeEventListener('click', btnClickHandlers[id]);
+    }
+    if (typeof btnMouseOverHandlers[id] !== 'undefined') {
+        elm.removeEventListener('mouseover', btnMouseOverHandlers[id]);
+    }
+    if (typeof btnMouseOutHandlers[id] !== 'undefined') {
+        elm.removeEventListener('mouseout', btnMouseOutHandlers[id]);
+    }
 }
 
 function GetRandomCards(num) {
@@ -90,24 +107,31 @@ function LoadCard(card) {
     document
         .getElementById('card_description')
         .appendChild(document.createTextNode(card.description));
+    document
+        .getElementById('card_image')
+        .setAttribute('src', 'cards/' + card.image + '.png');
 }
 
-function CreateAxesDOMElements(axes) {
+function SetAxes(axes) {
     var g_axes = document.getElementById('g_axes');
 
-    axes.forEach(function(axe) {
+    axes.forEach(function(axis) {
+
+        var elms = {};
+
         // parent
         var g_axis = document.createElement('div');
         g_axis.classList.add('g_axis');
-        g_axis.id = axe.id;
+        g_axis.id = axis.id;
 
         // dot
         var dot = document.createElement('div');
         dot.classList.add('dot');
         var dotImage = document.createElement('img');
-        dotImage.setAttribute('src', 'img/dot.png');
-        dot.appendChild(dotImage);
+        dotImage.setAttribute('src', 'img/dot.svg');
 
+        elms.dot = dotImage;
+        dot.appendChild(dotImage);
         g_axis.appendChild(dot);
 
         // progress bar
@@ -115,21 +139,33 @@ function CreateAxesDOMElements(axes) {
         progress.classList.add('progress');
         var bar = document.createElement('div');
         bar.classList.add('bar');
-        bar.setAttribute('style', 'background-color:'+axe.color+';');
-        progress.appendChild(bar);
+        bar.setAttribute('style', 'background-color:'+axis.color+';');
 
+        elms.progressBar = bar;
+        progress.appendChild(bar);
         g_axis.appendChild(progress);
 
         // label
         var label = document.createElement('div');
         label.classList.add('label');
-        var labelContent = document.createTextNode(axe.label);
+        var labelContent = document.createTextNode(axis.label);
         label.appendChild(labelContent);
 
         g_axis.appendChild(label);
-
         g_axes.appendChild(g_axis);
+
+        state.axisElms[axis.id] = elms;
     });
+}
+
+function GetCurCard() {
+    var curCardName = state.cards[state.curCard];
+    return cards[curCardName];
+}
+
+function GetDotSize(value) {
+    var absval = Math.abs(value);
+    return absval < config.axisDotSmallThreshold ? 'small' : 'large';
 }
 
 function ClearChildElements(id) {
@@ -137,4 +173,44 @@ function ClearChildElements(id) {
     while (elm.firstChild) {
         elm.removeChild(elm.firstChild);
     }
+}
+
+function ShowOption(content) {
+    document
+        .getElementById('option_bg')
+        .classList
+        .add('show');
+    document
+        .getElementById('option_description')
+        .innerHTML = content;
+}
+
+function HideOption() {
+    document
+        .getElementById('option_bg')
+        .classList
+        .remove('show');
+    document
+        .getElementById('option_description')
+        .innerHTML = '';
+}
+
+function ShowDots(axis) {
+    Object
+        .keys(axis)
+        .forEach(function(name) {
+            var value = axis[name];
+            var dot = state.axisElms[name].dot;
+            dot.classList.add(GetDotSize(value));
+        });
+}
+
+function HideDots(axis) {
+    Object
+        .keys(axis)
+        .forEach(function(name) {
+            var value = axis[name];
+            var dot = state.axisElms[name].dot;
+            dot.classList.remove(GetDotSize(value));
+        });
 }

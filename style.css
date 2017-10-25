@@ -20,7 +20,7 @@ html, body {
 .panel_endgame {
     display: none;
     width: 40em;
-    height: 100vh;
+    height: 90vh;
 }
 
 .show {
@@ -70,17 +70,33 @@ html, body {
     background-color: black;
 }
 
-.g_axis .bar {
-    /* Adjust according to axis value */
-    width: 50%;
-}
-
 .g_axis .label {
     margin: 0.5em auto;
 }
 
+.g_axis .dot {
+    flex-basis: 2em;
+    justify-content: center;
+    display: flex;
+}
+
 .g_axis .dot img {
     width: 1em;
+    height: 1em;
+    align-self: center;
+    display: none;
+}
+
+.g_axis .dot img.small {
+    width: 0.4em;
+    height: 0.5em;
+    display: block;
+}
+
+.g_axis .dot img.large {
+    width: 0.8em;
+    height: 0.8em;
+    display: block;
 }
 
 .card_about {
@@ -97,8 +113,8 @@ html, body {
 
 .card_frame {
     align-self: center;
-    width: 35vh;
-    height: 35vh;
+    width: 32vh;
+    height: 32vh;
     display: flex;
     justify-content: center;
     position: relative;
@@ -117,8 +133,8 @@ html, body {
     display: block;
 }
 
-.card_frame > div {
-    display: flex;
+.option_bg {
+    display: none;
     justify-content: center;
     flex-direction: column;
     width: 100%;
@@ -126,10 +142,18 @@ html, body {
     position: absolute;
     margin: 0;
     padding: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     background-color: rgba(0,0,0,0.5);
 }
 
-.card_frame > div > p {
+.option_bg.show {
+    display: flex;
+}
+
+.option_bg > p {
     align-self: center;
     text-align: center;
     color: white;
@@ -147,6 +171,7 @@ html, body {
     border: 0.6em solid black;
     border-radius: 0.4em;
     display: block;
+    cursor: pointer;
 }
 
 .g_padding {

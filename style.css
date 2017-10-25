@@ -1,0 +1,9 @@
+.panel_intro,
+.panel_game,
+.panel_endgame {
+    display: none;
+}
+
+.show {
+    display: block;
+}

@@ -30,6 +30,7 @@ var app = express()
             ],
             scriptSrc: [
                 "'self'",
+                "'unsafe-inline'",
                 'www.google-analytics.com',
             ],
             fontSrc: [

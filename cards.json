@@ -1,6 +1,7 @@
 {
     "card_01": {
         "title": "Card 01",
+        "description": "This prototype is awesome, maybe we should pitch it to Devolver?",
         "image": "card_01",
         "chance": 1,
         "options": {
@@ -14,6 +15,7 @@
     },
     "card_02": {
         "title": "Card 02",
+        "description": "This prototype is awesome, maybe we should pitch it to Devolver?",
         "image": "card_02",
         "chance": 2,
         "options": {
@@ -27,6 +29,7 @@
     },
     "card_03": {
         "title": "Card 03",
+        "description": "This prototype is awesome, maybe we should pitch it to Devolver?",
         "image": "card_03",
         "chance": 1,
         "options": {

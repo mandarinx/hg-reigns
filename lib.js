@@ -78,6 +78,20 @@ function FetchJSON(file, callback) {
         .then(callback);
 }
 
+function ClearCard() {
+    ClearChildElements('card_title');
+    ClearChildElements('card_description');
+}
+
+function LoadCard(card) {
+    document
+        .getElementById('card_title')
+        .appendChild(document.createTextNode(card.title));
+    document
+        .getElementById('card_description')
+        .appendChild(document.createTextNode(card.description));
+}
+
 function CreateAxesDOMElements(axes) {
     var g_axes = document.getElementById('g_axes');
 
@@ -116,4 +130,11 @@ function CreateAxesDOMElements(axes) {
 
         g_axes.appendChild(g_axis);
     });
+}
+
+function ClearChildElements(id) {
+    var elm = document.getElementById(id);
+    while (elm.firstChild) {
+        elm.removeChild(elm.firstChild);
+    }
 }

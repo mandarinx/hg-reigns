@@ -35,7 +35,11 @@ function OnLoad() {
     Promise
         .all([file_config, file_cards])
         .then(function (results) {
-            state = {};
+            state = {
+                curCard: 0,
+                // the names of the cards picked out for current play through
+                cards: [],
+            };
             Transition(null, config.startPanel);
         });
 }
@@ -49,7 +53,14 @@ function OnTransitionFromIntro() {
 }
 
 function OnTransitionToGame() {
+    state.cards = GetRandomCards(config.numCardsPerGame);
+    state.curCard = 0;
+
     CreateAxesDOMElements(config.axes);
+
+    ClearCard();
+    var curCardName = state.cards[state.curCard];
+    LoadCard(cards[curCardName]);
 }
 
 function OnTransitionFromGame() {
@@ -65,11 +76,5 @@ function OnTransitionFromEndGame() {
 }
 
 function OnStartGame() {
-    state.cards = GetRandomCards(config.numCardsPerGame);
-    console.log('got random cards:');
-    state.cards.forEach(function(name) {
-        console.log(name);
-    });
-    state.curCard = 0;
     Transition('panel_intro', 'panel_game');
 }

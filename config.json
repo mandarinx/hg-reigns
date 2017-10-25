@@ -1,5 +1,6 @@
 {
     "numCardsPerGame": 10,
+    "startPanel": "panel_intro",
     "axes": [{
         "id": "money",
         "label": "Money",

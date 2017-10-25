@@ -36,7 +36,7 @@ function OnLoad() {
         .all([file_config, file_cards])
         .then(function (results) {
             state = {};
-            Transition(null, 'panel_game');
+            Transition(null, config.startPanel);
         });
 }
 

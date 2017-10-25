@@ -1,12 +1,13 @@
-function Transition(from_panel, to_panel) {
-    if (from_panel !== null) {
-        var fpanel = document.getElementById(from_panel);
-        fpanel.classList.remove('show');
-        transitions[from_panel].from();
+function TransitionTo(to_panel) {
+    if (state.curPanel !== null) {
+        var cur = document.getElementById(state.curPanel);
+        cur.classList.remove('show');
+        transitions[state.curPanel].from();
     }
-    var tpanel = document.getElementById(to_panel);
-    tpanel.classList.add('show');
+    var next = document.getElementById(to_panel);
+    next.classList.add('show');
     transitions[to_panel].to();
+    state.curPanel = to_panel;
 }
 
 function EnableButton(id) {
@@ -103,10 +104,10 @@ function ClearCard() {
 function LoadCard(card) {
     document
         .getElementById('card_title')
-        .appendChild(document.createTextNode(card.title));
+        .innerHTML = card.title;
     document
         .getElementById('card_description')
-        .appendChild(document.createTextNode(card.description));
+        .innerHTML = card.description;
     document
         .getElementById('card_image')
         .setAttribute('src', 'cards/' + card.image + '.png');
@@ -114,48 +115,71 @@ function LoadCard(card) {
 
 function SetAxes(axes) {
     var g_axes = document.getElementById('g_axes');
+    ClearChildElements('g_axes');
 
-    axes.forEach(function(axis) {
+    Object
+        .keys(axes)
+        .forEach(function(id) {
+            var elms = {};
+            var axis = axes[id];
 
-        var elms = {};
+            // parent
+            var g_axis = document.createElement('div');
+            g_axis.classList.add('g_axis');
+            g_axis.id = id;
 
-        // parent
-        var g_axis = document.createElement('div');
-        g_axis.classList.add('g_axis');
-        g_axis.id = axis.id;
+            // dot
+            var dot = document.createElement('div');
+            dot.classList.add('dot');
+            var dotImage = document.createElement('img');
+            dotImage.setAttribute('src', 'img/dot.svg');
 
-        // dot
-        var dot = document.createElement('div');
-        dot.classList.add('dot');
-        var dotImage = document.createElement('img');
-        dotImage.setAttribute('src', 'img/dot.svg');
+            elms.dot = dotImage;
+            dot.appendChild(dotImage);
+            g_axis.appendChild(dot);
 
-        elms.dot = dotImage;
-        dot.appendChild(dotImage);
-        g_axis.appendChild(dot);
+            // progress bar
+            var progress = document.createElement('div');
+            progress.classList.add('progress');
+            var bar = document.createElement('div');
+            bar.setAttribute('style', 'background-color:'+axis.color+';');
 
-        // progress bar
-        var progress = document.createElement('div');
-        progress.classList.add('progress');
-        var bar = document.createElement('div');
-        bar.classList.add('bar');
-        bar.setAttribute('style', 'background-color:'+axis.color+';');
+            elms.progressBar = bar;
+            progress.appendChild(bar);
+            g_axis.appendChild(progress);
 
-        elms.progressBar = bar;
-        progress.appendChild(bar);
-        g_axis.appendChild(progress);
+            // label
+            var label = document.createElement('div');
+            label.classList.add('label');
+            var labelContent = document.createTextNode(axis.label);
+            label.appendChild(labelContent);
 
-        // label
-        var label = document.createElement('div');
-        label.classList.add('label');
-        var labelContent = document.createTextNode(axis.label);
-        label.appendChild(labelContent);
+            g_axis.appendChild(label);
+            g_axes.appendChild(g_axis);
 
-        g_axis.appendChild(label);
-        g_axes.appendChild(g_axis);
+            state.axisElms[id] = elms;
+            state.axisValues[id] = 0;
+        });
+}
 
-        state.axisElms[axis.id] = elms;
-    });
+function SetAxisValue(axis, value) {
+    Object
+        .keys(axis)
+        .forEach(function(id) {
+            var v = value;
+            if (typeof value === 'function') {
+                v = value(id);
+            }
+            SetAxesValue(id, v);
+        });
+}
+
+function SetAxesValue(id, value) {
+    state.axisValues[id] += value;
+    var valpct = state.axisValues[id] / config.axesMaxValue;
+    state
+        .axisElms[id]
+        .progressBar.style.width = Math.round(valpct * 100) + '%';
 }
 
 function GetCurCard() {
@@ -163,9 +187,26 @@ function GetCurCard() {
     return cards[curCardName];
 }
 
+function HasMoreCards() {
+    return state.curCard < state.cards.length;
+}
+
+function HighlightCurYear() {
+    var year = 'year_' + state.curYear;
+    document.getElementById(year).classList.add('selected');
+}
+
+function ResetYears() {
+    for (var i=0; i<config.maxYears; ++i) {
+        document
+            .getElementById('year_' + i)
+            .setAttribute('class', 'g_year');
+    }
+}
+
 function GetDotSize(value) {
     var absval = Math.abs(value);
-    return absval < config.axisDotSmallThreshold ? 'small' : 'large';
+    return absval < config.dotSmallThreshold ? 'small' : 'large';
 }
 
 function ClearChildElements(id) {
@@ -198,9 +239,9 @@ function HideOption() {
 function ShowDots(axis) {
     Object
         .keys(axis)
-        .forEach(function(name) {
-            var value = axis[name];
-            var dot = state.axisElms[name].dot;
+        .forEach(function(id) {
+            var value = axis[id];
+            var dot = state.axisElms[id].dot;
             dot.classList.add(GetDotSize(value));
         });
 }
@@ -208,9 +249,38 @@ function ShowDots(axis) {
 function HideDots(axis) {
     Object
         .keys(axis)
-        .forEach(function(name) {
-            var value = axis[name];
-            var dot = state.axisElms[name].dot;
-            dot.classList.remove(GetDotSize(value));
+        .forEach(function(id) {
+            var value = axis[id];
+            var dot = state.axisElms[id].dot;
+            dot.removeAttribute('class');
         });
+}
+
+function ValidateGameState() {
+    var valid = true;
+
+    Object
+        .keys(state.axisValues)
+        .forEach(function(id) {
+            if (state.axisValues[id] <= 0 ||
+                state.axisValues[id] >= config.axesMaxValue) {
+                valid = false;
+            }
+        });
+
+    return valid;
+}
+
+function GetInvalidAxes() {
+    var axes = [];
+    Object
+        .keys(state.axisValues)
+        .forEach(function(id) {
+            if (state.axisValues[id] <= 0 ||
+                state.axisValues[id] >= config.axesMaxValue) {
+                axes.push(id);
+            }
+        });
+    var i = Math.floor(Math.random() * axes.length);
+    return axes[i];
 }

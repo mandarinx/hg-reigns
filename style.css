@@ -10,6 +10,10 @@ html, body {
     user-select: none;
 }
 
+a {
+    cursor: pointer;
+}
+
 .content {
     display: flex;
     justify-content: center;
@@ -23,24 +27,28 @@ html, body {
     height: 90vh;
 }
 
-.show {
-    display: block;
-}
-
 /* INTRO */
 .panel_intro {
-    background-color: #fee;
+    background-color: #000;
+}
+
+.panel_intro.show {
+    display: block;
 }
 
 /* GAME */
 .panel_game {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     background-color: #656264;
     background-image: url('img/bg.png');
     background-position: 50% 50%;
     background-size: cover;
+}
+
+.panel_game.show {
+    display: flex;
 }
 
 .g_axes {
@@ -171,7 +179,6 @@ html, body {
     border: 0.6em solid black;
     border-radius: 0.4em;
     display: block;
-    cursor: pointer;
 }
 
 .g_padding {
@@ -196,4 +203,18 @@ html, body {
     box-sizing: border-box;
     text-align: center;
     align-self: center;
+}
+
+.g_year.selected {
+    background-color: #8DBEB2;
+}
+
+/* END GAME */
+
+.panel_endgame {
+    background-color: #000;
+}
+
+.panel_endgame.show {
+    display: block;
 }

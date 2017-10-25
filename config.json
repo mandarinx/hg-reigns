@@ -1,22 +1,46 @@
 {
-    "numCardsPerGame": 10,
-    "startPanel": "panel_game",
-    "axisDotSmallThreshold": 3,
-    "axes": [{
-        "id": "money",
-        "label": "Money",
-        "color": "#8DBEB2"
-    },{
-        "id": "fame",
-        "label": "Fame",
-        "color": "#E8D061"
-    },{
-        "id": "happiness",
-        "label": "Happiness",
-        "color": "#F6B567"
-    },{
-        "id": "dignity",
-        "label": "Dignity",
-        "color": "#F15F60"
-    }]
+    "numCardsPerYear": 5,
+    "maxYears": 5,
+    "startPanel": "panel_intro",
+    "dotSmallThreshold": 3,
+    "axesMaxValue": 100,
+    "axesStartValue": 50,
+    "axes": {
+        "money": {
+            "label": "Money",
+            "color": "#8DBEB2",
+            "endgame": {
+                "title": "Death by money",
+                "high": "You earned a lot of money! Activision bought your company, and now you own even more money. You died of lonelyness in your billion dollar castle.",
+                "low": "You poor bastard."
+            }
+        },
+        "fame": {
+            "label": "Fame",
+            "color": "#E8D061",
+            "endgame": {
+                "title": "Death by fame",
+                "high": "You got really famous and got trampled to death by your fans at the latest Hyper Games Convention.",
+                "low": "You've exhausted everyone you know with your never ending ramblings of game development. No one loves you anymore."
+            }
+        },
+        "happiness": {
+            "label": "Happiness",
+            "color": "#F6B567",
+            "endgame": {
+                "title": "Death by happiness",
+                "high": "Who would've though happiness could be lethal? Most certainly not you. Yet, you died of happiness.",
+                "low": "Community management takes it toll, especially when gamers treat you like shit. There's not an ounce of happiness left in you. What's the reason to continue?"
+            }
+        },
+        "dignity": {
+            "label": "Dignity",
+            "color": "#F15F60",
+            "endgame": {
+                "title": "Death by dignity",
+                "high": "You fostered your own dignity to the point where your head imploded. You died.",
+                "low": "Were all those client projects really worth it?"
+            }
+        }
+    }
 }

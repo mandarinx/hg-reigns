@@ -26,7 +26,8 @@ var app = express()
             ],
             styleSrc: [
                 "'self'",
-                "'unsafe-inline'"
+                "'unsafe-inline'",
+                'fonts.googleapis.com',
             ],
             scriptSrc: [
                 "'self'",
@@ -35,7 +36,8 @@ var app = express()
             ],
             fontSrc: [
                 "'self'",
-                'data:'
+                'data:',
+                'fonts.gstatic.com'
             ],
             imgSrc: [
                 "'self'",

@@ -1,0 +1,41 @@
+{
+    "card_01": {
+        "title": "Card 01",
+        "image": "card_01",
+        "chance": 1,
+        "options": {
+            "yes": "This is good for you",
+            "no": "This is bad for you"
+        },
+        "influences": {
+            "finance": 5,
+            "metacritic": -2
+        }
+    },
+    "card_02": {
+        "title": "Card 02",
+        "image": "card_02",
+        "chance": 2,
+        "options": {
+            "yes": "This is good for you",
+            "no": "This is bad for you"
+        },
+        "influences": {
+            "finance": 5,
+            "metacritic": -2
+        }
+    },
+    "card_03": {
+        "title": "Card 03",
+        "image": "card_03",
+        "chance": 1,
+        "options": {
+            "yes": "This is good for you",
+            "no": "This is bad for you"
+        },
+        "influences": {
+            "finance": 5,
+            "metacritic": -2
+        }
+    }
+}

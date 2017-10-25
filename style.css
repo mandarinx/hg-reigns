@@ -1,9 +1,70 @@
+html, body {
+    font-family: 'Rokkitt', serif;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
 .panel_intro,
 .panel_game,
 .panel_endgame {
     display: none;
+    width: 40em;
+    height: 100vh;
 }
 
 .show {
     display: block;
+}
+
+/* INTRO */
+.panel_intro {
+    background-color: #fee;
+}
+
+/* GAME */
+.panel_game {
+    background-color: #eee;
+}
+
+.g_axes {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.g_axes div {
+    background-color: #ddd;
+}
+
+.g_axis {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Change if number of axes changes */
+    flex-basis: 25%;
+    padding: 0 2em;
+}
+
+.g_axis .progress {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 1em;
+  background-color: black;
+}
+
+.g_axis .bar {
+  width: 50%;
+}
+
+.g_axis .label {
+    margin: 0.5em auto;
+}
+
+.g_axis .dot img {
+    width: 1em;
 }

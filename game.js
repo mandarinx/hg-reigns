@@ -1,4 +1,5 @@
 var config;
+var cards;
 var state = {};
 var transitions = {};
 var buttons = {};
@@ -20,45 +21,55 @@ function OnLoad() {
     };
 
     buttons = {
-        intro_btn_start: OnStartGame
+        i_btn_start: OnStartGame
     };
 
-    fetch('config.json')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(json) {
-            config = json;
-            console.log(config);
+    var file_config = FetchJSON('config.json', function(json) {
+        config = json;
+    });
+
+    var file_cards = FetchJSON('cards.json', function(json) {
+        cards = json;
+    });
+
+    Promise
+        .all([file_config, file_cards])
+        .then(function (results) {
             state = {};
-            Transition(null, 'panel_intro');
+            Transition(null, 'panel_game');
         });
 }
 
-function OnTransitionFromIntro() {
-    DisableButton('intro_btn_start');
+function OnTransitionToIntro() {
+    EnableButton('i_btn_start');
 }
 
-function OnTransitionToIntro() {
-    EnableButton('intro_btn_start');
+function OnTransitionFromIntro() {
+    DisableButton('i_btn_start');
+}
+
+function OnTransitionToGame() {
+    CreateAxesDOMElements(config.axes);
 }
 
 function OnTransitionFromGame() {
     console.log('from game');
 }
 
-function OnTransitionToGame() {
-    console.log('to game');
+function OnTransitionToEndGame() {
+    console.log('to endgame');
 }
 
 function OnTransitionFromEndGame() {
     console.log('from endgame');
 }
 
-function OnTransitionToEndGame() {
-    console.log('to endgame');
-}
-
 function OnStartGame() {
+    state.cards = GetRandomCards(config.numCardsPerGame);
+    console.log('got random cards:');
+    state.cards.forEach(function(name) {
+        console.log(name);
+    });
+    state.curCard = 0;
     Transition('panel_intro', 'panel_game');
 }

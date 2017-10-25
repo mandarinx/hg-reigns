@@ -1,3 +1,20 @@
 {
-    "hei": "på deg"
+    "numCardsPerGame": 10,
+    "axes": [{
+        "id": "money",
+        "label": "Money",
+        "color": "#8DBEB2"
+    },{
+        "id": "fame",
+        "label": "Fame",
+        "color": "#E8D061"
+    },{
+        "id": "happiness",
+        "label": "Happiness",
+        "color": "#F6B567"
+    },{
+        "id": "dignity",
+        "label": "Dignity",
+        "color": "#F15F60"
+    }]
 }

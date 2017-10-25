@@ -8,21 +8,27 @@
   <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="lib.js"></script>
 
+  <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
   <meta name="description" content="We made this game!"/>
 </head>
 
 <body>
+    <div class="content">
 
-    <div class="panel_intro" id="panel_intro">
-        <h1>Hyper Games Reigns</h1>
-        <a id="intro_btn_start">Start</a>
+        <div class="panel_intro" id="panel_intro">
+            <h1>Hyper Games Reigns</h1>
+            <a id="i_btn_start">Start</a>
+        </div>
+
+        <div class="panel_game" id="panel_game">
+            <div class="g_axes" id="g_axes"></div>
+        </div>
+
+        <div class="panel_endgame" id="panel_endgame"></div>
+
     </div>
-
-    <div class="panel_game" id="panel_game"></div>
-
-    <div class="panel_endgame" id="panel_endgame"></div>
 
     <script type="text/javascript">
         OnLoad();

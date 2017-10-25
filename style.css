@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Rokkitt', serif;
+    color: white;
     margin: 0;
 
     -webkit-user-select: none;
@@ -47,6 +48,7 @@ html, body {
     flex-direction: row;
     flex-grow: 1;
     text-align: center;
+    background-color: rgba(10, 10, 12, 0.5);
 }
 
 .g_axis {
@@ -63,6 +65,8 @@ html, body {
     flex-direction: row;
     justify-content: flex-start;
     height: 1em;
+    width: 80%;
+    margin-left: 10%;
     background-color: black;
 }
 
@@ -81,17 +85,18 @@ html, body {
 
 .card_about {
     text-align: center;
-    flex-grow: 3;
+    flex-grow: 1;
 }
 
 .card_image {
     display: flex;
     justify-content: center;
-    flex-grow: 6;
+    flex-grow: 1;
     box-sizing: border-box;
 }
 
 .card_frame {
+    align-self: center;
     width: 35vh;
     height: 35vh;
     display: flex;
@@ -126,7 +131,26 @@ html, body {
 
 .card_frame > div > p {
     align-self: center;
+    text-align: center;
     color: white;
+}
+
+.card_option {
+    flex-grow: 2;
+    text-align: center;
+    align-self: center;
+    margin: 5%;
+}
+
+.card_option a {
+    background-color: black;
+    border: 0.6em solid black;
+    border-radius: 0.4em;
+    display: block;
+}
+
+.g_padding {
+    flex-grow: 6;
 }
 
 .g_progress_years {

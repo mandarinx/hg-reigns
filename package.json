@@ -1,0 +1,26 @@
+{
+  "name": "hg-reigns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "PORT=5000 node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandarinx/hg-reigns.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mandarinx/hg-reigns/issues"
+  },
+  "homepage": "https://hg-reigns.herokuapp.com/",
+  "dependencies": {
+    "compression": "1.7.1",
+    "express": "4.16.2",
+    "express-robots": "0.1.6",
+    "helmet": "3.9.0",
+    "serve-favicon": "2.4.5"
+  }
+}

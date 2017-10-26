@@ -2,7 +2,7 @@
     "numCardsPerYear": 5,
     "maxYears": 5,
     "startPanel": "panel_intro",
-    "dotSmallThreshold": 3,
+    "dotSmallThreshold": 6,
     "axesMaxValue": 100,
     "axesStartValue": 50,
     "axes": {

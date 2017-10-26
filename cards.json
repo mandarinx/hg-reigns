@@ -1050,17 +1050,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "More is more!",
-        "no": "Sure! Take the day off!"
+        "no": "More is more!",
+        "yes": "Sure! Take the day off!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": -10,
             "fame": 0,
             "dignity": 0
         },
-        "no": {
+        "yes": {
             "money": 0,
             "happiness": 10,
             "fame": 0,

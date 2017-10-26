@@ -1456,17 +1456,17 @@
     "chance" : 1,
     "year": 4,
     "options": {
-        "yes": "No thanks",
-        "no": "Is this real life?"
+        "no": "No thanks",
+        "yes": "Is this real life?"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": 0,
             "dignity": 20
         },
-        "no": {
+        "yes": {
             "money": 20,
             "happiness": 0,
             "fame": 0,

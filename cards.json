@@ -760,17 +760,17 @@
     "chance" : 1,
     "year": 3,
     "options": {
-        "yes": "NO DRAGONS!!",
-        "no": "Sounds cool."
+        "no": "NO DRAGONS!!",
+        "yes": "Sounds cool."
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": -5,
             "fame": 0,
             "dignity": 5
         },
-        "no": {
+        "yes": {
             "money": 0,
             "happiness": 5,
             "fame": 0,

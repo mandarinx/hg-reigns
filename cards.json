@@ -296,17 +296,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "Our deadline won't allow it unfortunately.",
-        "no": "That sounds great!"
+        "no": "Our deadline won't allow it unfortunately.",
+        "yes": "That sounds great!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": -15,
             "fame": 0,
             "dignity": -10
         },
-        "no": {
+        "yes": {
             "money": -10,
             "happiness": 0,
             "fame": 0,

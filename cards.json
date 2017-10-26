@@ -590,13 +590,13 @@
         "yes": "People will love that!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 5,
             "happiness": -5,
             "fame": 0,
             "dignity": 0
         },
-        "no": {
+        "yes": {
             "money": -5,
             "happiness": 20,
             "fame": 20,

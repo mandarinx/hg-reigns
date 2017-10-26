@@ -12,7 +12,7 @@ function TransitionTo(to_panel) {
 
 function EnableButton(id) {
     var elm = document.getElementById(id);
-    if (typeof elm === 'undefined') {
+    if (!elm) {
         console.error('Cannot enable button '+id+' because it cannot be found');
         return;
     }
@@ -21,10 +21,10 @@ function EnableButton(id) {
         elm.addEventListener('click', btnClickHandlers[id]);
     }
     if (typeof btnMouseOverHandlers[id] !== 'undefined') {
-        elm.addEventListener('mouseover', btnMouseOverHandlers[id]);
+        elm.addEventListener('pointerover', btnMouseOverHandlers[id]);
     }
     if (typeof btnMouseOutHandlers[id] !== 'undefined') {
-        elm.addEventListener('mouseout', btnMouseOutHandlers[id]);
+        elm.addEventListener('pointerout', btnMouseOutHandlers[id]);
     }
 }
 
@@ -38,10 +38,10 @@ function DisableButton(id) {
         elm.removeEventListener('click', btnClickHandlers[id]);
     }
     if (typeof btnMouseOverHandlers[id] !== 'undefined') {
-        elm.removeEventListener('mouseover', btnMouseOverHandlers[id]);
+        elm.removeEventListener('pointerover', btnMouseOverHandlers[id]);
     }
     if (typeof btnMouseOutHandlers[id] !== 'undefined') {
-        elm.removeEventListener('mouseout', btnMouseOutHandlers[id]);
+        elm.removeEventListener('pointerout', btnMouseOutHandlers[id]);
     }
 }
 
@@ -283,4 +283,17 @@ function GetInvalidAxes() {
         });
     var i = Math.floor(Math.random() * axes.length);
     return axes[i];
+}
+
+function Map(value, xmin, xmax, ymin, ymax) {
+    var percent = (value - xmin) / (xmax - xmin);
+    return percent * (ymax - ymin) + ymin;
+}
+
+function Clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
+
+function EaseOutQuad(t) {
+    return t * (2 - t);
 }

@@ -1,7 +1,7 @@
 {
     "numCardsPerYear": 5,
     "maxYears": 5,
-    "startPanel": "panel_intro",
+    "startPanel": "panel_game",
     "dotSmallThreshold": 3,
     "axesMaxValue": 100,
     "axesStartValue": 50,

@@ -1108,17 +1108,17 @@
     "chance" : 1,
     "year": 3,
     "options": {
-        "yes": "Oh no, not again!",
-        "no": "Let's do this!"
+        "no": "Oh no, not again!",
+        "yes": "Let's do this!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": 0,
             "dignity": 10
         },
-        "no": {
+        "yes": {
             "money": -20,
             "happiness": 10,
             "fame": 20,

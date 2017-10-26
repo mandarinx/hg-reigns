@@ -107,7 +107,7 @@ a {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    padding: 1em 0 1em 0;
+    padding: 1em 0 0em 0;
     flex-basis: 3em;
     text-align: center;
     background-color: rgba(10, 10, 12, 0.5);
@@ -126,7 +126,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    height: 1em;
+    min-height: 0.5em;
     width: 80%;
     margin-left: 10%;
     background-color: black;
@@ -172,7 +172,10 @@ a {
 }
 
 .card_about h1 {
-    font-size: 1.3em;
+  color: #E8D061;
+    font-size: bold;
+    font-size: 1.25em;
+    margin: 1em 0 0 0;
 }
 
 .card_image {
@@ -250,9 +253,9 @@ a {
 
 .g_progress_years {
     background: rgba(0,0,0,0.25);
-    padding: 3em 0 3em 0;
+    padding: 2em 0 2em 0;
     flex-grow: 1;
-    flex-basis: 3em;
+    flex-basis: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -262,11 +265,11 @@ a {
 .g_year {
     background-color: black;
     color: white;
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     font-size: 1.25em;
     font-weight: bold;
-    line-height: 3em;
+    line-height: 2em;
     border-radius: 100%;
     box-sizing: border-box;
     text-align: center;

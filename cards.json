@@ -1276,7 +1276,7 @@
     }
   },
   "y0_c45" : {
-    "title": "Media bureaucrat",
+    "title": "EU bureaucrat",
     "description": "The commision would like you to fill out these 281 forms and sign them 10 times. We'll give you some money. Maybe.",
     "image": "charLawyer",
     "chance" : 1,
@@ -1305,7 +1305,7 @@
     }
   },
   "y0_c46" : {
-    "title": "Media bureaucrat",
+    "title": "EU bureaucrat",
     "description": "You have signed these documents using the wrong color pen. Could you please sign again on both sides, using all RGB colors?",
     "image": "charLawyer",
     "chance" : 1,

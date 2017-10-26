@@ -1021,17 +1021,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "But we only have 2 days to make it...",
-        "no": "Yes! Let's do the anniversary thing next year!"
+        "no": "But we only have 2 days to make it...",
+        "yes": "Yes! Let's do the anniversary thing next year!"
     },
     "influences": {
-        "no": {
+        "yes": {
             "money": 0,
             "happiness": 0,
             "fame": -5,
             "dignity": -20
         },
-        "yes": {
+        "no": {
             "money": -20,
             "happiness": 0,
             "fame": 0,

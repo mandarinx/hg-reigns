@@ -27,9 +27,54 @@ a {
     height: 90vh;
 }
 
+/* GENERIC */
+
+.button {
+  display: block;
+  width: 45%;
+  margin: 1em auto;
+  padding: 0.5em;
+  border-radius: 1em;
+  background: #fff;
+  color: #362F2D;
+  font-size: 2em;
+  font-weight: bold;
+
+}
+
+
+
 /* INTRO */
 .panel_intro {
-    background-color: #000;
+    position: relative;
+    background-color: #5B4E45;
+    text-align: center;
+}
+
+.panel_intro #logo {
+  width: 60%;
+  margin: 4em auto 3em auto;
+
+}
+
+.menu {
+
+}
+
+.panel_intro .footer {
+  position: absolute;
+  font-size: 1.5em;
+  align-self: flex-end;
+  width: 100%;
+  bottom: 0;
+  background: rgba(0,0,0,0.25);
+  padding: 1em 0 2em 0;
+}
+
+.panel_intro .footer a {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #E8D061;
 }
 
 .panel_intro.show {
@@ -41,10 +86,7 @@ a {
     display: none;
     flex-direction: column;
     justify-content: space-around;
-    background-color: #656264;
-    background-image: url('img/bg.png');
-    background-position: 50% 50%;
-    background-size: cover;
+    background-color: #5B4E45;
 }
 
 .panel_game.show {
@@ -55,6 +97,7 @@ a {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    padding: 1em 0 1em 0;
     flex-basis: 3em;
     text-align: center;
     background-color: rgba(10, 10, 12, 0.5);
@@ -66,7 +109,7 @@ a {
     flex-grow: 1;
     /* Change if number of axes changes */
     flex-basis: 25%;
-    padding: 1em 2% 0 2%;
+
 }
 
 .g_axis .progress {
@@ -81,12 +124,14 @@ a {
 
 .g_axis .label {
     margin: 0.5em auto;
+    font-weight: bold;
 }
 
 .g_axis .dot {
     flex-basis: 2em;
     justify-content: center;
     display: flex;
+    margin: 0 0 1em 0
 }
 
 .g_axis .dot img {
@@ -194,6 +239,8 @@ a {
 }
 
 .g_progress_years {
+    background: rgba(0,0,0,0.25);
+    padding: 3em 0 3em 0;
     flex-grow: 1;
     flex-basis: 3em;
     display: flex;
@@ -207,6 +254,8 @@ a {
     color: white;
     width: 3em;
     height: 3em;
+    font-size: 1.25em;
+    font-weight: bold;
     line-height: 3em;
     border-radius: 100%;
     box-sizing: border-box;
@@ -215,7 +264,8 @@ a {
 }
 
 .g_year.selected {
-    background-color: #8DBEB2;
+    background-color: #E8D061;
+    color: #000;
 }
 
 /* END GAME */

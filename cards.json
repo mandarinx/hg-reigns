@@ -214,8 +214,8 @@
     },
     "influences": {
         "yes": {
-            "money": -40,
-            "happiness": 40,
+            "money": -20,
+            "happiness": 20,
             "fame": 0,
             "dignity": 0
         },
@@ -325,17 +325,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "Keep your petty cash!",
-        "no": "Please madam, we want some more."
+        "no": "Keep your petty cash!",
+        "yes": "Please madam, we want some more."
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": -15,
             "happiness": -10,
             "fame": 0,
             "dignity": 10
         },
-        "no": {
+        "yes": {
             "money": 15,
             "happiness": 15,
             "fame": 0,
@@ -586,8 +586,8 @@
     "chance" : 1,
     "year": 3,
     "options": {
-        "yes": "That's a horrible idea.",
-        "no": "People will love that!"
+        "no": "That's a horrible idea.",
+        "yes": "People will love that!"
     },
     "influences": {
         "yes": {
@@ -934,17 +934,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "Please don't. Our english is too awkward.",
-        "no": "Go ahead!"
+        "no": "Please don't. Our english is too awkward.",
+        "yes": "Go ahead!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": 0,
             "dignity": -5
         },
-        "no": {
+        "yes": {
             "money": 0,
             "happiness": 0,
             "fame": 10,
@@ -963,17 +963,17 @@
     "chance" : 1,
     "year": 4,
     "options": {
-        "yes": "No, it doesn't.",
-        "no": "Thanks!"
+        "no": "No, it doesn't.",
+        "yes": "Thanks!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": 0,
             "dignity": -10
         },
-        "no": {
+        "yes": {
             "money": 0,
             "happiness": 10,
             "fame": 10,
@@ -1025,13 +1025,13 @@
         "no": "Yes! Let's do the anniversary thing next year!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": -5,
             "dignity": -20
         },
-        "no": {
+        "yes": {
             "money": -20,
             "happiness": 0,
             "fame": 0,
@@ -1398,17 +1398,17 @@
     "chance" : 1,
     "year": 3,
     "options": {
-        "yes": "We make our own creative decisions.",
-        "no": "Whatever you say!"
+        "no": "We make our own creative decisions.",
+        "yes": "Whatever you say!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 10,
             "fame": 0,
             "dignity": 10
         },
-        "no": {
+        "yes": {
             "money": 20,
             "happiness": 0,
             "fame": -15,
@@ -1432,7 +1432,7 @@
     },
     "influences": {
         "yes": {
-            "money": 10,
+            "money": -10,
             "happiness": 0,
             "fame": 0,
             "dignity": -5
@@ -1804,17 +1804,17 @@
     "chance" : 1,
     "year": 4,
     "options": {
-        "yes": "LOL! Is that really a job?",
-        "no": "Yes, please!"
+        "no": "LOL! Is that really a job?",
+        "yes": "Yes, please!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": -10,
             "fame": 0,
             "dignity": 0
         },
-        "no": {
+        "yes": {
             "money": -10,
             "happiness": 10,
             "fame": 0,
@@ -1949,17 +1949,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "Roll it back...",
-        "no": "Rock and roll!"
+        "no": "Roll it back...",
+        "yes": "Rock and roll!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": -10,
             "fame": 0,
             "dignity": -20
         },
-        "no": {
+        "yes": {
             "money": -10,
             "happiness": 10,
             "fame": 20,
@@ -1978,17 +1978,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "We're not indie enough for that shit.",
-        "no": "THANK YOOOOOU!"
+        "no": "We're not indie enough for that shit.",
+        "yes": "THANK YOOOOOU!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": -10,
             "fame": 0,
             "dignity": -20
         },
-        "no": {
+        "yes": {
             "money": -10,
             "happiness": 10,
             "fame": 20,
@@ -2007,17 +2007,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "Only for small screens? No thanks.",
-        "no": "AWESOME!"
+        "no": "Only for small screens? No thanks.",
+        "yes": "AWESOME!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": 0,
             "dignity": 5
         },
-        "no": {
+        "yes": {
             "money": 0,
             "happiness": 20,
             "fame": 10,

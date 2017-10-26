@@ -615,17 +615,17 @@
     "chance" : 1,
     "year": 4,
     "options": {
-        "yes": "More like bored game.",
-        "no": "Woohoo! A board game!"
+        "no": "More like bored game.",
+        "yes": "Woohoo! A board game!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": -10,
             "fame": 0,
             "dignity": 0
         },
-        "no": {
+        "yes": {
             "money": -5,
             "happiness": 10,
             "fame": 0,

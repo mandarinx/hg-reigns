@@ -1079,17 +1079,17 @@
     "chance" : 1,
     "year": 4,
     "options": {
-        "yes": "Sorry, no time for that now",
-        "no": "Sounds great!"
+        "no": "Sorry, no time for that now",
+        "yes": "Sounds great!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": 0,
             "dignity": -5
         },
-        "no": {
+        "yes": {
             "money": 20,
             "happiness": 5,
             "fame": 0,

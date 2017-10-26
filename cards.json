@@ -847,17 +847,17 @@
     "chance" : 1,
     "year": 3,
     "options": {
-        "yes": "Are you kidding, this is great!",
-        "no": "Sure, we have time for another pass!"
+        "no": "Are you kidding, this is great!",
+        "yes": "Sure, we have time for another pass!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": -5,
             "fame": 0,
             "dignity": -10
         },
-        "no": {
+        "yes": {
             "money": -10,
             "happiness": 10,
             "fame": 0,

@@ -1025,17 +1025,17 @@
         "yes": "Yes! Let's do the anniversary thing next year!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": -5,
             "dignity": -20
         },
-        "no": {
-            "money": -20,
+        "yes": {
+            "money": 0,
             "happiness": 0,
             "fame": 0,
-            "dignity": 5
+            "dignity": 100
         }
     },
     "cards": {

@@ -731,17 +731,17 @@
     "chance" : 1,
     "year": 5,
     "options": {
-        "yes": "Time what?",
-        "no": "Yes!"
+        "no": "Time what?",
+        "yes": "Yes!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": -10,
             "happiness": 5,
             "fame": 0,
             "dignity": 0
         },
-        "no": {
+        "yes": {
             "money": 10,
             "happiness": -5,
             "fame": 0,

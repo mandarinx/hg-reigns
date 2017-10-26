@@ -1,62 +1,89 @@
 {
-    "card_01": {
-        "title": "Card 01",
-        "description": "This prototype is awesome, maybe we should pitch it to Devolver?",
-        "image": "charAre",
-        "chance": 1,
-        "options": {
-            "yes": "This is good for you",
-            "no": "This is bad for you"
-        },
-        "influences": {
-            "yes": {
-                "money": 1,
-                "fame": -3
-            },
-            "no": {
-                "money": -1,
-                "fame": 3
-            }
-        }
+  "y0_c01" : {
+    "title" : "Pitch it!",
+    "description" : "This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver?",
+    "image" : "charAre",
+    "chance" : 1,
+    "year": 0,
+    "options" : {
+      "yes" : "Definitely!",
+      "no" : "No way, hosé!"
     },
-    "card_02": {
-        "title": "Card 02",
-        "description": "This prototype is awesome, maybe we should pitch it to Devolver?",
-        "image": "charHarald",
-        "chance": 2,
-        "options": {
-            "yes": "This is good for you",
-            "no": "This is bad for you"
-        },
-        "influences": {
-            "yes": {
-                "happiness": 5,
-                "money": -2
-            },
-            "no": {
-                "happiness": -5,
-                "money": 2
-            }
-        }
+    "influences" : {
+      "yes" : {
+        "money" : 3,
+        "fame" : 1,
+        "happiness" : 0,
+        "dignity" : 0
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 4,
+        "dignity" : -2
+      }
     },
-    "card_03": {
-        "title": "Card 03",
-        "description": "This prototype is awesome, maybe we should pitch it to Devolver?",
-        "image": "charKris",
-        "chance": 1,
-        "options": {
-            "yes": "This is good for you",
-            "no": "This is bad for you"
-        },
-        "influences": {
-            "yes": {
-                "dignity": 5,
-                "fame": -3
-            },
-            "no": {
-                "dignity": -5,
-                "fame": 3
-            }
-        }
+    "cards": {
+      "yes" : ["y0_c02"],
+      "no" : []
     }
+  },
+  "y0_c02" : {
+    "title" : "Card 02",
+    "description" : "This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver?",
+    "image" : "charHarald",
+    "chance" : 2,
+    "year": 0,
+    "options" : {
+      "yes" : "This is good for you",
+      "no" : "This is bad for you"
+    },
+    "influences" : {
+      "yes" : {
+        "money" : 3,
+        "fame" : 1,
+        "happiness" : 0,
+        "dignity" : 0
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 4,
+        "dignity" : -2
+      }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : ["y0_c03"]
+    }
+  },
+  "card_03" : {
+    "title" : "Card 03",
+    "description" : "This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver?",
+    "image" : "charKris",
+    "chance" : 1,
+    "year": 0,
+    "options" : {
+      "yes" : "This is good for you",
+      "no" : "This is bad for you"
+    },
+    "influences" : {
+      "yes" : {
+        "money" : 3,
+        "fame" : 1,
+        "happiness" : 0,
+        "dignity" : 0
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 4,
+        "dignity" : -2
+      }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  }
 }

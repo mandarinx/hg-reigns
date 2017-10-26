@@ -55,6 +55,7 @@ a {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    flex-basis: 3em;
     text-align: center;
     background-color: rgba(10, 10, 12, 0.5);
 }
@@ -110,6 +111,13 @@ a {
 .card_about {
     text-align: center;
     flex-grow: 1;
+    flex-basis: 7em;
+    padding: 0 2em;
+    font-size: 1.2em;
+}
+
+.card_about h1 {
+    font-size: 1.3em;
 }
 
 .card_image {
@@ -187,6 +195,7 @@ a {
 
 .g_progress_years {
     flex-grow: 1;
+    flex-basis: 3em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

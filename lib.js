@@ -142,7 +142,8 @@ function SetAxes(axes) {
             var progress = document.createElement('div');
             progress.classList.add('progress');
             var bar = document.createElement('div');
-            bar.setAttribute('style', 'background-color:'+axis.color+';-webkit-transition: width 0.5s; transition: width 0.5s;');
+            bar.setAttribute('style', 'background-color:'+axis.color +
+                ';-webkit-transition: width 0.5s; transition: width 0.5s;');
 
             elms.progressBar = bar;
             progress.appendChild(bar);
@@ -176,10 +177,21 @@ function SetAxisValue(axis, value) {
 
 function SetAxesValue(id, value) {
     state.axisValues[id] += value;
+    var color = '#8DBEB2';
+    
     var valpct = state.axisValues[id] / config.axesMaxValue;
+    if(valpct < 0.15 || valpct > 0.85){
+        color = '#F15F60';
+    } else if(valpct < 0.30 || valpct > 0.70){
+        color = '#F6B567';
+    }
     state
         .axisElms[id]
         .progressBar.style.width = Math.round(valpct * 100) + '%';
+        
+    state
+        .axisElms[id]
+        .progressBar.style.backgroundColor = color;
 }
 
 function GetCurCard() {

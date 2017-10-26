@@ -1,5 +1,6 @@
 var config;
 var cards;
+var cardIndex = [];
 var state = {};
 var transitions = {};
 var btnClickHandlers = {};
@@ -52,10 +53,8 @@ function OnLoad() {
         .then(function (results) {
             state = {
                 curPanel: null,
-                curCard: 0,
+                curCard: null,
                 curYear: 0,
-                // the names of the cards picked out for current play through
-                cards: [],
                 // references to various DOM elements beloning to an axis,
                 // indexed by axis name
                 axisElms: {},
@@ -63,7 +62,9 @@ function OnLoad() {
                 axisValues: {},
                 // the axes that killed you
                 killedbBy: null,
+                cardStacks: [[],[],[],[],[]]
             };
+            CreateCardIndex();
             TransitionTo(config.startPanel);
         });
 }
@@ -77,15 +78,15 @@ function OnTransitionFromIntro() {
 }
 
 function OnTransitionToGame() {
-    state.cards = GetRandomCards(config.numCardsPerYear);
-    state.curCard = 0;
     state.curYear = 0;
+    FillCardStack(state.curYear);
+    state.curCard = GetCard(GetRandomCard(state.curYear));
 
     SetAxes(config.axes);
     SetAxisValue(state.axisElms, config.axesStartValue);
 
     ClearCard();
-    LoadCard(GetCurCard());
+    LoadCard(state.curCard);
     ResetYears();
     HighlightCurYear();
 
@@ -127,17 +128,31 @@ function OnRestartGame() {
 }
 
 function OnClickOptionYes() {
-    var card = GetCurCard();
-    SetAxisValue(card.influences.yes, function(axes) {
-        return card.influences.yes[axes];
+    state.curCard.cards.yes
+        .forEach(function(card) {
+            state.cardStacks[card.year].push(card);
+        });
+
+    state.cardStacks[state.curYear].forEach(function(c, i) {
+        console.log(i+' : '+c.description);
+    });
+
+    SetAxisValue(state.curCard.influences.yes, function(axes) {
+        return state.curCard.influences.yes[axes];
     });
     LoadNextCard();
 }
 
 function OnClickOptionNo() {
-    var card = GetCurCard();
-    SetAxisValue(card.influences.no, function(axes) {
-        return card.influences.no[axes];
+    state.curCard.cards.no
+        .forEach(function(card) {
+            state.cardStacks[card.year].push(card);
+        });
+
+    console.log('stack '+state.curYear+' len: '+state.cardStacks[state.curYear].length);
+
+    SetAxisValue(state.curCard.influences.no, function(axes) {
+        return state.curCard.influences.no[axes];
     });
     LoadNextCard();
 }
@@ -153,39 +168,44 @@ function LoadNextCard() {
         return;
     }
 
-    state.curCard += 1;
+    // if (!HasMoreCards()) {
+    //     state.cards = GetRandomCards(config.numCardsPerYear);
+    //     state.curCard = 0;
+    //     state.curYear += 1;
+    //     HighlightCurYear();
+    // }
 
-    if (!HasMoreCards()) {
-        state.cards = GetRandomCards(config.numCardsPerYear);
-        state.curCard = 0;
-        state.curYear += 1;
-        HighlightCurYear();
+    if (state.cardStacks[state.curYear].length === 0) {
+        console.log('Stack is empty');
+        LoadCard({
+            title: 'Stack empty',
+            description: '',
+            image: 'empty'
+        });
+        return;
     }
 
     HideDots(config.axes);
-    LoadCard(GetCurCard());
+    state.curCard = GetCard(GetRandomCard(state.curYear));
+    LoadCard(state.curCard);
 }
 
 function OnOverOptionYes() {
-    var card = GetCurCard();
-    ShowOption(card.options.yes);
-    ShowDots(card.influences.yes);
+    ShowOption(state.curCard.options.yes);
+    ShowDots(state.curCard.influences.yes);
 }
 
 function OnOverOptionNo() {
-    var card = GetCurCard();
-    ShowOption(card.options.no);
-    ShowDots(card.influences.no);
+    ShowOption(state.curCard.options.no);
+    ShowDots(state.curCard.influences.no);
 }
 
 function OnOutOptionYes() {
-    var card = GetCurCard();
     HideOption();
     HideDots(config.axes);
 }
 
 function OnOutOptionNo() {
-    var card = GetCurCard();
     HideOption();
     HideDots(config.axes);
 }

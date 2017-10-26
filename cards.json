@@ -234,7 +234,7 @@
   "y0_c09" : {
     "title": "Harald",
     "description": "I built a computer last night after work using only rubber bands and paperclips. What if me make a game about stuff like that?",
-    "image": "charMads",
+    "image": "charHarald",
     "chance" : 1,
     "year": 4,
     "options": {
@@ -408,7 +408,7 @@
   "y0_c15" : {
     "title": "Sales person",
     "description": "We have a revolutionary new app market place! Buy it!",
-    "image": "charSalesperson",
+    "image": "charClient",
     "chance" : 1,
     "year": 3,
     "options": {
@@ -427,6 +427,1601 @@
             "happiness": 5,
             "fame": 0,
             "dignity": 5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c16" : {
+    "title": "'Client'",
+    "description": "I have the best idea for a game. Sign this NDA and make it for me! For free!",
+    "image": "charClient",
+    "chance" : 1,
+    "year": 2,
+    "options": {
+        "yes": "Of course!!",
+        "no": "... (don't reply)"
+    },
+    "influences": {
+        "yes": {
+            "money": -30,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c17" : {
+    "title": "'Client'",
+    "description": "Have you guys heard about Farmville? I've got an even better idea. Zooville. It will make gazillions of dollars! It's fully funded.",
+    "image": "charClient",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Wow, good luck with that!",
+        "no": "WE'RE SO IN!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 5,
+            "dignity": 20
+        },
+        "no": {
+            "money": 40,
+            "happiness": -20,
+            "fame": -20,
+            "dignity": -20
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c18" : {
+    "title": "'Client'",
+    "description": "Can you make a prototype for my game, and I'll pay you once it's funded!",
+    "image": "charClient",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Sounds reasonable.",
+        "no": "No way!"
+    },
+    "influences": {
+        "yes": {
+            "money": -30,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c19" : {
+    "title": "Publisher",
+    "description": "We really love your game and want to publish it. Just pay us a monthly retainer, and we'll promo the shit out of you!! WE HAVE A YOUTUBE CHANNEL!",
+    "image": "charPublisher",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "Wow, I wish we had a youtube channel.",
+        "no": "We'll think about it."
+    },
+    "influences": {
+        "yes": {
+            "money": -20,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c20" : {
+    "title": "Bendik",
+    "description": "I want to make all the sound effects for your game just using sounds from my own mouth.",
+    "image": "charBendik",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "I'm not sure that's a great idea..",
+        "no": "Hell yeah!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 5,
+            "fame": 10,
+            "dignity": 5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c21" : {
+    "title": "Are",
+    "description": "Let's make a game about vomit!",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "That's a horrible idea.",
+        "no": "People will love that!"
+    },
+    "influences": {
+        "yes": {
+            "money": 5,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": -5,
+            "happiness": 20,
+            "fame": 20,
+            "dignity": 20
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c22" : {
+    "title": "Kristoffer",
+    "description": "Let's make this failed project a board game instead!",
+    "image": "charKris",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "More like bored game.",
+        "no": "Woohoo! A board game!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": -5,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c23" : {
+    "title": "Kristoffer",
+    "description": "What genre is Star Wars?",
+    "image": "charKris",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Sci-fi",
+        "no": "Fantasy"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c24" : {
+    "title": "Kristoffer",
+    "description": "I want to make a prototype of this idea before we get too far in development.",
+    "image": "charKris",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Do it!",
+        "no": "We have no time for that."
+    },
+    "influences": {
+        "yes": {
+            "money": 10,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": -10,
+            "happiness": 0,
+            "fame": -5,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c25" : {
+    "title": "Are",
+    "description": "Does anyone have time to put in some extra hours this week?",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "Of course!",
+        "no": "Nope."
+    },
+    "influences": {
+        "yes": {
+            "money": 10,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c26" : {
+    "title": "Are",
+    "description": "Did you remember to fill your time sheets this week?",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Time what?",
+        "no": "Yes!"
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 10,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c27" : {
+    "title": "Inna",
+    "description": "I want to add a dragon creature.",
+    "image": "charInna",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "NO DRAGONS!!",
+        "no": "Sounds cool."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 5
+        },
+        "no": {
+            "money": 0,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": -5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c28" : {
+    "title": "Terje",
+    "description": "Is it okay that I work remotely from Australia for a few months?",
+    "image": "charTerje",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Sure, that's fine.",
+        "no": "Sorry, you're needed at the office."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 15,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -25,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c29" : {
+    "title": "Mads",
+    "description": "Man, I overslept. Sorry guys!",
+    "image": "charMads",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "It's 2 PM! If this happens again you're fired!",
+        "no": "Oversleeping until 2PM could happen to anyone."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -30,
+            "fame": 0,
+            "dignity": 10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": -5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c30" : {
+    "title": "Rolf",
+    "description": "I finished this animation, but I think it's shit. Can I polish it more?",
+    "image": "charRolf",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "Are you kidding, this is great!",
+        "no": "Sure, we have time for another pass!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c31" : {
+    "title": "Kristoffer",
+    "description": "I think it's starting to come together, but maybe we should do some user testing?",
+    "image": "charKris",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Yeah, let's do it!",
+        "no": "Why? We are users. We'll test it."
+    },
+    "influences": {
+        "yes": {
+            "money": -5,
+            "happiness": 0,
+            "fame": 10,
+            "dignity": 5
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": -15,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c32" : {
+    "title": "Lawyer",
+    "description": "You are sued for stealing the game concept Reigns by Nerial Games.",
+    "image": "charLawyer",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "See you in court!",
+        "no": "Settle it out of court"
+    },
+    "influences": {
+        "yes": {
+            "money": -50,
+            "happiness": 0,
+            "fame": -30,
+            "dignity": -30
+        },
+        "no": {
+            "money": -25,
+            "happiness": 0,
+            "fame": -10,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c33" : {
+    "title": "Thea",
+    "description": "I want to make a series of interviews with everyone in Hyper Games!",
+    "image": "charThea",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Please don't. Our english is too awkward.",
+        "no": "Go ahead!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -5
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 10,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c34" : {
+    "title": "Jim Sterling",
+    "description": "This looks like an actual fucking video game!",
+    "image": "charSterling",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "No, it doesn't.",
+        "no": "Thanks!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 10,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c35" : {
+    "title": "Terje",
+    "description": "TERJE!!!!!!!!",
+    "image": "charTerje",
+    "chance" : 1,
+    "year": 2,
+    "options": {
+        "yes": "...!",
+        "no": "...?"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c36" : {
+    "title": "Rolf",
+    "description": "Maybe in stead of just cloning Reigns we should come up with something more unique?",
+    "image": "charRolf",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "But we only have 2 days to make it...",
+        "no": "Yes! Let's do the anniversary thing next year!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": -5,
+            "dignity": -20
+        },
+        "no": {
+            "money": -20,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c37" : {
+    "title": "Mads",
+    "description": "Stop adding characters to this game. I can´t draw all of them in time!",
+    "image": "charMads",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "More is more!",
+        "no": "Sure! Take the day off!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c38" : {
+    "title": "Harald",
+    "description": "I want to make this great tool that will save us a lot of time in the long run!",
+    "image": "charHarald",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Sorry, no time for that now",
+        "no": "Sounds great!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -5
+        },
+        "no": {
+            "money": 20,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": 5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c39" : {
+    "title": "Are",
+    "description": "So.. I just booked a booth at GDC in three months. Let's make a game to show there!",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "Oh no, not again!",
+        "no": "Let's do this!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        },
+        "no": {
+            "money": -20,
+            "happiness": 10,
+            "fame": 20,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c40" : {
+    "title": "Badly drawn character",
+    "description": "I don´t appreciate the way I am portrayed in this game",
+    "image": "charBadlyDrawn",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "Deal with it.",
+        "no": "Redraw the character."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": -5,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c41" : {
+    "title": "Client",
+    "description": "I would like to use one of your employees as a clown for my childs birthday party.",
+    "image": "charClient",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Take Mads.",
+        "no": "Never! We have our dignity!"
+    },
+    "influences": {
+        "yes": {
+            "money": 15,
+            "happiness": -30,
+            "fame": 0,
+            "dignity": -15
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c42" : {
+    "title": "Client",
+    "description": "We want a game to teach our employees stuff!",
+    "image": "charClient",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "We can make that!",
+        "no": "No, we're too indie."
+    },
+    "influences": {
+        "yes": {
+            "money": 30,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c43" : {
+    "title": "Client",
+    "description": "Can you make game for us to sell this product?",
+    "image": "charClient",
+    "chance" : 1,
+    "year": 2,
+    "options": {
+        "yes": "Of course, that's our thang!",
+        "no": "No, we just want to make indie games."
+    },
+    "influences": {
+        "yes": {
+            "money": 30,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c44" : {
+    "title": "Kaja",
+    "description": "Congrats! You were just granted $100.000 for your game.",
+    "image": "charKaja",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Nah - we're good.",
+        "no": "Monies!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 10,
+            "dignity": 20
+        },
+        "no": {
+            "money": 30,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c45" : {
+    "title": "Media bureaucrat",
+    "description": "The commision would like you to fill out these 281 forms and sign them 10 times. We'll give you some money. Maybe.",
+    "image": "charLawyer",
+    "chance" : 1,
+    "year": 2,
+    "options": {
+        "yes": "Of course!",
+        "no": "Not worth it."
+    },
+    "influences": {
+        "yes": {
+            "money": 30,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c46" : {
+    "title": "Media bureaucrat",
+    "description": "You have signed these documents using the wrong color pen. Could you please sign again on both sides, using all RGB colors?",
+    "image": "charLawyer",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "No problem!",
+        "no": "We only have CMYK pens."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c47" : {
+    "title": "Gamer",
+    "description": "I love your games! Could I have an Eggggg poster signed by the development team?",
+    "image": "charGamer",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Of course!",
+        "no": "No, but you can buy one!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 10,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": -20,
+            "dignity": -20
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c48" : {
+    "title": "Gamer",
+    "description": "Your games are full of bugs. Can I have a refund?",
+    "image": "charGamer",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "The customer is always right.",
+        "no": "Talk to Apple about refunds."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 10,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": -20,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c49" : {
+    "title": "Publisher",
+    "description": "Multiplayer survival games are really hot right now. You should tweak your current project in that direction.",
+    "image": "charPublisher",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "We make our own creative decisions.",
+        "no": "Whatever you say!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 10
+        },
+        "no": {
+            "money": 20,
+            "happiness": 0,
+            "fame": -15,
+            "dignity": -15
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c50" : {
+    "title": "Sound guy",
+    "description": "Hi, I'm a dubstep producer. Do you need some music for your game?",
+    "image": "charGamer",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "YASSS!!",
+        "no": "FFFFFFFUUUUUU!!!"
+    },
+    "influences": {
+        "yes": {
+            "money": 10,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -5
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c51" : {
+    "title": "Kaja",
+    "description": "Here, have some money!",
+    "image": "charKaja",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "No thanks",
+        "no": "Is this real life?"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 20
+        },
+        "no": {
+            "money": 20,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c52" : {
+    "title": "Rolf",
+    "description": "I love butter! Let's make a fort out of butter and live in it!",
+    "image": "charRolf",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "You do that, pal!",
+        "no": "You´re our special little guy!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 20,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c53" : {
+    "title": "Mads",
+    "description": "I messed up the GIT repo again :(",
+    "image": "charMads",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Thats ok. Harald will fix it.",
+        "no": "GIT out of here!"
+    },
+    "influences": {
+        "yes": {
+            "money": -5,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -20
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c54" : {
+    "title": "Unity rep",
+    "description": "Time to pay up for those licenses!",
+    "image": "charUnity",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Yes, sir!",
+        "no": "Not until we get nested prefabs."
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 10,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c55" : {
+    "title": "Are",
+    "description": "Let´s buy some beers and play Secret Hitler!",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Ja!",
+        "no": "Nein!"
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 10,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c56" : {
+    "title": "Terje",
+    "description": "Can we make a game about soccer now?",
+    "image": "charTerje",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Do we look like we like Soccer?",
+        "no": "Hell yeah!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 20,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c57" : {
+    "title": "Client",
+    "description": "We want you to make the next big gambling game. For kids.",
+    "image": "charClient",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "I smell money!",
+        "no": "I like my soul!"
+    },
+    "influences": {
+        "yes": {
+            "money": 60,
+            "happiness": -20,
+            "fame": -20,
+            "dignity": -20
+        },
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 20
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c58" : {
+    "title": "Are",
+    "description": "Maybe we should branch out from the agency Hyper and start a separate game studio? ",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Let's call it Hyper Games!",
+        "no": "Terrible idea."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -100,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : ["y0_c59"],
+      "no" : []
+    }
+  },
+  "y0_c59" : {
+    "title": "Terje",
+    "description": "Can I join the studio too?",
+    "image": "charTerje",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "No, you're too tall.",
+        "no": "Yes, of course!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": -10,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : ["y0_c60", "y0_c28", "y0_c35", "y0_c56"],
+      "no" : ["y0_c60"]
+    }
+  },
+  "y0_c60" : {
+    "title": "Thomas",
+    "description": "Maybe you need a developer who's actually used Unity before?",
+    "image": "charThomas",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Makes sense...",
+        "no": "Nope! We'll keep on using Flash <3"
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": -10,
+            "dignity": -20
+        }
+    },
+    "cards": {
+      "yes" : ["y0_c11","y0_c61"],
+      "no" : ["y0_c61"]
+    }
+  },
+  "y0_c61" : {
+    "title": "Rolf",
+    "description": "I can do all the things nobody else knows how to!",
+    "image": "charRolf",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "OMG! That's just what we need!",
+        "no": "Nah... sounds useless."
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : ["y0_c62"],
+      "no" : []
+    }
+  },
+  "y0_c62" : {
+    "title": "Alexander Fornæss",
+    "description": "Hey, you're stealing Rolf from Biometric Games!!",
+    "image": "charAlex",
+    "chance" : 1,
+    "year": 2,
+    "options": {
+        "yes": "Sorry, dude! Hug?",
+        "no": "We can't do that..."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": -5,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [ "y0_c01", "y0_c30", "y0_c36", "y0_c52", "y0_c06", "y0_c07", "y0_c17", "y0_c18", "y0_c28", "y0_c44" ],
+      "no" : [ "y0_c01", "y0_c30", "y0_c36", "y0_c52", "y0_c06", "y0_c07", "y0_c17", "y0_c18", "y0_c28", "y0_c44" ]
+    }
+  },
+  "y0_c63" : {
+    "title": "Kristoffer",
+    "description": "I'm a game designer! Need help?",
+    "image": "charKris",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "LOL! Is that really a job?",
+        "no": "Yes, please!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c64" : {
+    "title": "Harald",
+    "description": "I just finished school. Will you hire me if I program a game for you in one day?",
+    "image": "charHarald",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Yes",
+        "no": "Impossible!"
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c65" : {
+    "title": "Mads",
+    "description": "I've been making stuff for you for 4 years now. Maybe it's time to hire me?",
+    "image": "charMads",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Long overdue!",
+        "no": "Maybe not."
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c66" : {
+    "title": "Thea",
+    "description": "I can has internship?",
+    "image": "charThea",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Yes!",
+        "no": "Nope."
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c67" : {
+    "title": "Kristoffer",
+    "description": "Maybe we should attend a game jam?",
+    "image": "charKris",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Let's do it!",
+        "no": "Maybe we should throw cash out the window."
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 20,
+            "dignity": 10
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": -10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c68" : {
+    "title": "Kristoffer",
+    "description": "I have this idea about a rolling ball of light.",
+    "image": "charKris",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Roll it back...",
+        "no": "Rock and roll!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": -20
+        },
+        "no": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 20,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c69" : {
+    "title": "Nordic Game Conference",
+    "description": "Morkredd just won the Indie Sensation Award!",
+    "image": "charNGC",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "We're not indie enough for that shit.",
+        "no": "THANK YOOOOOU!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": -20
+        },
+        "no": {
+            "money": -10,
+            "happiness": 10,
+            "fame": 20,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c70" : {
+    "title": "Spillprisen",
+    "description": "Norwegian game of the year for small screens goes to Eggggg!",
+    "image": "charSpillprisen",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Only for small screens? No thanks.",
+        "no": "AWESOME!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 5
+        },
+        "no": {
+            "money": 0,
+            "happiness": 20,
+            "fame": 10,
+            "dignity": 10
         }
     },
     "cards": {

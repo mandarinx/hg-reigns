@@ -31,13 +31,13 @@ a {
 
 .button {
   display: block;
-  width: 45%;
+  width: 8em;
   margin: 1em auto;
   padding: 0.5em;
   border-radius: 1em;
   background: #fff;
   color: #362F2D;
-  font-size: 2em;
+  font-size: 1.25em;
   font-weight: bold;
 
 }
@@ -52,21 +52,16 @@ a {
 }
 
 .panel_intro #logo {
-  width: 60%;
-  margin: 4em auto 3em auto;
-
-}
-
-.menu {
+  width: 75%;
+  margin: 1em auto 0 auto;
 
 }
 
 .panel_intro .footer {
   position: absolute;
-  font-size: 1.5em;
-  align-self: flex-end;
-  width: 100%;
   bottom: 0;
+  font-size: 1em;
+  width: 100%;
   background: rgba(0,0,0,0.25);
   padding: 1em 0 2em 0;
 }
@@ -75,6 +70,21 @@ a {
   font-size: 1.5em;
   font-weight: bold;
   color: #E8D061;
+}
+
+.seperator {
+    margin: 1em auto 1em auto;
+    width: 30%;
+    height: 0.5em;
+    background: rgba(0,0,0,0.25);
+}
+
+.shareIcon {
+  margin: 0 0.5em 0.5em;
+}
+
+.shareIcon img {
+    width: 2em;
 }
 
 .panel_intro.show {

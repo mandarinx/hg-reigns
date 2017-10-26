@@ -1253,17 +1253,17 @@
     "chance" : 1,
     "year": 1,
     "options": {
-        "yes": "Nah - we're good.",
-        "no": "Monies!"
+        "no": "Nah - we're good.",
+        "yes": "Monies!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 0,
             "fame": 10,
             "dignity": 20
         },
-        "no": {
+        "yes": {
             "money": 30,
             "happiness": 10,
             "fame": 0,

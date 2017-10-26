@@ -1,85 +1,433 @@
 {
   "y0_c01" : {
-    "title" : "Pitch it!",
-    "description" : "This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver?",
-    "image" : "charAre",
+    "title": "Rolf",
+    "description": "Can I have tomorrow off? I'm going to China!",
+    "image": "charRolf",
     "chance" : 1,
-    "year": 0,
+    "year": 5,
     "options" : {
-      "yes" : "Definitely!",
-      "no" : "No way, hosé!"
+        "yes": "Hmm... Okay.",
+        "no": "No!"
     },
     "influences" : {
       "yes" : {
-        "money" : 3,
-        "fame" : 1,
-        "happiness" : 0,
+        "money" : -5,
+        "fame" : 0,
+        "happiness" : 10,
         "dignity" : 0
       },
       "no" : {
         "money" : 0,
         "fame" : 0,
-        "happiness" : 4,
-        "dignity" : -2
+        "happiness" : -20,
+        "dignity" : 0
       }
     },
     "cards": {
-      "yes" : ["y0_c02"],
-      "no" : []
+        "yes" : [],
+        "no" : []
     }
   },
   "y0_c02" : {
-    "title" : "Card 02",
-    "description" : "This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver?",
-    "image" : "charHarald",
-    "chance" : 2,
-    "year": 0,
-    "options" : {
-      "yes" : "This is good for you",
-      "no" : "This is bad for you"
+    "title" : "Mads",
+    "description": "What if we make a web-game based on Reigns for our 5 year anniversary?",
+    "image": "charMads",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Brilliant!",
+        "no": "Just make a nice drawing."
     },
     "influences" : {
       "yes" : {
-        "money" : 3,
-        "fame" : 1,
-        "happiness" : 0,
+        "money" : -15,
+        "fame" : 10,
+        "happiness" : 20,
         "dignity" : 0
       },
       "no" : {
-        "money" : 0,
+        "money" : -5,
         "fame" : 0,
-        "happiness" : 4,
-        "dignity" : -2
-      }
+        "happiness" : -10,
+        "dignity" : 5
+
+    },
+    "cards": {
+        "yes" : [],
+        "no" : []
+    }
+  },
+  "y0_c03" : {
+    "title" : "Client",
+    "description": "These elements of the game are completely absurd! Make them more realistic and boring please!",
+    "image": "charClient",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "The customer is always right.",
+        "no": "Over my dead body!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 10,
+            "dignity": -15
+        },
+        "no": {
+            "money": -10,
+            "happiness": 0,
+            "fame": -10,
+            "dignity": 20
+        }
     },
     "cards": {
       "yes" : [],
-      "no" : ["y0_c03"]
+      "no" : []
     }
   },
-  "card_03" : {
-    "title" : "Card 03",
-    "description" : "This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver? This prototype is awesome, maybe we should pitch it to Devolver?",
-    "image" : "charKris",
+  "y0_c04" : {
+    "title": "Gamer",
+    "description": "Fuck you, this game isn't free!! Please give me a free code.",
+    "image": "charGamer",
     "chance" : 1,
-    "year": 0,
-    "options" : {
-      "yes" : "This is good for you",
-      "no" : "This is bad for you"
+    "year": 4,
+    "options": {
+        "yes": "Here you go!",
+        "no": "Never!!"
     },
-    "influences" : {
-      "yes" : {
-        "money" : 3,
-        "fame" : 1,
-        "happiness" : 0,
-        "dignity" : 0
-      },
-      "no" : {
-        "money" : 0,
-        "fame" : 0,
-        "happiness" : 4,
-        "dignity" : -2
-      }
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 10,
+            "dignity": -5
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": -5,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c05" : {
+    "title": "Are",
+    "description": "This prototype is awesome, maybe we should pitch it to Devolver?",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Yeah, our kids need to eat.",
+        "no": "No, let's self-publish this baby."
+    },
+    "influences": {
+        "yes": {
+            "money": 20,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": -20,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 20
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c06" : {
+    "title": "Are",
+    "description": "Let's make a game about Alfie Atkins!",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Yeah, that sounds awesome!",
+        "no": "No, I would never play that."
+    },
+    "influences": {
+        "yes": {
+            "money": 30,
+            "happiness": 0,
+            "fame": 20,
+            "dignity": 0
+        },
+        "no": {
+            "money": -20,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 15
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c07" : {
+    "title": "Are",
+    "description": "What if we made a game about the stock market where you could compete against your friends over who is the better capitalist?",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Capital idea!",
+        "no": "I don't take much stock in that concept..."
+    },
+    "influences": {
+        "yes": {
+            "money": -20,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c08" : {
+    "title": "Mads",
+    "description": "Out in the boonies where I come from we play this game called Basse. Wanna try it?",
+    "image": "charMads",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "That sounds like fun!",
+        "no": "Work is about being miserable and making money!"
+    },
+    "influences": {
+        "yes": {
+            "money": -40,
+            "happiness": 40,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c09" : {
+    "title": "Harald",
+    "description": "I built a computer last night after work using only rubber bands and paperclips. What if me make a game about stuff like that?",
+    "image": "charMads",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "Great idea! I've always wanted to be MacGuyver.",
+        "no": "Is there really a market for games like that?"
+    },
+    "influences": {
+        "yes": {
+            "money": 20,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -20,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c10" : {
+    "title": "Brosmind",
+    "description": "Here are the initial graphics for your Eggggg game. What do you think, do we want it to be more wacky or less wacky?",
+    "image": "charBrosmind",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "More! We went with Brosmind for a reason.",
+        "no": "Yowsa, can you make it more like Alfie Atkins please?"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 20,
+            "dignity": 10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": -20,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c11" : {
+    "title": "Thomas",
+    "description": "This code is like soggy pasta, mind if I rewrite it from 2000 lines down to 45?",
+    "image": "charThomas",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Our deadline won't allow it unfortunately.",
+        "no": "That sounds great!"
+    },
+    "influences": {
+        "yes": {
+            "money": 0,
+            "happiness": -15,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": -10,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c12" : {
+    "title": "Kaja",
+    "description": "We can't fund the whole project, but we'll give you half of what you asked and you can apply again next year.",
+    "image": "charKaja",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "yes": "Keep your petty cash!",
+        "no": "Please madam, we want some more."
+    },
+    "influences": {
+        "yes": {
+            "money": -15,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 10
+        },
+        "no": {
+            "money": 15,
+            "happiness": 15,
+            "fame": 0,
+            "dignity": -10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c13" : {
+    "title": "Publisher",
+    "description": "Wow, that's quite a development budget you've got there. Do you eat gold plated food in Norway?",
+    "image": "charPublisher",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "yes": "We'll do it for half the cost in half the time.",
+        "no": "Our budget is our budget, take it or leave it."
+    },
+    "influences": {
+        "yes": {
+            "money": 10,
+            "happiness": -35,
+            "fame": 0,
+            "dignity": -15
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 15
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c14" : {
+    "title": "Gamer",
+    "description": "There's no audio in this app!! I want my money back.",
+    "image": "charGamer",
+    "chance" : 1,
+    "year": 2,
+    "options": {
+        "yes": "Sure, just ask Apple for a refund.",
+        "no": "Did you check the mute switch?"
+    },
+    "influences": {
+        "yes": {
+            "money": -5,
+            "happiness": 0,
+            "fame": 5,
+            "dignity": -10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y0_c15" : {
+    "title": "Sales person",
+    "description": "We have a revolutionary new app market place! Buy it!",
+    "image": "charSalesperson",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "yes": "Wow, that sounds brilliant!",
+        "no": "We'll get back to you."
+    },
+    "influences": {
+        "yes": {
+            "money": -10,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": -10
+        },
+        "no": {
+            "money": 0,
+            "happiness": 5,
+            "fame": 0,
+            "dignity": 5
+        }
     },
     "cards": {
       "yes" : [],

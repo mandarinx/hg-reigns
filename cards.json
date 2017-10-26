@@ -1539,7 +1539,7 @@
   "y0_c54" : {
     "title": "Unity rep",
     "description": "Time to pay up for those licenses!",
-    "image": "charUnity",
+    "image": "charUnityGuy",
     "chance" : 1,
     "year": 4,
     "options": {
@@ -1771,7 +1771,7 @@
   "y0_c62" : {
     "title": "Alexander Fornæss",
     "description": "Hey, you're stealing Rolf from Biometric Games!!",
-    "image": "charAlex",
+    "image": "charAlexander",
     "chance" : 1,
     "year": 2,
     "options": {
@@ -1974,7 +1974,7 @@
   "y0_c69" : {
     "title": "Nordic Game Conference",
     "description": "Morkredd just won the Indie Sensation Award!",
-    "image": "charNGC",
+    "image": "charNordicGame",
     "chance" : 1,
     "year": 5,
     "options": {

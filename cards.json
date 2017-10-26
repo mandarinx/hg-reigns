@@ -1989,7 +1989,7 @@
             "dignity": -20
         },
         "yes": {
-            "money": -10,
+            "money": 0,
             "happiness": 10,
             "fame": 20,
             "dignity": 10

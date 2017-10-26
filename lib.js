@@ -142,7 +142,7 @@ function SetAxes(axes) {
             var progress = document.createElement('div');
             progress.classList.add('progress');
             var bar = document.createElement('div');
-            bar.setAttribute('style', 'background-color:'+axis.color+';');
+            bar.setAttribute('style', 'background-color:'+axis.color+';-webkit-transition: width 0.5s; transition: width 0.5s;');
 
             elms.progressBar = bar;
             progress.appendChild(bar);

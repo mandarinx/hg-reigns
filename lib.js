@@ -241,6 +241,7 @@ function ShowDots(axis) {
         .keys(axis)
         .forEach(function(id) {
             var value = axis[id];
+            if(value == 0) return;
             var dot = state.axisElms[id].dot;
             dot.classList.add(GetDotSize(value));
         });

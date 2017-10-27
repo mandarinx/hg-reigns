@@ -277,11 +277,11 @@ a {
 .g_year {
     background-color: black;
     color: white;
-    width: 2em;
-    height: 2em;
+    width: 3em;
+    height: 3em;
     font-size: 1.25em;
     font-weight: bold;
-    line-height: 2em;
+    line-height: 3em;
     border-radius: 100%;
     box-sizing: border-box;
     text-align: center;

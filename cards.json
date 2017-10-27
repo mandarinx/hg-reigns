@@ -239,13 +239,13 @@
         "yes": {
             "money": 0,
             "happiness": -5,
-            "fame": 10,
+            "fame": -10,
             "dignity": -15
         },
         "no": {
             "money": -10,
             "happiness": 0,
-            "fame": -10,
+            "fame": 10,
             "dignity": 20
         }
     },
@@ -333,7 +333,7 @@
             "money": -20,
             "happiness": 0,
             "fame": 0,
-            "dignity": 15
+            "dignity": 5
         }
     },
     "cards": {
@@ -1197,7 +1197,7 @@
             "money": 0,
             "happiness": 0,
             "fame": -5,
-            "dignity": -20
+            "dignity": -10
         },
         "yes": {
             "money": 0,
@@ -1823,7 +1823,7 @@
   "y0_c58" : {
     "title": "Are",
     "description": "Maybe we should branch out from the agency Hyper and start a separate game studio? ",
-    "image": "charAre",
+    "image": "charAreTerje",
     "chance" : 1,
     "year": 1,
     "options": {

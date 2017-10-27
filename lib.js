@@ -45,55 +45,106 @@ function DisableButton(id) {
     }
 }
 
-function GetRandomCards(num) {
-    var chanceMap = [];
-    var randomCards = [];
-    var cardNames = Object.keys(cards);
-
-    var maxChance = cardNames
-        .reduce(function(sum, name) {
-            return sum + cards[name].chance;
-        }, 0);
-
-    cardNames.forEach(function(name, i) {
-        var threshold = cards[name].chance;
-        if (i > 0) {
-            threshold += chanceMap[i - 1].threshold;
-        }
-        chanceMap.push({
-            cardName: name,
-            threshold: threshold
+function CreateCardIndex() {
+    // Prepare data
+    Object
+        .keys(cards)
+        .forEach(function(id) {
+            cards[id].id = id;
+            cards[id].year -= 1;
         });
-    });
 
-    for (var i=0; i<num; ++i) {
-        var threshold = Math.random() * maxChance;
-        var cardName = GetCard(chanceMap, threshold);
-        if (cardName === null) {
-            console.error('Could not get card for threshold', threshold);
-        }
-        randomCards.push(cardName);
-    }
-
-    return randomCards;
+    CrawlIndex(Object.keys(cards));
+    console.dir(cardIndex);
 }
 
-function GetCard(list, threshold) {
-    for (var i=0; i<list.length; ++i) {
-        var elm = list[i];
-        if (threshold < elm.threshold) {
-            return elm.cardName;
+function CrawlIndex(cardIDs) {
+    var totalDone = 0;
+
+    for (var i = cardIDs.length - 1; i >= 0; --i) {
+        var id = cardIDs[i];
+        var card = cards[id];
+
+        var totalOptions = 0;
+        var totalObjects = 0;
+        Object
+            .keys(card.cards)
+            .forEach(function(option) {
+                totalOptions += card.cards[option].length;
+                card.cards[option].forEach(function(childID) {
+                    totalObjects += typeof childID === 'object' ? 1 : 0;
+                });
+            });
+
+        if (totalObjects !== totalOptions) {
+            continue;
+        }
+
+        // id is a card that should either be a child or root node
+        var isChild = false;
+
+        for (var j = 0; j < cardIDs.length; ++j) {
+            var jid = cardIDs[j];
+            if (jid === id) {
+                continue;
+            }
+
+            var jcard = cards[jid];
+            Object
+                .keys(jcard.cards)
+                .forEach(function(option) {
+                    jcard.cards[option].forEach(function(childID, n) {
+                        if (childID === id) {
+                            jcard.cards[option][n] = Object.assign({}, card);
+                            isChild = true;
+                        }
+                    });
+                });
+        }
+
+        if (isChild) {
+            cardIDs.splice(i, 1);
+        } else {
+            ++totalDone;
+
+            var found = cardIndex.find(function(card) {
+                return card.id === id;
+            });
+
+            if (typeof found === 'undefined') {
+                cardIndex.push(Object.assign({}, card));
+            }
         }
     }
-    return null;
+
+    if (totalDone < cardIDs.length) {
+        CrawlIndex(cardIDs);
+    }
 }
 
-function FetchJSON(file, callback) {
-    return fetch(file)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(callback);
+function FillCardStack(year) {
+    for (var i=0; i<cardIndex.length; ++i) {
+        var card = cardIndex[i];
+        if (card.year != year) {
+            continue;
+        }
+
+        state.cardStacks[year].push(card);
+    }
+}
+
+function GetCard(i) {
+    var curStack = state.cardStacks[state.curYear];
+    return curStack.splice(i, 1)[0];
+}
+
+function GetRandomCard(year) {
+    var curStack = state.cardStacks[year];
+    return Math.floor(Math.random() * curStack.length);
+}
+
+function HasMoreCards() {
+    return state.curCard < state.cards.length;
 }
 
 function ClearCard() {
@@ -111,6 +162,14 @@ function LoadCard(card) {
     document
         .getElementById('card_image')
         .setAttribute('src', 'cards/' + card.image + '.png');
+}
+
+function FetchJSON(file, callback) {
+    return fetch(file)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(callback);
 }
 
 function SetAxes(axes) {
@@ -194,15 +253,6 @@ function SetAxesValue(id, value) {
         .progressBar.style.backgroundColor = color;
 }
 
-function GetCurCard() {
-    var curCardName = state.cards[state.curCard];
-    return cards[curCardName];
-}
-
-function HasMoreCards() {
-    return state.curCard < state.cards.length;
-}
-
 function HighlightCurYear() {
     var year = 'year_' + state.curYear;
     document.getElementById(year).classList.add('selected');
@@ -253,7 +303,9 @@ function ShowDots(axis) {
         .keys(axis)
         .forEach(function(id) {
             var value = axis[id];
-            if(value == 0) return;
+            if (value === 0) {
+                return;
+            }
             var dot = state.axisElms[id].dot;
             dot.classList.add(GetDotSize(value));
         });

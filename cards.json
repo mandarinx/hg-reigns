@@ -610,17 +610,17 @@
     "chance" : 1,
     "year": 1,
     "options": {
-        "yes": "Wow, good luck with that!",
-        "no": "WE'RE SO IN!"
+        "no": "Wow, good luck with that!",
+        "yes": "WE'RE SO IN!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 10,
             "fame": 5,
             "dignity": 20
         },
-        "no": {
+        "yes": {
             "money": 40,
             "happiness": -20,
             "fame": -20,

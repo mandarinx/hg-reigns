@@ -199,6 +199,7 @@ a {
 }
 
 .card_about, .card_endtext {
+
     text-align: center;
     flex-grow: 1;
     flex-basis: 7em;
@@ -207,10 +208,17 @@ a {
 }
 
 .card_about h1, .card_endtext h1 {
-  color: #E8D061;
+    color: #E8D061;
     font-size: bold;
-    font-size: 1.25em;
-    margin: 1em 0 0 0;
+    font-size: 1em;
+    margin: 0em 0 0.2em 0;
+}
+
+.card_about p {
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0 auto;
+
 }
 
 .card_image {
@@ -308,7 +316,7 @@ a {
 		position: fixed;
 		bottom: 0;
 		width: 100%;
-		padding: 0.2em 0 0.2em 0;
+		padding: 0.5em 0 0.5em 0;
 	}
 
   .panel_intro {
@@ -351,7 +359,7 @@ a {
     color: rgba(255,255,255,0.2);
     width: 3em;
     height: 3em;
-    font-size: 1.25em;
+    font-size: 0.8em;
     font-weight: bold;
     line-height: 3em;
     border-radius: 100%;

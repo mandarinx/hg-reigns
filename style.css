@@ -99,7 +99,7 @@ a {
 }
 
 /* GAME */
-.panel_game {
+.panel_game, .panel_endgame {
     display: none;
     flex-direction: column;
     justify-content: space-around;
@@ -170,7 +170,7 @@ a {
     display: block;
 }
 
-.card_about {
+.card_about, .card_endtext {
     text-align: center;
     flex-grow: 1;
     flex-basis: 7em;
@@ -178,7 +178,7 @@ a {
     font-size: 1.2em;
 }
 
-.card_about h1 {
+.card_about h1, .card_endtext h1 {
   color: #E8D061;
     font-size: bold;
     font-size: 1.25em;

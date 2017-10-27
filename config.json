@@ -10,36 +10,64 @@
             "label": "Money",
             "color": "#8DBEB2",
             "endgame": {
-                "title": "Death by money",
-                "high": "You earned a lot of money! Activision bought your company, and now you own even more money. You died of lonelyness in your billion dollar castle.",
-                "low": "You poor bastard."
+	            "high": {
+		         "image": "endMaxMoney",
+               	 "title": "Too much of a good thing",
+			   	 "text": "We´re rich! Rich beyond your wildest dreams! The employees has retreated to their private Los Angeles mansions to create weird art games. Game over."		            
+	            },
+	            "low": {
+		         "image": "endMinMoney",
+               	 "title": "You´re broke",
+			   	 "text": "Bust. Bankrupt. Harald has died of dysentry. Game over."	            
+	            }
             }
         },
         "fame": {
             "label": "Fame",
             "color": "#E8D061",
             "endgame": {
-                "title": "Death by fame",
-                "high": "You got really famous and got trampled to death by your fans at the latest Hyper Games Convention.",
-                "low": "You've exhausted everyone you know with your never ending ramblings of game development. No one loves you anymore."
+	            "high": {
+		         "image": "endMaxFame",
+               	 "title": "Out in a blaze of glory",
+			   	 "text": "All the fame and glory has gone to everybodys heads. Kris has started his own game studio and is going to make you his bitch. Game over."		            
+	            },
+	            "low": {		            
+		         "image": "endMinFame",
+               	 "title": "Gone and forgotten",
+			   	 "text": " Everyone has forgotten that you exist. Game over."	            
+	            }
             }
         },
         "happiness": {
             "label": "Happiness",
             "color": "#F6B567",
             "endgame": {
-                "title": "Death by happiness",
-                "high": "Who would've though happiness could be lethal? Most certainly not you. Yet, you died of happiness.",
-                "low": "Community management takes it toll, especially when gamers treat you like shit. There's not an ounce of happiness left in you. What's the reason to continue?"
+	            "high": {
+		         "image": "endMaxHappy",		            
+               	 "title": "Beyond the level of optimum well-being",
+			   	 "text": "Can one be too happy? It can appear so. Game over."	            
+	            },
+	            "low": {
+		         "image": "endMinHappy",
+               	 "title": "Too sad to go on",
+			   	 "text": "The grind all has driven the employees into a deep depression. They now live on a farm in the countryside. Game over"	            
+	            }
             }
         },
         "dignity": {
             "label": "Dignity",
             "color": "#F15F60",
             "endgame": {
-                "title": "Death by dignity",
-                "high": "You fostered your own dignity to the point where your head imploded. You died.",
-                "low": "Were all those client projects really worth it?"
+	            "high": {
+		         "image": "endMaxDignity",
+               	 "title": "Too dignified",
+			   	 "text": "The employees sense of dignity has gone through the roof and caused the company to implode under the weight of its own hubris. Game over."		            
+	            },
+	            "low": {
+		         "image": "endMinDignity",
+               	 "title": "No dignity left",
+			   	 "text": "The employees has lost all sense of self worth and are now working for online casinos. Game over."	            
+	            }
             }
         }
     }

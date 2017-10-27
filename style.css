@@ -42,7 +42,7 @@ a {
   border-radius: 10em;
   background: #fff;
   color: #362F2D;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
   box-shadow: 0 0.1em 0.2em 0 rgba(0,0,0,0.50);
   transform: scale(1);
@@ -64,6 +64,7 @@ a {
 .panel_intro {
     position: relative;
     background: url('img/hgTeam.png') bottom center no-repeat, linear-gradient(45deg, #735F52 0%, #9C8272 100%) ;
+    background-position: bottom+20em;
     background-size: 100%;
     text-align: center;
 }
@@ -309,11 +310,17 @@ a {
 		width: 100%;
 		padding: 0.2em 0 0.2em 0;
 	}
-	
+
+  .panel_intro {
+      position: relative;
+      background: url('img/hgTeam.png') bottom 4em center no-repeat, linear-gradient(45deg, #735F52 0%, #9C8272 100%);
+      background-size: 100%;
+  }
+
 	.panel_intro .footer {
 		position: fixed;
 		bottom: 0;
-		width: 100%;		
+		width: 100%;
 	}
 
 }
@@ -330,14 +337,14 @@ a {
 		background-image: url('img/iconRotate.png');
 		background-repeat: no-repeat;
     	background-attachment: fixed;
-	    background-position: center center; 		
+	    background-position: center center;
 	    background-size: 140px 140px;
 	}
 
 
 }
-	
-	
+
+
 
 .g_year {
     background-color: black;

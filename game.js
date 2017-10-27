@@ -68,6 +68,11 @@ function OnLoad() {
             CreateCardIndex();
             TransitionTo(config.startPanel);
         });
+        
+        document.body.addEventListener('touchmove',function(e){
+			e.preventDefault();
+	  });
+        
 }
 
 function OnTransitionToIntro() {
@@ -80,7 +85,7 @@ function OnTransitionFromIntro() {
 
 function OnTransitionToGame() {
     ClearCardStacks();
-
+	state.killedBy = undefined;
     state.curYear = 0;
     state.cardCount = 0;
     FillCardStack(state.curYear);
@@ -154,6 +159,7 @@ function OnStartGame() {
 }
 
 function OnRestartGame() {
+	
     TransitionTo('panel_game');
 }
 

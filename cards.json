@@ -1398,13 +1398,13 @@
     "influences": {
         "yes": {
             "money": 30,
-            "happiness": 5,
+            "happiness": 0,
             "fame": 0,
             "dignity": 0
         },
         "no": {
             "money": 0,
-            "happiness": 10,
+            "happiness": 0,
             "fame": 0,
             "dignity": 10
         }

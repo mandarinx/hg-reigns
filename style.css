@@ -8,6 +8,8 @@ html, body {
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
+    background-color: black;
+
 }
 
 a {
@@ -24,7 +26,7 @@ a {
 .panel_endgame {
     display: none;
     width: 40em;
-    height: 90vh;
+    height: 100vh;
 }
 
 /* GENERIC */
@@ -284,6 +286,44 @@ a {
     justify-content: space-around;
     box-sizing: border-box;
 }
+
+
+.tiltinfo {
+	display: none;
+}
+
+
+@media only screen and (max-width: 480px) and (orientation:portrait), only screen and (max-device-width: 480px) and (orientation:portrait) {
+	.g_progress_years {
+		position: fixed;
+		bottom: 0;
+		width: 100vw;
+		padding: 0.2em 0 0.2em 0;
+	}
+	
+	.panel_intro .footer {
+		position: fixed;
+		bottom: 0;
+		width: 100vw;		
+	}
+
+}
+
+
+@media only screen and (max-width: 480px) and (orientation:landscape), only screen and (max-device-width: 480px) and (orientation:landscape) {
+
+	.tiltinfo {
+		display: block;
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0,0,0,0.7);
+	}
+
+
+}
+	
+	
 
 .g_year {
     background-color: black;

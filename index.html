@@ -9,6 +9,7 @@
   <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="lib.js"></script>
 
+<meta name="viewport"content="width=device-width,shrink-to-fit=no">
 
 
   <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
@@ -18,7 +19,10 @@
 </head>
 
 <body>
-    <div class="content">
+
+    <div class="content" id="content">
+	    
+
 
         <div class="panel_intro" id="panel_intro">
             <img src="img/logo.png" id="logo">
@@ -91,17 +95,19 @@
 				<a id="e_retry" class="button small">Try again</a>
 	        </div>
 
-
+            <div class="g_padding"></div>
 
             <div id="e_progress_years"></div>
 
 
         </div>
-
+		<div id="tiltinfo" class="tiltinfo">TILT THAT SHIT</div>
     </div>
 
     <script type="text/javascript">
         OnLoad();
     </script>
+    
+   
 </body>
 </html>

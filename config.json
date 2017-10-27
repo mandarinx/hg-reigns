@@ -5,6 +5,11 @@
     "dotSmallThreshold": 6,
     "axesMaxValue": 100,
     "axesStartValue": 50,
+    "win": {
+	     "image": "endWin",
+	   	 "title": "Here's to many more!",
+	   	 "text": "You made it! The company has survived 5 years, just like in real life. Thanks for playing!"		            	    
+    },
     "axes": {
         "money": {
             "label": "Money",

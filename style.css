@@ -111,9 +111,10 @@ a {
     background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
 }
 
-.panel_game.show {
+.panel_game.show, .panel_endgame.show {
     display: flex;
 }
+
 
 .g_axes {
     display: flex;
@@ -297,8 +298,4 @@ a {
 
 .panel_endgame {
     background-color: #000;
-}
-
-.panel_endgame.show {
-    display: block;
 }

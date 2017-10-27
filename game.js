@@ -108,6 +108,14 @@ function OnTransitionToEndGame() {
     var killedBy = state.killedBy;
     var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
     var endgame = config.axes[killedBy].endgame[msgType];
+    
+    var axes = document.getElementById("g_axes").cloneNode(true);
+	axes.id = "e_axes";
+    document.getElementById("e_axes").replaceWith(axes);
+    
+    var years = document.getElementById("g_progress_years").cloneNode(true);
+	years.id = "e_progress_years";
+    document.getElementById("e_progress_years").replaceWith(years);    
 
     document
         .getElementById('e_title')

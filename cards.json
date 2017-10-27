@@ -1,5 +1,145 @@
 {
-  "y0_c01" : {
+  "rolf01" : {
+    "title": "Rolf",
+    "description": "Did you guys try out Player Unknown Battlegrounds? I highly recommend it!",
+    "image": "charRolf",
+    "chance" : 1,
+    "year": 5,
+    "options" : {
+        "yes": "I've been meaning to check that out!",
+        "no": "I don't play games based on adult fiction."
+    },
+    "influences" : {
+      "yes" : {
+        "money" : -10,
+        "fame" : 0,
+        "happiness" : 20,
+        "dignity" : 0
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 0,
+        "dignity" : 10
+      }
+    },
+    "cards": {
+        "yes" : [],
+        "no" : []
+    }
+  },"kris01" : {
+    "title": "Kristoffer",
+    "description": "The new Doom is the best first person shooter I've played in YEARS!",
+    "image": "charKris",
+    "chance" : 1,
+    "year": 4,
+    "options" : {
+        "yes": "I've been meaning to check that out!",
+        "no": "I've shot enough demons for one lifetime."
+    },
+    "influences" : {
+      "yes" : {
+        "money" : -10,
+        "fame" : 0,
+        "happiness" : 20,
+        "dignity" : 0
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 0,
+        "dignity" : 10
+      }
+    },
+    "cards": {
+        "yes" : [],
+        "no" : []
+    }
+  },"harald01" : {
+    "title": "Harald",
+    "description": "Guys, Factorio is the most fun you can have building factories and shipping goods since the early 1900s.",
+    "image": "charHarald",
+    "chance" : 1,
+    "year": 3,
+    "options" : {
+        "yes": "Wow, it's in post-apocalyptic setting? Sign me up!",
+        "no": "My Steam catalog is full enough of games I'll never play."
+    },
+    "influences" : {
+      "yes" : {
+        "money" : -10,
+        "fame" : 0,
+        "happiness" : 20,
+        "dignity" : 0
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 0,
+        "dignity" : 10
+      }
+    },
+    "cards": {
+        "yes" : [],
+        "no" : []
+    }
+  },"terje01" : {
+    "title": "Terje",
+    "description": "The new Fifa is awesome! Come try it out!",
+    "image": "charTerje",
+    "chance" : 1,
+    "year": 2,
+    "options" : {
+        "yes": "Let's go!",
+        "no": "I prefer watching paint dry over sports games."
+    },
+    "influences" : {
+      "yes" : {
+        "money" : -10,
+        "fame" : 0,
+        "happiness" : 20,
+        "dignity" : 0
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 0,
+        "dignity" : 10
+      }
+    },
+    "cards": {
+        "yes" : [],
+        "no" : []
+    }
+  },"are01" : {
+    "title": "Are",
+    "description": "I got this new game called Ridiculous Fishing for my iPhone, it's amazing!",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 1,
+    "options" : {
+        "yes": "I've been looking forward to that! I'll get it right now!",
+        "no": "Vlambeer's screenshake makes me nauseaus..."
+    },
+    "influences" : {
+      "yes" : {
+        "money" : -10,
+        "fame" : 0,
+        "happiness" : 20,
+        "dignity" : 0
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 0,
+        "dignity" : 10
+      }
+    },
+    "cards": {
+        "yes" : [],
+        "no" : []
+    }
+  },"y0_c01" : {
     "title": "Rolf",
     "description": "Can I have tomorrow off? I'm going to China!",
     "image": "charRolf",

@@ -133,6 +133,12 @@ function FillCardStack(year) {
     }
 }
 
+function ClearCardStacks() {
+    state.cardStacks.forEach(function(stack) {
+        stack.splice(0, stack.length);
+    });
+}
+
 function GetCard(i) {
     var curStack = state.cardStacks[state.curYear];
     return curStack.splice(i, 1)[0];

@@ -169,9 +169,15 @@ function OnClickOptionNo() {
 }
 
 function LoadNextCard() {
+
     if (!ValidateGameState()) {
         state.killedBy = GetInvalidAxes();
-        TransitionTo('panel_endgame');
+        
+        // Wait for bars to transition before ending game
+        setTimeout(()=>{
+	        TransitionTo('panel_endgame');
+        }, 500);
+		return;
     }
 
     if (state.curYear > config.maxYears) {
@@ -206,6 +212,9 @@ function LoadNextCard() {
     HideDots(config.axes);
     state.curCard = GetCard(GetRandomCard(state.curYear));
     ++state.cardCount;
+    
+
+        
     LoadCard(state.curCard);
 }
 

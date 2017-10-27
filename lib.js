@@ -241,7 +241,13 @@ function SetAxisValue(axis, value) {
 }
 
 function SetAxesValue(id, value) {
-    state.axisValues[id] += value;
+	
+	// Needed to clamp the value to make sure it animates (would not animate to less than 0)
+	var newVal = state.axisValues[id]+value;
+	if(newVal<0) newVal = 0;
+	else if(newVal>config.axesMaxValue) newVal = config.axesMaxValue;
+
+    state.axisValues[id] = newVal;
     var color = '#8DBEB2';
 
     var valpct = state.axisValues[id] / config.axesMaxValue;

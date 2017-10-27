@@ -40,34 +40,36 @@ function OnLoad() {
         option_no: OnOutOptionNo
     };
 
-    var file_config = FetchJSON('config.json', function(json) {
-        config = json;
-    });
+
 
     var file_cards = FetchJSON('cards.json', function(json) {
         cards = json;
     
-		// need to wait for cards to be loaded before promise
-	    Promise
-	        .all([file_config, file_cards])
-	        .then(function (results) {
-	            state = {
-	                curPanel: null,
-	                curCard: null,
-	                cardCount: 0,
-	                curYear: 0,
-	                // references to various DOM elements beloning to an axis,
-	                // indexed by axis name
-	                axisElms: {},
-	                // the values of each axis, indexed by axis name
-	                axisValues: {},
-	                // the axes that killed you
-	                killedbBy: null,
-	                cardStacks: [[],[],[],[],[]]
-	            };
-	            CreateCardIndex();
-	            TransitionTo(config.startPanel);
-	        });
+        var file_config = FetchJSON('config.json', function(json) {
+        config = json;
+        
+        	// need to wait for cards to be loaded before promise
+		    Promise
+		        .all([file_config, file_cards])
+		        .then(function (results) {
+		            state = {
+		                curPanel: null,
+		                curCard: null,
+		                cardCount: 0,
+		                curYear: 0,
+		                // references to various DOM elements beloning to an axis,
+		                // indexed by axis name
+		                axisElms: {},
+		                // the values of each axis, indexed by axis name
+		                axisValues: {},
+		                // the axes that killed you
+		                killedbBy: null,
+		                cardStacks: [[],[],[],[],[]]
+		            };
+		            CreateCardIndex();
+		            TransitionTo(config.startPanel);
+		        });
+			});
         
         });
         

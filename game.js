@@ -171,7 +171,7 @@ function OnStartGame() {
 
 function OnRestartGame() {
 	
-    TransitionTo('panel_game');
+    TransitionTo('panel_intro');
 }
 
 function OnClickOptionYes() {

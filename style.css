@@ -40,7 +40,6 @@ a {
   color: #362F2D;
   font-size: 1.5em;
   font-weight: bold;
-  /* Rectangle 6: */
   box-shadow: 0 0.1em 0.2em 0 rgba(0,0,0,0.50);
 }
 
@@ -49,7 +48,8 @@ a {
 /* INTRO */
 .panel_intro {
     position: relative;
-    background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
+    background: url('img/hgTeam.png') bottom center no-repeat, linear-gradient(45deg, #735F52 0%, #9C8272 100%) ;
+    background-size: 100%;
     text-align: center;
 }
 
@@ -64,12 +64,17 @@ a {
   bottom: 0;
   font-size: 1em;
   width: 100%;
-  background: rgba(0,0,0,0.25);
-  padding: 1em 0 2em 0;
+  background: rgba(0,0,0,0.65);
+  padding: 1em 0 1em 0;
+}
+
+.panel_intro p {
+  margin: 0 auto;
 }
 
 .panel_intro .footer a {
-  font-size: 1.25em;
+  margin: 0 auto;
+  font-size: 1em;
   font-weight: bold;
   color: #E8D061;
 }
@@ -99,7 +104,7 @@ a {
 }
 
 /* GAME */
-.panel_game {
+.panel_game, .panel_endgame {
     display: none;
     flex-direction: column;
     justify-content: space-around;
@@ -170,7 +175,7 @@ a {
     display: block;
 }
 
-.card_about {
+.card_about, .card_endtext {
     text-align: center;
     flex-grow: 1;
     flex-basis: 7em;
@@ -178,7 +183,7 @@ a {
     font-size: 1.2em;
 }
 
-.card_about h1 {
+.card_about h1, .card_endtext h1 {
   color: #E8D061;
     font-size: bold;
     font-size: 1.25em;

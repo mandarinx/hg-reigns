@@ -107,14 +107,17 @@ function OnTransitionFromGame() {
 function OnTransitionToEndGame() {
     var killedBy = state.killedBy;
     var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
-    var endgame = config.axes[killedBy].endgame;
+    var endgame = config.axes[killedBy].endgame[msgType];
 
     document
         .getElementById('e_title')
         .innerHTML = endgame.title;
     document
         .getElementById('e_description')
-        .innerHTML = endgame[msgType];
+        .innerHTML = endgame.text;
+    document
+        .getElementById('e_card_image')
+        .src = "cards/"+endgame.image+".png";        
 
     EnableButton('e_retry');
 }

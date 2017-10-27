@@ -239,13 +239,13 @@
         "yes": {
             "money": 0,
             "happiness": -5,
-            "fame": 10,
+            "fame": -10,
             "dignity": -15
         },
         "no": {
             "money": -10,
             "happiness": 0,
-            "fame": -10,
+            "fame": 10,
             "dignity": 20
         }
     },
@@ -333,7 +333,7 @@
             "money": -20,
             "happiness": 0,
             "fame": 0,
-            "dignity": 15
+            "dignity": 5
         }
     },
     "cards": {
@@ -1197,7 +1197,7 @@
             "money": 0,
             "happiness": 0,
             "fame": -5,
-            "dignity": -20
+            "dignity": -10
         },
         "yes": {
             "money": 0,
@@ -1468,7 +1468,7 @@
         }
     },
     "cards": {
-      "yes" : [],
+      "yes" : ["y0_c46"],
       "no" : []
     }
   },
@@ -1823,7 +1823,7 @@
   "y0_c58" : {
     "title": "Are",
     "description": "Maybe we should branch out from the agency Hyper and start a separate game studio? ",
-    "image": "charAre",
+    "image": "charAreTerje",
     "chance" : 1,
     "year": 1,
     "options": {
@@ -1845,7 +1845,7 @@
         }
     },
     "cards": {
-      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c59","y0_c60","y1_news","are01","y0_c28", "y0_c35", "y0_c56", "y3_trump"],
+      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c60","y1_news","are01","y0_c28"],
       "no" : []
     }
   },
@@ -1932,8 +1932,8 @@
         }
     },
     "cards": {
-      "yes" : [ "y0_c01", "y0_c30", "y0_c36", "y0_c52", "y0_c06", "y0_c07", "y0_c17", "y0_c18", "y0_c28", "y0_c44", "y0_c71" ],
-      "no" : [ "y0_c01", "y0_c30", "y0_c36", "y0_c52", "y0_c06", "y0_c07", "y0_c17", "y0_c18", "y0_c28", "y0_c44", "y0_c71" ]
+      "yes" : [ "y0_c01", "y0_c30", "y0_c36", "y0_c52"],
+      "no" : [ ]
     }
   },
   "y0_c63" : {

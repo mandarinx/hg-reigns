@@ -133,6 +133,12 @@ function FillCardStack(year) {
     }
 }
 
+function ClearCardStacks() {
+    state.cardStacks.forEach(function(stack) {
+        stack.splice(0, stack.length);
+    });
+}
+
 function GetCard(i) {
     var curStack = state.cardStacks[state.curYear];
     return curStack.splice(i, 1)[0];
@@ -237,7 +243,7 @@ function SetAxisValue(axis, value) {
 function SetAxesValue(id, value) {
     state.axisValues[id] += value;
     var color = '#8DBEB2';
-    
+
     var valpct = state.axisValues[id] / config.axesMaxValue;
     if(valpct < 0.15 || valpct > 0.85){
         color = '#F15F60';
@@ -247,7 +253,7 @@ function SetAxesValue(id, value) {
     state
         .axisElms[id]
         .progressBar.style.width = Math.round(valpct * 100) + '%';
-        
+
     state
         .axisElms[id]
         .progressBar.style.backgroundColor = color;

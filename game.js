@@ -54,6 +54,7 @@ function OnLoad() {
             state = {
                 curPanel: null,
                 curCard: null,
+                cardCount: 0,
                 curYear: 0,
                 // references to various DOM elements beloning to an axis,
                 // indexed by axis name
@@ -78,7 +79,10 @@ function OnTransitionFromIntro() {
 }
 
 function OnTransitionToGame() {
+    ClearCardStacks();
+
     state.curYear = 0;
+    state.cardCount = 0;
     FillCardStack(state.curYear);
     state.curCard = GetCard(GetRandomCard(state.curYear));
 
@@ -133,13 +137,10 @@ function OnClickOptionYes() {
             state.cardStacks[card.year].push(card);
         });
 
-    state.cardStacks[state.curYear].forEach(function(c, i) {
-        console.log(i+' : '+c.description);
-    });
-
     SetAxisValue(state.curCard.influences.yes, function(axes) {
         return state.curCard.influences.yes[axes];
     });
+
     LoadNextCard();
 }
 
@@ -149,11 +150,10 @@ function OnClickOptionNo() {
             state.cardStacks[card.year].push(card);
         });
 
-    console.log('stack '+state.curYear+' len: '+state.cardStacks[state.curYear].length);
-
     SetAxisValue(state.curCard.influences.no, function(axes) {
         return state.curCard.influences.no[axes];
     });
+
     LoadNextCard();
 }
 
@@ -175,18 +175,26 @@ function LoadNextCard() {
     //     HighlightCurYear();
     // }
 
-    if (state.cardStacks[state.curYear].length === 0) {
-        console.log('Stack is empty');
-        LoadCard({
-            title: 'Stack empty',
-            description: '',
-            image: 'empty'
-        });
-        return;
+    if (state.cardStacks[state.curYear].length === 0 ||
+        state.cardCount >= config.numCardsPerYear) {
+
+        ++state.curYear;
+
+        if (state.curYear >= config.maxYears) {
+            console.log('Reigned for '+config.maxYears+' years. Congrats!');
+            return;
+        }
+
+        console.log('year', (state.curYear + 1));
+        state.cardCount = 0;
+        FillCardStack(state.curYear);
+        state.curCard = GetCard(GetRandomCard(state.curYear));
+        HighlightCurYear();
     }
 
     HideDots(config.axes);
     state.curCard = GetCard(GetRandomCard(state.curYear));
+    ++state.cardCount;
     LoadCard(state.curCard);
 }
 

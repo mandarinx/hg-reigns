@@ -195,7 +195,7 @@ function LoadNextCard() {
 		return;
     }
 
-    if (state.curYear > config.maxYears) {
+    if (state.curYear >= config.maxYears) {
 	        TransitionTo('panel_endgame');
         return;
     }

@@ -1677,7 +1677,7 @@
         }
     },
     "cards": {
-      "yes" : ["y0_c59"],
+      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c59","y0_c60","y0_c61"],
       "no" : []
     }
   },
@@ -1688,17 +1688,17 @@
     "chance" : 1,
     "year": 1,
     "options": {
-        "yes": "No, you're too tall.",
-        "no": "Yes, of course!"
+        "no": "No, you're too tall.",
+        "yes": "Yes, of course!"
     },
     "influences": {
-        "yes": {
+        "no": {
             "money": 0,
             "happiness": 10,
             "fame": 0,
             "dignity": 0
         },
-        "no": {
+        "yes": {
             "money": -10,
             "happiness": 0,
             "fame": 0,
@@ -2034,7 +2034,7 @@
     "description": "Our game uses too many buttons. We should limit ourselves to one button only.",
     "image": "charKris",
     "chance" : 1,
-    "year": 1,
+    "year": 4,
     "options": {
         "no": "No, we need even more buttons!",
         "yes": "One button is enough!"

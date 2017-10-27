@@ -20,15 +20,19 @@ a {
 
 .content {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
 }
 
 .panel_intro,
 .panel_game,
 .panel_endgame {
-    display: none;
-    width: 40em;
-    height: 100vh;
+    display: none;   
+	width: 50.6vh;
+	height: 90vh;
+	min-width: 340px;
+	min-height: 600px;	
+	position: relative;
+	top: 5vh;
 }
 
 /* GENERIC */
@@ -138,6 +142,65 @@ a {
     display: flex;
 }
 
+.howtoplay {
+	display: none;
+    background-color: #604D40;
+    position: absolute;
+    width: 100%;
+    height: 100%;    	
+	overflow-y: scroll;
+	top: 0;
+	left: 0;
+}
+
+.howtoplay p {
+	font-size: 17px;
+	padding: 0 0 20px 0;
+	font-weight: normal;
+}
+
+.howtocontent {
+	margin: auto;
+	padding: 20px;
+	text-align: left;
+	font-weight: bolder;
+}
+
+.howtoplay .ingress {
+	font-size: 20px;
+
+}
+
+.howtoplay .card_frame {
+	float: right;
+	margin: 0px 0px 20px 20px;
+	width: 140px;
+	height: 140px;	
+}
+
+
+.howtoplay h1 {
+	width: 100%;
+	background-color: #342B25;
+	margin: 0;
+	padding: 20px 0;
+	text-transform: uppercase;
+	color: #E8D061;
+	font-weight: normal;
+}
+
+a.close {
+	width: 32px;
+	height: 32px;
+	background-image: url('img/close.png');
+	background-position: center center;
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	display: block;
+	position: absolute;
+	top: 22px;
+	left: 22px;
+}
 
 .g_axes {
     display: flex;
@@ -311,7 +374,16 @@ a {
 }
 
 
-@media only screen and (max-width: 480px) and (orientation:portrait), only screen and (max-device-width: 480px) and (orientation:portrait) {
+@media only screen and (max-width: 500px) and (orientation:portrait), only screen and (max-device-width: 500px) and (orientation:portrait) {
+	.panel_intro,
+	.panel_game,
+	.panel_endgame {
+	    display: none;
+	    width: 100vw;
+	    height: 100vh;
+	    top: 0;
+	}
+
 	.g_progress_years {
 		position: fixed;
 		bottom: 0;
@@ -333,6 +405,41 @@ a {
 
 }
 
+@media only screen and (max-height: 700px), only screen and (max-device-height: 700px)) {
+	.panel_intro,
+	.panel_game,
+	.panel_endgame {
+	    top: 0;
+	}
+}
+
+@media only screen and (min-height: 700px) {
+	.howtoplay p.ingress {
+		font-size: 27px;		
+	}
+	.howtoplay p {
+		font-size: 18px;
+	}
+	
+	.howtoplay .card_frame {
+		width: 160px;
+		height: 160px;
+	}
+}
+
+@media only screen and (min-height: 800px) {
+	.howtoplay p.ingress {
+		font-size: 32px;		
+	}
+	.howtoplay p {
+		font-size: 22px;
+	}
+	
+	.howtoplay .card_frame {
+		width: 200px;
+		height: 200px;
+	}	
+}
 
 @media only screen and (max-width: 480px) and (orientation:landscape), only screen and (max-device-width: 480px) and (orientation:landscape) {
 

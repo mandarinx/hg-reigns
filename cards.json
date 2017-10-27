@@ -1845,36 +1845,7 @@
         }
     },
     "cards": {
-      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c59","y0_c60","y1_news","are01"],
-      "no" : []
-    }
-  },
-  "y0_c59" : {
-    "title": "Terje",
-    "description": "Can I join the studio too?",
-    "image": "charTerje",
-    "chance" : 1,
-    "year": 1,
-    "options": {
-        "no": "No, you're too tall.",
-        "yes": "Yes, of course!"
-    },
-    "influences": {
-        "no": {
-            "money": 0,
-            "happiness": 10,
-            "fame": 0,
-            "dignity": 0
-        },
-        "yes": {
-            "money": -10,
-            "happiness": 0,
-            "fame": 0,
-            "dignity": 0
-        }
-    },
-    "cards": {
-      "yes" : ["y0_c28", "y0_c35", "y0_c56", "y3_trump"],
+      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c59","y0_c60","y1_news","are01","y0_c28", "y0_c35", "y0_c56", "y3_trump"],
       "no" : []
     }
   },

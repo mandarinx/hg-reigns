@@ -46,17 +46,15 @@
             </div>
 
             <div class="card_wrapper" id="card_wrapper">
-                <div class="card_stack">
+                <div class="card_stack" id="card_stack">
                     <div class="back"></div>
-                    <div class="front">
-                        <img src="cards/empty.png" />
-                        <div class="option_bg" id="option_bg">
-                            <p id="option_description"></p>
-                        </div>
+                    <div class="front" id="card_next">
+                        <img src="cards/empty.png" draggable="false" />
                     </div>
                 </div>
                 <div class="card_cur" id="card_cur">
-                    <img id="card_image" src="cards/empty.png" />
+                    <!-- id still neded? -->
+                    <img id="card_image" src="cards/empty.png" draggable="false" />
                     <div class="option_bg" id="option_bg">
                         <p id="option_description"></p>
                     </div>

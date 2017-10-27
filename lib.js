@@ -149,25 +149,57 @@ function GetRandomCard(year) {
     return Math.floor(Math.random() * curStack.length);
 }
 
-function HasMoreCards() {
-    return state.curCard < state.cards.length;
-}
-
 function ClearCard() {
     ClearChildElements('card_title');
     ClearChildElements('card_description');
 }
 
-function LoadCard(card) {
+function LoadCard(card, elm) {
+    elm
+        .querySelector('img')
+        .setAttribute('src', 'cards/' + card.image + '.png');
     document
         .getElementById('card_title')
         .innerHTML = card.title;
     document
         .getElementById('card_description')
         .innerHTML = card.description;
-    document
-        .getElementById('card_image')
-        .setAttribute('src', 'cards/' + card.image + '.png');
+}
+
+function CreateCard(parent, card) {
+    var card_cur = document.createElement('div');
+    card_cur.setAttribute('class', 'card_cur');
+    card_cur.setAttribute('id', 'card_cur');
+
+    var img = document.createElement('img');
+    img.setAttribute('id', 'card_image');
+    img.setAttribute('src', 'cards/' + card.image + '.png');
+    img.setAttribute('draggable', false);
+    card_cur.appendChild(img);
+
+    var option_bg = document.createElement('div');
+    option_bg.setAttribute('class', 'option_bg');
+    option_bg.setAttribute('id', 'option_bg');
+    card_cur.appendChild(option_bg);
+
+    var p = document.createElement('p');
+    p.setAttribute('id', 'option_description');
+    option_bg.appendChild(p);
+    card_cur.appendChild(option_bg);
+
+    parent.appendChild(card_cur);
+}
+
+function SetCurCard(id) {
+    var elm = document.getElementById(id);
+    elm.setAttribute('draggable', false);
+    state.cardElm = elm;
+
+    var cardRect = elm.getBoundingClientRect();
+    state.curCardInitPos = {
+        x: cardRect.left,
+        y: cardRect.top
+    };
 }
 
 function FetchJSON(file, callback) {
@@ -250,13 +282,10 @@ function SetAxesValue(id, value) {
     } else if(valpct < 0.30 || valpct > 0.70){
         color = '#F6B567';
     }
-    state
-        .axisElms[id]
-        .progressBar.style.width = Math.round(valpct * 100) + '%';
 
-    state
-        .axisElms[id]
-        .progressBar.style.backgroundColor = color;
+    var style = state.axisElms[id].progressBar.style;
+    style.width = Math.round(valpct * 100) + '%';
+    style.backgroundColor = color;
 }
 
 function HighlightCurYear() {
@@ -297,8 +326,7 @@ function ShowOption(content) {
 function HideOption() {
     document
         .getElementById('option_bg')
-        .classList
-        .remove('show');
+        .setAttribute('class', 'option_bg');
     document
         .getElementById('option_description')
         .innerHTML = '';

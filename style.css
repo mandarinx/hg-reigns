@@ -179,6 +179,7 @@ a {
     text-align: center;
     padding: 0 2em;
     font-size: 1.2em;
+    align-self: center;
 }
 
 .card_about h1 {
@@ -197,8 +198,13 @@ a {
     perspective-origin: 50% 16vh;
 }
 
-.card_wrapper:hover .card_stack {
+.card_stack.flip {
     transform: rotateY(180deg);
+}
+
+.card_stack.flipimmediate {
+    transform: rotateY(0deg);
+    transition: 0s;
 }
 
 .card_stack {
@@ -210,19 +216,20 @@ a {
     height: 32vh;
 }
 
+.card_stack .front,
+.card_stack .back {
+    transform: rotateY(180deg);
+}
+
 .card_cur,
 .card_stack .front,
 .card_stack .back {
     backface-visibility: hidden;
-    transform: rotateY(180deg);
     width: 32vh;
     height: 32vh;
 
     border: 0.6em solid white;
     border-radius: 0.4em;
-    -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
-    -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
-    box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
 }
 
 .card_stack .front {
@@ -245,6 +252,9 @@ a {
     transform-origin: 50% 75%;
     margin-top: -32vh;
     z-index: 2;
+    -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
+    -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
+    box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
 }
 
 .card_cur.absolute {

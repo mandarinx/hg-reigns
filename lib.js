@@ -1,3 +1,4 @@
+
 function TransitionTo(to_panel) {
     if (state.curPanel !== null) {
         var cur = document.getElementById(state.curPanel);
@@ -169,14 +170,34 @@ function LoadCard(card) {
         .getElementById('card_image')
         .setAttribute('src', 'cards/' + card.image + '.png');
 }
-
+/*
 function FetchJSON(file, callback) {
-    return fetch(file)
+	
+    return loadJSON(file)
         .then(function(response) {
-            return response.json();
+            return JSON.parse(response);
         })
         .then(callback);
+            
 }
+*/
+
+function FetchJSON(file, callback) {
+	
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', file, true);
+    xobj.onreadystatechange = function() {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            callback(JSON.parse(xobj.responseText));
+        }
+    }
+    xobj.send(null);
+
+}
+
+
+
 
 function SetAxes(axes) {
     var g_axes = document.getElementById('g_axes');
@@ -361,3 +382,18 @@ function GetInvalidAxes() {
     var i = Math.floor(Math.random() * axes.length);
     return axes[i];
 }
+
+
+function ReplaceWith(Ele) {
+     if (this.parentNode) {
+		this.parentNode.replaceChild(Ele, this);
+	}
+}
+
+
+if (!Element.prototype.replaceWith)
+    Element.prototype.replaceWith = ReplaceWith;
+if (!CharacterData.prototype.replaceWith)
+    CharacterData.prototype.replaceWith = ReplaceWith;
+if (!DocumentType.prototype.replaceWith) 
+    DocumentType.prototype.replaceWith = ReplaceWith;

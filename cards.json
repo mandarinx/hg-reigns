@@ -1817,7 +1817,7 @@
         }
     },
     "cards": {
-      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c59","y0_c60","y0_c61","y1_news","are01"],
+      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c59","y0_c60","y1_news","are01"],
       "no" : []
     }
   },
@@ -1884,7 +1884,7 @@
     "description": "I can do all the things nobody else knows how to!",
     "image": "charRolf",
     "chance" : 1,
-    "year": 1,
+    "year": 2,
     "options": {
         "yes": "OMG! That's just what we need!",
         "no": "Nah... sounds useless."

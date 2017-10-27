@@ -139,6 +139,34 @@
         "yes" : [],
         "no" : []
     }
+  },"thomas02" : {
+    "title": "Thomas",
+    "description": "Wow, this Steam game about poop is only 1$! Better grab it before it's removed by Valve!",
+    "image": "charThomas",
+    "chance" : 1,
+    "year": 4,
+    "options" : {
+        "yes": "That sounds fun!",
+        "no": "..."
+    },
+    "influences" : {
+      "yes" : {
+        "money" : -1,
+        "fame" : 0,
+        "happiness" : 1,
+        "dignity" : -20
+      },
+      "no" : {
+        "money" : 0,
+        "fame" : 0,
+        "happiness" : 0,
+        "dignity" : 10
+      }
+    },
+    "cards": {
+        "yes" : [],
+        "no" : []
+    }
   },"y0_c01" : {
     "title": "Rolf",
     "description": "Can I have tomorrow off? I'm going to China!",

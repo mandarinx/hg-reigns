@@ -198,7 +198,7 @@
         }
     },
     "cards": {
-      "yes" : [],
+      "yes" : ["y2_mogul_beta"],
       "no" : []
     }
   },
@@ -604,7 +604,7 @@
         }
     },
     "cards": {
-      "yes" : [],
+      "yes" : ["y0_c20","y0_c10","y0_c47","y0_c70"],
       "no" : []
     }
   },
@@ -1677,7 +1677,7 @@
         }
     },
     "cards": {
-      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c59","y0_c60","y0_c61"],
+      "yes" : ["y0_c06","y0_c07","y0_c17","y0_c18","y0_c44","y0_c59","y0_c60","y0_c61","y1_news"],
       "no" : []
     }
   },
@@ -1706,8 +1706,8 @@
         }
     },
     "cards": {
-      "yes" : ["y0_c60", "y0_c28", "y0_c35", "y0_c56"],
-      "no" : ["y0_c60"]
+      "yes" : ["y0_c28", "y0_c35", "y0_c56", "y3_trump"],
+      "no" : []
     }
   },
   "y0_c60" : {
@@ -1735,8 +1735,8 @@
         }
     },
     "cards": {
-      "yes" : ["y0_c11","y0_c61"],
-      "no" : ["y0_c61"]
+      "yes" : ["y0_c11","y0_c61","y4_poop"],
+      "no" : []
     }
   },
   "y0_c61" : {
@@ -1764,7 +1764,7 @@
         }
     },
     "cards": {
-      "yes" : ["y0_c62"],
+      "yes" : ["y0_c62","y0_c01","y0_c30","y0_c36","y0_c52"],
       "no" : []
     }
   },
@@ -1822,7 +1822,7 @@
         }
     },
     "cards": {
-      "yes" : [],
+      "yes" : ["y0_c67","y0_c71","y0_c72","y0_c22","y0_c23","y0_c24","y0_c31"],
       "no" : []
     }
   },
@@ -1851,7 +1851,7 @@
         }
     },
     "cards": {
-      "yes" : [],
+      "yes" : ["y0_c38","y0_c09"],
       "no" : []
     }
   },
@@ -1938,7 +1938,7 @@
         }
     },
     "cards": {
-      "yes" : [],
+      "yes" : ["y0_c68"],
       "no" : []
     }
   },
@@ -1967,7 +1967,7 @@
         }
     },
     "cards": {
-      "yes" : [],
+      "yes" : ["y0_c69"],
       "no" : []
     }
   },
@@ -2080,6 +2080,383 @@
             "happiness": 0,
             "fame": -10,
             "dignity": -20
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y2_mogul_beta" : {
+    "title": "Gamer",
+    "description": "Is the stock market game beta out yet?",
+    "image": "charGamer",
+    "chance" : 1,
+    "year": 2,
+    "options": {
+        "no": "Not now, not ever.",
+        "yes": "Maybe.. next year?"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 10
+        },
+        "yes": {
+            "money": -20,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : ["y3_mogul_beta"],
+      "no" : []
+    }
+  },
+  "y3_mogul_beta" : {
+    "title": "Gamer",
+    "description": "Still waiting for that stock market game beta!!",
+    "image": "charGamer",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "no": "Sorry :(",
+        "yes": "Maybeee.. next year?"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": -10,
+            "dignity": -10
+        },
+        "yes": {
+            "money": -20,
+            "happiness": -20,
+            "fame": -20,
+            "dignity": -20
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y2_redux" : {
+    "title": "Are",
+    "description": "I want to make a sci-fi survival game with dinousaurs and fighting.",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "no": "Don't do it!",
+        "yes": "Let's call it Redux ARK!"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": -5
+        },
+        "yes": {
+            "money": -20,
+            "happiness": 5,
+            "fame": 5,
+            "dignity": 5
+        }
+    },
+    "cards": {
+      "yes" : ["y3_redux"],
+      "no" : []
+    }
+  },
+  "y3_redux" : {
+    "title": "Are",
+    "description": "There's this new survival game out called ARK with dinosaurs and fighting. Should we continue with Redux ARK?",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "yes": "Remove dinos and call it just REDUX!",
+        "no": "Time to stop."
+    },
+    "influences": {
+        "yes": {
+            "money": -20,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 0
+        },
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "no" : [],
+      "yes" : ["y4_redux"]
+    }
+  },
+  "y4_redux" : {
+    "title": "Are",
+    "description": "We released the REDUX beta, but people don't care...",
+    "image": "charAre",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "no": "Time to let it go.",
+        "yes": "It just needs better code. Start over!"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": -10,
+            "dignity": -10
+        },
+        "yes": {
+            "money": -20,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 5
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y3_trump" : {
+    "title": "Terje",
+    "description": "Did you see that guy with the hair is running for president in USA?",
+    "image": "charTerje",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "no": "LMAO good luck with that",
+        "yes": "That's just scary."
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "yes": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y1_news" : {
+    "title": "Breaking news",
+    "description": "Edward Snowden just leaked classified information about global surveillance by the NSA.",
+    "image": "charNews",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "no": "Unbelievable...",
+        "yes": "I knew it!"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 0
+        },
+        "yes": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y2_news" : {
+    "title": "Breaking news",
+    "description": "Facebook just bought the VR company Oculus for $2 Billion.",
+    "image": "charNews",
+    "chance" : 1,
+    "year": 2,
+    "options": {
+        "no": "Lol, as if VR will ever work well",
+        "yes": "Smart move by Facebook!"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        },
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y3_news" : {
+    "title": "Breaking news",
+    "description": "Current trends predict the burst of the \"indie bubble\" #indiepocalypse",
+    "image": "charNews",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "no": "I'll believe it when I see it!",
+        "yes": "What goes up must come down..."
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        },
+        "yes": {
+            "money": 0,
+            "happiness": -5,
+            "fame": 0,
+            "dignity": 0
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y4_news" : {
+    "title": "Breaking news",
+    "description": "Donald Trump wins presidential election",
+    "image": "charNews",
+    "chance" : 1,
+    "year": 4,
+    "options": {
+        "no": "What the actual fuck?",
+        "yes": "I saw that coming"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 0
+        },
+        "yes": {
+            "money": 0,
+            "happiness": 0,
+            "fame": 0,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y5_news" : {
+    "title": "Breaking news",
+    "description": "The most important games studio in the known universe, Hyper Games, is about to turn 5 years old.",
+    "image": "charNews",
+    "chance" : 1,
+    "year": 5,
+    "options": {
+        "no": "I object to this statement.",
+        "yes": "Congrats!"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": -10,
+            "dignity": -10
+        },
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 10,
+            "dignity": 10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y3_partybehaviour" : {
+    "title": "Nordic Game Conference",
+    "description": "The award for \"Weirdest party behaviour\" goes to a silly group of Norwegians.",
+    "image": "charNordicGame",
+    "chance" : 1,
+    "year": 3,
+    "options": {
+        "no": "The what?",
+        "yes": "G!!!!"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": 0,
+            "fame": -10,
+            "dignity": -10
+        },
+        "yes": {
+            "money": 0,
+            "happiness": 10,
+            "fame": 10,
+            "dignity": -10
+        }
+    },
+    "cards": {
+      "yes" : [],
+      "no" : []
+    }
+  },
+  "y4_poop" : {
+    "title": "Thomas",
+    "description": "Let's play this extremely cheap but probably fun game about poop!",
+    "image": "charThomas",
+    "chance" : 1,
+    "year": 1,
+    "options": {
+        "no": "How about no?",
+        "yes": "That MUST be good!"
+    },
+    "influences": {
+        "no": {
+            "money": 0,
+            "happiness": -10,
+            "fame": 0,
+            "dignity": 10
+        },
+        "yes": {
+            "money": -1,
+            "happiness": 10,
+            "fame": 0,
+            "dignity": -10
         }
     },
     "cards": {

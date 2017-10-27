@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 html, body {
     font-family: 'Rokkitt', serif;
     color: white;
@@ -24,7 +30,7 @@ a {
 .panel_endgame {
     display: none;
     width: 40em;
-    height: 90vh;
+    height: 100vh;
 }
 
 /* GENERIC */
@@ -101,13 +107,12 @@ a {
 /* GAME */
 .panel_game {
     display: none;
-    flex-direction: column;
-    justify-content: space-around;
+    grid-template-rows: 5em 22vh auto 5em;
     background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
 }
 
 .panel_game.show {
-    display: flex;
+    display: grid;
 }
 
 .g_axes {
@@ -172,34 +177,47 @@ a {
 
 .card_about {
     text-align: center;
-    flex-grow: 1;
-    flex-basis: 7em;
     padding: 0 2em;
     font-size: 1.2em;
 }
 
 .card_about h1 {
-  color: #E8D061;
+    color: #E8D061;
     font-size: bold;
     font-size: 1.25em;
     margin: 1em 0 0 0;
 }
 
-.card_image {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
+.card_wrapper {
+    justify-self: center;
     box-sizing: border-box;
+    position: relative;
+    /* For card flipping */
+    perspective: 1500px;
+    perspective-origin: 50% 16vh;
 }
 
-.card_frame {
-    align-self: center;
+.card_wrapper:hover .card_stack {
+    transform: rotateY(180deg);
+}
+
+.card_stack {
+    position: relative;
+    z-index: 1;
+    transition: 0.6s;
+    transform-style: preserve-3d;
     width: 32vh;
     height: 32vh;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    box-sizing: border-box;
+}
+
+.card_cur,
+.card_stack .front,
+.card_stack .back {
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    width: 32vh;
+    height: 32vh;
+
     border: 0.6em solid white;
     border-radius: 0.4em;
     -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
@@ -207,11 +225,84 @@ a {
     box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
 }
 
-.card_frame > img {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+.card_stack .front {
+    margin-top: -32vh;
+}
+
+.card_stack .back {
+    background-color: red;
+    transform: rotateY(0deg);
+}
+
+.card_cur {
+    position: relative;
+    align-self: center;
+    width: 32vh;
+    height: 32vh;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    transform-origin: 50% 75%;
+    margin-top: -32vh;
+    z-index: 2;
+}
+
+.card_cur.absolute {
+    position: absolute;
+    margin-top: 0vh;
+}
+
+.card_cur > img,
+.card_stack .front > img {
     display: block;
+    position: relative;
+    height: 100%;
+}
+
+.card_cur.fall_right {
+    -webkit-animation: card_fall_right 2s ease-in;
+    -moz-animation: card_fall_right 2s ease-in;
+    -ms-animation: card_fall_right 2s ease-in;
+    animation: card_fall_right 2s ease-in;
+}
+
+@keyframes card_fall_right {
+    100% { transform: translate(30em, 150vh) rotate(360deg); }
+}
+
+@-ms-keyframes card_fall_right {
+    100% { transform: translate(30em, 150vh) rotate(360deg); }
+}
+
+@-moz-keyframes card_fall_right {
+    100% { transform: translate(30em, 150vh) rotate(360deg); }
+}
+
+@-webkit-keyframes card_fall_right {
+    100% { transform: translate(30em, 150vh) rotate(360deg); }
+}
+
+.card_cur.fall_left {
+    -webkit-animation: card_fall_left 2s ease-in;
+    -moz-animation: card_fall_left 2s ease-in;
+    -ms-animation: card_fall_left 2s ease-in;
+    animation: card_fall_left 2s ease-in;
+}
+
+@keyframes card_fall_left {
+    100% { transform: translate(-10em, 150vh) rotate(-360deg); }
+}
+
+@-ms-keyframes card_fall_left {
+    100% { transform: translate(-10em, 150vh) rotate(-360deg); }
+}
+
+@-moz-keyframes card_fall_left {
+    100% { transform: translate(-10em, 150vh) rotate(-360deg); }
+}
+
+@-webkit-keyframes card_fall_left {
+    100% { transform: translate(-10em, 150vh) rotate(-360deg); }
 }
 
 .option_bg {

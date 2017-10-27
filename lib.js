@@ -111,7 +111,7 @@ function CrawlIndex(cardIDs) {
                 return card.id === id;
             });
 
-            if (typeof found === 'undefined') {
+            if (!found) {
                 cardIndex.push(Object.assign({}, card));
             }
         }
@@ -237,7 +237,7 @@ function SetAxisValue(axis, value) {
 function SetAxesValue(id, value) {
     state.axisValues[id] += value;
     var color = '#8DBEB2';
-    
+
     var valpct = state.axisValues[id] / config.axesMaxValue;
     if(valpct < 0.15 || valpct > 0.85){
         color = '#F15F60';
@@ -247,7 +247,7 @@ function SetAxesValue(id, value) {
     state
         .axisElms[id]
         .progressBar.style.width = Math.round(valpct * 100) + '%';
-        
+
     state
         .axisElms[id]
         .progressBar.style.backgroundColor = color;
@@ -348,4 +348,13 @@ function GetInvalidAxes() {
         });
     var i = Math.floor(Math.random() * axes.length);
     return axes[i];
+}
+
+function Clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
+
+function Map(value, xmin, xmax, ymin, ymax) {
+    var percent = (value - xmin) / (xmax - xmin);
+    return percent * (ymax - ymin) + ymin;
 }

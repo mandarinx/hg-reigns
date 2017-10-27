@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  
+
   <title>Hyper Games Reigns</title>
   <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="game.js"></script>
@@ -45,22 +45,23 @@
                 <p id="card_description"></p>
             </div>
 
-            <div class="card_image">
-                <div class="card_option">
-                    <a id="option_no">NO</a>
+            <div class="card_wrapper" id="card_wrapper">
+                <div class="card_stack">
+                    <div class="back"></div>
+                    <div class="front">
+                        <img src="cards/empty.png" />
+                        <div class="option_bg" id="option_bg">
+                            <p id="option_description"></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card_frame">
+                <div class="card_cur" id="card_cur">
                     <img id="card_image" src="cards/empty.png" />
                     <div class="option_bg" id="option_bg">
                         <p id="option_description"></p>
                     </div>
                 </div>
-                <div class="card_option">
-                    <a id="option_yes">YES</a>
-                </div>
             </div>
-
-            <div class="g_padding"></div>
 
             <div class="g_progress_years">
                 <div class="g_year" id="year_0">1</div>

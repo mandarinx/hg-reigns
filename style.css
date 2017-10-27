@@ -45,6 +45,10 @@ a {
   transition: transform 0.1s ease-out;
 }
 
+.button.small {
+  font-size: 1em;
+}
+
 .button:hover {
   transform: scale(1.1);
   transition: transform 0.1s ease-out;

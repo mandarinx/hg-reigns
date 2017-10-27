@@ -119,7 +119,7 @@
     "year": 1,
     "options" : {
         "yes": "I've been looking forward to that! I'll get it right now!",
-        "no": "Vlambeer's screenshake makes me nauseaus..."
+        "no": "Vlambeer's screenshake makes me nauseous..."
     },
     "influences" : {
       "yes" : {
@@ -759,8 +759,8 @@
     },
     "influences": {
         "no": {
-            "money": 5,
-            "happiness": -5,
+            "money": 0,
+            "happiness": -10,
             "fame": 0,
             "dignity": 0
         },
@@ -768,7 +768,7 @@
             "money": -5,
             "happiness": 20,
             "fame": 20,
-            "dignity": 20
+            "dignity": -20
         }
     },
     "cards": {

@@ -14,6 +14,10 @@ html, body {
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 a {
@@ -44,10 +48,20 @@ a {
   border-radius: 10em;
   background: #fff;
   color: #362F2D;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
-  /* Rectangle 6: */
   box-shadow: 0 0.1em 0.2em 0 rgba(0,0,0,0.50);
+  transform: scale(1);
+  transition: transform 0.1s ease-out;
+}
+
+.button.small {
+  font-size: 1em;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  transition: transform 0.1s ease-out;
 }
 
 
@@ -55,7 +69,9 @@ a {
 /* INTRO */
 .panel_intro {
     position: relative;
-    background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
+    background: url('img/hgTeam.png') bottom center no-repeat, linear-gradient(45deg, #735F52 0%, #9C8272 100%) ;
+    background-position: bottom+20em;
+    background-size: 100%;
     text-align: center;
 }
 
@@ -70,12 +86,17 @@ a {
   bottom: 0;
   font-size: 1em;
   width: 100%;
-  background: rgba(0,0,0,0.25);
-  padding: 1em 0 2em 0;
+  background: rgba(0,0,0,0.65);
+  padding: 1em 0 1em 0;
+}
+
+.panel_intro p {
+  margin: 0 auto;
 }
 
 .panel_intro .footer a {
-  font-size: 1.25em;
+  margin: 0 auto;
+  font-size: 1em;
   font-weight: bold;
   color: #E8D061;
 }
@@ -87,8 +108,15 @@ a {
     background: rgba(0,0,0,0.25);
 }
 
+.share {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
 .shareIcon {
-  margin: 0 0.5em 0.5em;
+  display: block;
+  margin: 0 0 0.5em 0;
 }
 
 .shareIcon img {
@@ -105,22 +133,23 @@ a {
 }
 
 /* GAME */
-.panel_game {
+.panel_game, .panel_endgame {
     display: none;
     grid-template-rows: 5em 22vh auto 5em;
     background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
 }
 
-.panel_game.show {
+.panel_game.show, .panel_endgame.show {
     display: grid;
 }
+
 
 .g_axes {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+    flex-grow: 0;
     padding: 1em 0 0em 0;
-    flex-basis: 3em;
+    flex-basis: 4em;
     text-align: center;
     background-color: rgba(10, 10, 12, 0.5);
 }
@@ -128,10 +157,9 @@ a {
 .g_axis {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 0;
     /* Change if number of axes changes */
     flex-basis: 25%;
-
 }
 
 .g_axis .progress {
@@ -175,18 +203,25 @@ a {
     display: block;
 }
 
-.card_about {
+.card_about, .card_endtext {
+
     text-align: center;
     padding: 0 2em;
     font-size: 1.2em;
     align-self: center;
 }
 
-.card_about h1 {
+.card_about h1, .card_endtext h1 {
     color: #E8D061;
     font-size: bold;
-    font-size: 1.25em;
-    margin: 1em 0 0 0;
+    font-size: 1em;
+    margin: 0em 0 0.2em 0;
+}
+
+.card_about p {
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0 auto;
 }
 
 .card_wrapper {
@@ -362,22 +397,71 @@ a {
 .g_progress_years {
     background: rgba(0,0,0,0.25);
     padding: 2em 0 2em 0;
-    flex-grow: 1;
-    flex-basis: 1em;
+    flex-grow: 0;
+    flex-basis: 5em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     box-sizing: border-box;
 }
 
+
+.tiltinfo {
+	display: none;
+}
+
+
+@media only screen and (max-width: 480px) and (orientation:portrait), only screen and (max-device-width: 480px) and (orientation:portrait) {
+	.g_progress_years {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		padding: 0.5em 0 0.5em 0;
+	}
+
+  .panel_intro {
+      position: relative;
+      background: url('img/hgTeam.png') bottom 4em center no-repeat, linear-gradient(45deg, #735F52 0%, #9C8272 100%);
+      background-size: 100%;
+  }
+
+	.panel_intro .footer {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+
+}
+
+
+@media only screen and (max-width: 480px) and (orientation:landscape), only screen and (max-device-width: 480px) and (orientation:landscape) {
+
+	.tiltinfo {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.8);
+		background-image: url('img/iconRotate.png');
+		background-repeat: no-repeat;
+    	background-attachment: fixed;
+	    background-position: center center;
+	    background-size: 140px 140px;
+	}
+
+
+}
+
+
+
 .g_year {
-    background-color: black;
-    color: white;
-    width: 2em;
-    height: 2em;
-    font-size: 1.25em;
+    background-color: rgba(0,0,0,0.25);
+    color: rgba(255,255,255,0.2);
+    width: 3em;
+    height: 3em;
+    font-size: 0.8em;
     font-weight: bold;
-    line-height: 2em;
+    line-height: 3em;
     border-radius: 100%;
     box-sizing: border-box;
     text-align: center;
@@ -393,8 +477,4 @@ a {
 
 .panel_endgame {
     background-color: #000;
-}
-
-.panel_endgame.show {
-    display: block;
 }

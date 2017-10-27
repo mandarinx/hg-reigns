@@ -105,27 +105,42 @@ function OnTransitionFromGame() {
 }
 
 function OnTransitionToEndGame() {
-    var killedBy = state.killedBy;
-    var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
-    var endgame = config.axes[killedBy].endgame[msgType];
-    
     var axes = document.getElementById("g_axes").cloneNode(true);
 	axes.id = "e_axes";
     document.getElementById("e_axes").replaceWith(axes);
     
     var years = document.getElementById("g_progress_years").cloneNode(true);
 	years.id = "e_progress_years";
-    document.getElementById("e_progress_years").replaceWith(years);    
+    document.getElementById("e_progress_years").replaceWith(years);    	
 
-    document
-        .getElementById('e_title')
-        .innerHTML = endgame.title;
-    document
-        .getElementById('e_description')
-        .innerHTML = endgame.text;
-    document
-        .getElementById('e_card_image')
-        .src = "cards/"+endgame.image+".png";        
+	
+    var killedBy = state.killedBy;
+	if(killedBy==null) {
+		document
+	        .getElementById('e_title')
+	        .innerHTML = config.win.title;
+	    document
+	        .getElementById('e_description')
+	        .innerHTML = config.win.text;
+	    document
+	        .getElementById('e_card_image')
+	        .src = "cards/"+config.win.image+".png"; 		
+		
+	} else {
+	    var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
+	    var endgame = config.axes[killedBy].endgame[msgType];
+	    
+	
+	    document
+	        .getElementById('e_title')
+	        .innerHTML = endgame.title;
+	    document
+	        .getElementById('e_description')
+	        .innerHTML = endgame.text;
+	    document
+	        .getElementById('e_card_image')
+	        .src = "cards/"+endgame.image+".png";   
+    }     
 
     EnableButton('e_retry');
 }
@@ -181,7 +196,7 @@ function LoadNextCard() {
     }
 
     if (state.curYear > config.maxYears) {
-        console.log('The end');
+	        TransitionTo('panel_endgame');
         return;
     }
 

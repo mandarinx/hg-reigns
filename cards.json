@@ -2290,7 +2290,7 @@
     "description": "I want to make a sci-fi survival game with dinousaurs and fighting.",
     "image": "charAre",
     "chance" : 1,
-    "year": 1,
+    "year": 2,
     "options": {
         "no": "Don't do it!",
         "yes": "Let's call it Redux ARK!"
@@ -2319,7 +2319,7 @@
     "description": "There's this new survival game out called ARK with dinosaurs and fighting. Should we continue with Redux ARK?",
     "image": "charAre",
     "chance" : 1,
-    "year": 1,
+    "year": 3,
     "options": {
         "yes": "Remove dinos and call it just REDUX!",
         "no": "Time to stop."
@@ -2348,7 +2348,7 @@
     "description": "We released the REDUX beta, but people don't care...",
     "image": "charAre",
     "chance" : 1,
-    "year": 1,
+    "year": 4,
     "options": {
         "no": "Time to let it go.",
         "yes": "It just needs better code. Start over!"
@@ -2580,7 +2580,7 @@
     "description": "Let's play this extremely cheap but probably fun game about poop!",
     "image": "charThomas",
     "chance" : 1,
-    "year": 1,
+    "year": 4,
     "options": {
         "no": "How about no?",
         "yes": "That MUST be good!"

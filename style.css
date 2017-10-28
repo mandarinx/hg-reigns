@@ -272,8 +272,9 @@ a {
 }
 
 .card_stack .back {
-    background-color: red;
     transform: rotateY(0deg);
+    background-image: url('cards/cardBack.png');
+    background-size: cover;
 }
 
 .card_cur {

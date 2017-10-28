@@ -8,6 +8,7 @@ var btnMouseOverHandlers = {};
 var btnMouseOutHandlers = {};
 
 var prefixTransform = 'transform';
+var lastTouchEnd = 0;
 
 function OnLoad() {
     if ('webkitTransform' in document.body.style) {
@@ -64,15 +65,6 @@ function OnLoad() {
             CreateCardIndex();
             TransitionTo(config.startPanel);
         });
-		var lastTouchEnd = 0;
-		document.addEventListener('touchend', function (event) {
-		    var now = (new Date()).getTime();
-		    if (now - lastTouchEnd <= 300) {
-		        event.preventDefault();
-		    }
-		    lastTouchEnd = now;
-		}, false);	  
-        
 }
 
 function OnTransitionToIntro() {
@@ -103,7 +95,7 @@ function OnTransitionToGame() {
     state.curPos = state.curCardInitPos;
     state.pu = 0;
     ClearCardStacks();
-	state.killedBy = undefined;
+	state.killedBy = null;
     state.curYear = 0;
     state.cardCount = 0;
     FillCardStack(state.curYear);
@@ -158,6 +150,12 @@ function OnPointerMove(e) {
 }
 
 function OnPointerUp(e) {
+    var now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+
     state.isDown = false;
     state.curPos.x += state.mov.x;
     state.curPos.y += state.mov.y;
@@ -171,12 +169,19 @@ function OnPointerUp(e) {
 function Update(time) {
     if (state.cardFalling) {
         var fallDuration = (time - state.fallTime) / 1000;
+        var cardStack = document.getElementById('card_stack');
 
         // Flip next card
-        if (fallDuration >= 0.3) {
-            var cardStack = document.getElementById('card_stack');
+        if (fallDuration >= 0.3 && state.killedBy === null) {
             cardStack.setAttribute('class', 'card_stack flip');
             LoadCard(state.curCard, document.getElementById('card_next'));
+        }
+
+        if (fallDuration >= 0.5 &&
+            state.killedBy !== null &&
+            state.curPanel === 'panel_game') {
+            console.log('transition to endgame');
+            TransitionTo('panel_endgame');
         }
 
         // Kill falling card
@@ -184,10 +189,13 @@ function Update(time) {
             state.cardFalling = false;
 
             document.body.removeChild(state.cardElm);
-            CreateCard(document.getElementById('card_wrapper'), state.curCard);
-            SetCurCard('card_cur');
-            state.cardElm.addEventListener('pointerdown', OnPointerDown);
-            state.cardElm.addEventListener('touchstart', OnPointerDown);
+
+            if (state.killedBy !== null) {
+                CreateCard(document.getElementById('card_wrapper'), state.curCard);
+                SetCurCard('card_cur');
+                state.cardElm.addEventListener('pointerdown', OnPointerDown);
+                state.cardElm.addEventListener('touchstart', OnPointerDown);
+            }
 
             document
                 .getElementById('card_next')
@@ -202,6 +210,7 @@ function Update(time) {
             state.mouseDownPos = {x:0,y:0};
             state.mov = {x:0,y:0};
             state.curPos = state.curCardInitPos;
+
             return;
         }
 
@@ -215,11 +224,13 @@ function Update(time) {
     var option = sign > 0 ? 'yes' : 'no';
 
     if (!state.isDown) {
+        // pull back card to center
         if (pos < 0.5) {
             pos *= 0.2;
             var halfWidth = (state.movement.max - state.movement.min) * 0.5;
             state.curPos.x = state.curCardInitPos.x - (pos * sign * halfWidth);
 
+        // let the card fall
         } else {
             state.cardFalling = true;
             state.fallTime = time;
@@ -234,10 +245,18 @@ function Update(time) {
                 return state.curCard.influences[option][axes];
             });
 
+            if (!ValidateGameState()) {
+                state.killedBy = GetInvalidAxes();
+                console.log('killed by: '+state.killedBy);
+            }
+
             state.cardElm.removeEventListener('pointerdown', OnPointerDown);
             state.cardElm.removeEventListener('touchstart', OnPointerDown);
 
-            LoadNextCard();
+            if (state.killedBy === null) {
+                LoadNextCard();
+            }
+
             HideDots(config.axes);
             HideOption();
         }
@@ -282,12 +301,12 @@ function OnTransitionToEndGame() {
     var axes = document.getElementById("g_axes").cloneNode(true);
 	axes.id = "e_axes";
     document.getElementById("e_axes").replaceWith(axes);
-    
+
     var years = document.getElementById("g_progress_years").cloneNode(true);
 	years.id = "e_progress_years";
-    document.getElementById("e_progress_years").replaceWith(years);    	
+    document.getElementById("e_progress_years").replaceWith(years);
 
-	
+
     var killedBy = state.killedBy;
 	if(killedBy==null) {
 		document
@@ -298,13 +317,13 @@ function OnTransitionToEndGame() {
 	        .innerHTML = config.win.text;
 	    document
 	        .getElementById('e_card_image')
-	        .src = "cards/"+config.win.image+".png"; 		
-		
+	        .src = "cards/"+config.win.image+".png";
+
 	} else {
 	    var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
 	    var endgame = config.axes[killedBy].endgame[msgType];
-	    
-	
+
+
 	    document
 	        .getElementById('e_title')
 	        .innerHTML = endgame.title;
@@ -313,8 +332,8 @@ function OnTransitionToEndGame() {
 	        .innerHTML = endgame.text;
 	    document
 	        .getElementById('e_card_image')
-	        .src = "cards/"+endgame.image+".png";   
-    }     
+	        .src = "cards/"+endgame.image+".png";
+    }
 
     EnableButton('e_retry');
 }
@@ -328,24 +347,13 @@ function OnStartGame() {
 }
 
 function OnRestartGame() {
-	
+
     TransitionTo('panel_game');
 }
 
 function LoadNextCard() {
-
-    if (!ValidateGameState()) {
-        state.killedBy = GetInvalidAxes();
-        
-        // Wait for bars to transition before ending game
-        setTimeout(()=>{
-	        TransitionTo('panel_endgame');
-        }, 500);
-		return;
-    }
-
     if (state.curYear >= config.maxYears) {
-	        TransitionTo('panel_endgame');
+        TransitionTo('panel_endgame');
         return;
     }
 

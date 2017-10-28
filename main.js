@@ -37,7 +37,8 @@ var app = express()
             fontSrc: [
                 "'self'",
                 'data:',
-                'fonts.gstatic.com'
+                'fonts.gstatic.com',
+                'fonts.googleapis.com'
             ],
             imgSrc: [
                 "'self'",

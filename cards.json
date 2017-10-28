@@ -516,7 +516,7 @@
     }
   },
   "y0_c13" : {
-    "title": "Publisher",
+    "title": "Shady publisher",
     "description": "Wow, that's quite a development budget you've got there. Do you eat gold plated food in Norway?",
     "image": "charPublisher",
     "chance" : 1,
@@ -690,7 +690,7 @@
     }
   },
   "y0_c19" : {
-    "title": "Publisher",
+    "title": "Shady publisher",
     "description": "We really love your game and want to publish it. Just pay us a monthly retainer, and we'll promo the shit out of you!! WE HAVE A YOUTUBE CHANNEL!",
     "image": "charPublisher",
     "chance" : 1,
@@ -1560,7 +1560,7 @@
     }
   },
   "y0_c49" : {
-    "title": "Publisher",
+    "title": "Shady publisher",
     "description": "Multiplayer survival games are really hot right now. You should tweak your current project in that direction.",
     "image": "charPublisher",
     "chance" : 1,

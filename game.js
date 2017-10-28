@@ -151,7 +151,7 @@ function OnPointerMove(e) {
 
 function OnPointerUp(e) {
     var now = (new Date()).getTime();
-    if (now - lastTouchEnd <= 300) {
+    if (now - lastTouchEnd <= 400) {
         event.preventDefault();
     }
     lastTouchEnd = now;
@@ -348,7 +348,7 @@ function OnStartGame() {
 
 function OnRestartGame() {
 
-    TransitionTo('panel_game');
+    TransitionTo('panel_intro');
 }
 
 function LoadNextCard() {

@@ -1,3 +1,4 @@
+
 function TransitionTo(to_panel) {
     if (state.curPanel !== null) {
         var cur = document.getElementById(state.curPanel);
@@ -201,14 +202,34 @@ function SetCurCard(id) {
         y: cardRect.top
     };
 }
-
+/*
 function FetchJSON(file, callback) {
-    return fetch(file)
+	
+    return loadJSON(file)
         .then(function(response) {
-            return response.json();
+            return JSON.parse(response);
         })
         .then(callback);
+            
 }
+*/
+
+function FetchJSON(file, callback) {
+	
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', file, true);
+    xobj.onreadystatechange = function() {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            callback(JSON.parse(xobj.responseText));
+        }
+    }
+    xobj.send(null);
+
+}
+
+
+
 
 function SetAxes(axes) {
     var g_axes = document.getElementById('g_axes');
@@ -398,3 +419,17 @@ function Map(value, xmin, xmax, ymin, ymax) {
     var percent = (value - xmin) / (xmax - xmin);
     return percent * (ymax - ymin) + ymin;
 }
+
+function ReplaceWith(Ele) {
+     if (this.parentNode) {
+		this.parentNode.replaceChild(Ele, this);
+	}
+}
+
+
+if (!Element.prototype.replaceWith)
+    Element.prototype.replaceWith = ReplaceWith;
+if (!CharacterData.prototype.replaceWith)
+    CharacterData.prototype.replaceWith = ReplaceWith;
+if (!DocumentType.prototype.replaceWith) 
+    DocumentType.prototype.replaceWith = ReplaceWith;

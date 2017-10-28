@@ -202,34 +202,26 @@ function SetCurCard(id) {
         y: cardRect.top
     };
 }
-/*
+
 function FetchJSON(file, callback) {
-	
-    return loadJSON(file)
+    return fetch(file)
         .then(function(response) {
-            return JSON.parse(response);
+            return response.json();
         })
         .then(callback);
-            
-}
-*/
-
-function FetchJSON(file, callback) {
-	
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', file, true);
-    xobj.onreadystatechange = function() {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-            callback(JSON.parse(xobj.responseText));
-        }
-    }
-    xobj.send(null);
-
 }
 
-
-
+// function FetchJSON(file, callback) {
+//     var xobj = new XMLHttpRequest();
+//     xobj.overrideMimeType("application/json");
+//     xobj.open('GET', file, true);
+//     xobj.onreadystatechange = function() {
+//         if (xobj.readyState == 4 && xobj.status == "200") {
+//             callback(JSON.parse(xobj.responseText));
+//         }
+//     }
+//     xobj.send(null);
+// }
 
 function SetAxes(axes) {
     var g_axes = document.getElementById('g_axes');
@@ -294,7 +286,7 @@ function SetAxisValue(axis, value) {
 }
 
 function SetAxesValue(id, value) {
-	
+
 	// Needed to clamp the value to make sure it animates (would not animate to less than 0)
 	var newVal = state.axisValues[id]+value;
 	if(newVal<0) newVal = 0;
@@ -431,5 +423,5 @@ if (!Element.prototype.replaceWith)
     Element.prototype.replaceWith = ReplaceWith;
 if (!CharacterData.prototype.replaceWith)
     CharacterData.prototype.replaceWith = ReplaceWith;
-if (!DocumentType.prototype.replaceWith) 
+if (!DocumentType.prototype.replaceWith)
     DocumentType.prototype.replaceWith = ReplaceWith;

@@ -60,9 +60,30 @@ function OnLoad() {
                 killedbBy: null,
                 cardStacks: [[],[],[],[],[]],
                 cardFalling: false,
-                fallTime: 0
+                fallTime: 0,
+                cardFlipped: false
             };
+
             CreateCardIndex();
+
+            CreateAxesElements(config.axes);
+
+            var a_parent = document.getElementById('e_axes');
+            var a_childs = document.getElementById('g_axes').children;
+            for (var i=0; i<a_childs.length; ++i) {
+                var elm = a_childs[i].cloneNode(true);
+                elm.id = 'e_' + a_childs[i].id;
+                a_parent.appendChild(elm);
+            }
+
+            var y_parent = document.getElementById('e_progress_years');
+            var y_childs = document.getElementById('g_progress_years').children;
+            for (var i=0; i<y_childs.length; ++i) {
+                var elm = y_childs[i].cloneNode(true);
+                elm.id = 'e_' + y_childs[i].id;
+                y_parent.appendChild(elm);
+            }
+
             TransitionTo(config.startPanel);
         });
 }
@@ -76,7 +97,11 @@ function OnTransitionFromIntro() {
 }
 
 function OnTransitionToGame() {
-    SetCurCard('card_cur');
+    ResetAxesValues();
+
+    Object.keys(state.axisElms).forEach(function(axis) {
+        SetProgressBarValue(state.axisElms[axis].progressBar, state.axisValues[axis]);
+    });
 
     state.mouseDownPos = {x:0,y:0};
     state.mov = {x:0,y:0};
@@ -86,23 +111,33 @@ function OnTransitionToGame() {
         .getBoundingClientRect();
     var padding = panelRect.width * 0.15;
 
+    state.pu = 0;
+    ClearCardStacks();
+    state.killedBy = null;
+    state.curYear = 0;
+    state.cardCount = 0;
+    FillCardStack(state.curYear);
+    state.curCard = GetCard(GetRandomCard(state.curYear));
+
+    CreateCard(document.getElementById('card_wrapper'), state.curCard);
+    SetCurCard('card_cur');
+
     var cardRect = state.cardElm.getBoundingClientRect();
     state.movement = {};
     state.movement.min = panelRect.left + padding;
     state.movement.max = panelRect.left + panelRect.width - padding - cardRect.width;
     state.movement.len = state.movement.max - state.movement.min;
 
+    state.curCardInitPos = {
+        x: cardRect.left,
+        y: cardRect.top
+    };
     state.curPos = state.curCardInitPos;
-    state.pu = 0;
-    ClearCardStacks();
-	state.killedBy = null;
-    state.curYear = 0;
-    state.cardCount = 0;
-    FillCardStack(state.curYear);
-    state.curCard = GetCard(GetRandomCard(state.curYear));
 
-    SetAxes(config.axes);
-    SetAxisValue(state.axisElms, config.axesStartValue);
+    SetAxesValue(config.axes, config.axesStartValue);
+    Object.keys(state.axisElms).forEach(function(axis) {
+        SetProgressBarValue(state.axisElms[axis].progressBar, state.axisValues[axis]);
+    });
 
     ClearCard();
     LoadCard(state.curCard, document.getElementById('card_cur'));
@@ -172,7 +207,11 @@ function Update(time) {
         var cardStack = document.getElementById('card_stack');
 
         // Flip next card
-        if (fallDuration >= 0.3 && state.killedBy === null) {
+        if (fallDuration >= 0.3 &&
+            state.killedBy === null &&
+            !state.cardFlipped) {
+            state.cardFlipped = true;
+
             cardStack.setAttribute('class', 'card_stack flip');
             LoadCard(state.curCard, document.getElementById('card_next'));
         }
@@ -180,7 +219,6 @@ function Update(time) {
         if (fallDuration >= 0.5 &&
             state.killedBy !== null &&
             state.curPanel === 'panel_game') {
-            console.log('transition to endgame');
             TransitionTo('panel_endgame');
         }
 
@@ -190,7 +228,7 @@ function Update(time) {
 
             document.body.removeChild(state.cardElm);
 
-            if (state.killedBy !== null) {
+            if (state.killedBy === null) {
                 CreateCard(document.getElementById('card_wrapper'), state.curCard);
                 SetCurCard('card_cur');
                 state.cardElm.addEventListener('pointerdown', OnPointerDown);
@@ -241,8 +279,12 @@ function Update(time) {
                     state.cardStacks[card.year].push(card);
                 });
 
-            SetAxisValue(state.curCard.influences[option], function(axes) {
+            SetAxesValue(state.curCard.influences[option], function(axes) {
                 return state.curCard.influences[option][axes];
+            });
+
+            Object.keys(state.axisElms).forEach(function(axis) {
+                SetProgressBarValue(state.axisElms[axis].progressBar, state.axisValues[axis]);
             });
 
             if (!ValidateGameState()) {
@@ -262,6 +304,7 @@ function Update(time) {
         }
     }
 
+    state.cardFlipped = false;
     var x = state.curPos.x + state.mov.x;
     var y = state.curPos.y + state.mov.y;
 
@@ -298,14 +341,13 @@ function OnTransitionFromGame() {
 }
 
 function OnTransitionToEndGame() {
-    var axes = document.getElementById("g_axes").cloneNode(true);
-	axes.id = "e_axes";
-    document.getElementById("e_axes").replaceWith(axes);
 
-    var years = document.getElementById("g_progress_years").cloneNode(true);
-	years.id = "e_progress_years";
-    document.getElementById("e_progress_years").replaceWith(years);
 
+    Object.keys(state.axisValues).forEach(function(axis) {
+        var elm = document.getElementById('e_axes')
+            .querySelector('#e_' + axis + ' .progress > div');
+        SetProgressBarValue(elm, state.axisValues[axis]);
+    });
 
     var killedBy = state.killedBy;
 	if(killedBy==null) {
@@ -347,7 +389,6 @@ function OnStartGame() {
 }
 
 function OnRestartGame() {
-
     TransitionTo('panel_intro');
 }
 

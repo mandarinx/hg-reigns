@@ -26,17 +26,17 @@ a {
 
 .content {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
 }
 
 .panel_intro,
 .panel_game,
 .panel_endgame {
-    display: none;   
+    display: none;
 	width: 50.6vh;
 	height: 90vh;
 	min-width: 340px;
-	min-height: 600px;	
+	min-height: 600px;
 	position: relative;
 	top: 5vh;
 }
@@ -137,7 +137,7 @@ a {
 }
 
 /* GAME */
-.panel_game, .panel_endgame {
+.panel_game {
     display: none;
     grid-template-rows: 5em 22vh auto 5em;
     background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
@@ -152,7 +152,7 @@ a {
     background-color: #604D40;
     position: absolute;
     width: 100%;
-    height: 100%;    	
+    height: 100%;
 	overflow: hidden;
 	top: 0;
 	left: 0;
@@ -180,7 +180,7 @@ a {
 	float: right;
 	margin: 0px 0px 20px 20px;
 	width: 140px;
-	height: 140px;	
+	height: 140px;
 }
 
 
@@ -267,7 +267,6 @@ a.close {
 }
 
 .card_about, .card_endtext {
-
     text-align: center;
     padding: 0 2em;
     font-size: 1.2em;
@@ -354,6 +353,10 @@ a.close {
     -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
     -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
     box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
+}
+
+.panel_endgame .card_cur {
+    margin-top: 0;
 }
 
 .card_cur.absolute {
@@ -516,12 +519,12 @@ a.close {
 
 @media only screen and (min-height: 700px) {
 	.howtoplay p.ingress {
-		font-size: 27px;		
+		font-size: 27px;
 	}
 	.howtoplay p {
 		font-size: 18px;
 	}
-	
+
 	.howtoplay .card_frame {
 		width: 160px;
 		height: 160px;
@@ -530,16 +533,16 @@ a.close {
 
 @media only screen and (min-height: 800px) {
 	.howtoplay p.ingress {
-		font-size: 32px;		
+		font-size: 32px;
 	}
 	.howtoplay p {
 		font-size: 22px;
 	}
-	
+
 	.howtoplay .card_frame {
 		width: 200px;
 		height: 200px;
-	}	
+	}
 }
 
 @media only screen and (max-width: 480px) and (orientation:landscape), only screen and (max-device-width: 480px) and (orientation:landscape) {
@@ -585,4 +588,11 @@ a.close {
 
 .panel_endgame {
     background-color: #000;
+    display: none;
+    grid-template-rows: 5em 41vh auto 5em;
+    background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
+}
+
+.panel_endgame .card_wrapper {
+    align-self: center;
 }

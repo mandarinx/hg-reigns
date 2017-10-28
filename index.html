@@ -11,8 +11,7 @@
   <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="lib.js"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no,shrink-to-fit=no" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no,shrink-to-fit=no" />
 
   <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -21,24 +20,18 @@
 </head>
 
 <body>
-
     <div class="content" id="content">
-
-
 
         <div class="panel_intro" id="panel_intro">
             <img src="img/logo.png" id="logo">
 
-
             <a id="i_btn_start" class="button">Start</a>
             <a id="i_btn_tutorial" class="button"  onclick="getElementById('howtoplay').style='display:block'">How to play</a>
-
 
             <div class="share">
               <a href="https://twitter.com/intent/tweet?text=Play%20Hyper%20Games%20-%205%20Year%20Reign!" class="shareIcon"><img src="img/iconTwitter.png"></a>
               <a href="#" class="shareIcon"><img src="img/iconFacebook.png"></a>
             </div>
-
 
             <div class="footer">
                 <p>Based on the wonderful game <a href="https://www.devolverdigital.com/games/view/reigns">Reigns</a> by Nerial</p>
@@ -77,13 +70,6 @@
                         <img src="cards/empty.png" draggable="false" />
                     </div>
                 </div>
-                <div class="card_cur" id="card_cur">
-                    <!-- id still neded? -->
-                    <img id="card_image" src="cards/empty.png" draggable="false" />
-                    <div class="option_bg" id="option_bg">
-                        <p id="option_description"></p>
-                    </div>
-                </div>
             </div>
 
             <div class="g_progress_years" id="g_progress_years">
@@ -96,12 +82,10 @@
         </div>
 
         <div class="panel_endgame" id="panel_endgame">
+	        <div class="g_axes" id="e_axes"></div>
 
-	        <div id="e_axes"></div>
-
-			<div class="card_image">
-
-				<div class="card_frame">
+			<div class="card_wrapper">
+				<div class="card_cur">
 					<img id="e_card_image" src="cards/empty.png" />
 				</div>
 			</div>
@@ -112,14 +96,9 @@
 				<a id="e_retry" class="button small">Try again</a>
 	        </div>
 
-            <div class="g_padding"></div>
-
-            <div id="e_progress_years"></div>
-
+            <div class="g_progress_years" id="e_progress_years"></div>
 
         </div>
-
-
 
 		<div id="tiltinfo" class="tiltinfo"></div>
     </div>

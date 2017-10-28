@@ -211,19 +211,7 @@ function FetchJSON(file, callback) {
         .then(callback);
 }
 
-// function FetchJSON(file, callback) {
-//     var xobj = new XMLHttpRequest();
-//     xobj.overrideMimeType("application/json");
-//     xobj.open('GET', file, true);
-//     xobj.onreadystatechange = function() {
-//         if (xobj.readyState == 4 && xobj.status == "200") {
-//             callback(JSON.parse(xobj.responseText));
-//         }
-//     }
-//     xobj.send(null);
-// }
-
-function SetAxes(axes) {
+function CreateAxesElements(axes) {
     var g_axes = document.getElementById('g_axes');
     ClearChildElements('g_axes');
 
@@ -273,7 +261,7 @@ function SetAxes(axes) {
         });
 }
 
-function SetAxisValue(axis, value) {
+function SetAxesValue(axis, value) {
     Object
         .keys(axis)
         .forEach(function(id) {
@@ -281,28 +269,34 @@ function SetAxisValue(axis, value) {
             if (typeof value === 'function') {
                 v = value(id);
             }
-            SetAxesValue(id, v);
+            SetAxisValue(id, v);
         });
 }
 
-function SetAxesValue(id, value) {
-
-	// Needed to clamp the value to make sure it animates (would not animate to less than 0)
-	var newVal = state.axisValues[id]+value;
-	if(newVal<0) newVal = 0;
-	else if(newVal>config.axesMaxValue) newVal = config.axesMaxValue;
+function SetAxisValue(id, value) {
+	var newVal = state.axisValues[id] + value;
+    newVal = Clamp(newVal, 0, config.axesMaxValue);
 
     state.axisValues[id] = newVal;
+}
+
+function ResetAxesValues() {
+    Object.keys(state.axisValues).forEach(function(axis) {
+        state.axisValues[axis] = 0;
+    });
+}
+
+function SetProgressBarValue(elm, value) {
     var color = '#8DBEB2';
 
-    var valpct = state.axisValues[id] / config.axesMaxValue;
+    var valpct = value / config.axesMaxValue;
     if(valpct < 0.15 || valpct > 0.85){
         color = '#F15F60';
     } else if(valpct < 0.30 || valpct > 0.70){
         color = '#F6B567';
     }
 
-    var style = state.axisElms[id].progressBar.style;
+    var style = elm.style;
     style.width = Math.round(valpct * 100) + '%';
     style.backgroundColor = color;
 }
@@ -411,17 +405,3 @@ function Map(value, xmin, xmax, ymin, ymax) {
     var percent = (value - xmin) / (xmax - xmin);
     return percent * (ymax - ymin) + ymin;
 }
-
-function ReplaceWith(Ele) {
-     if (this.parentNode) {
-		this.parentNode.replaceChild(Ele, this);
-	}
-}
-
-
-if (!Element.prototype.replaceWith)
-    Element.prototype.replaceWith = ReplaceWith;
-if (!CharacterData.prototype.replaceWith)
-    CharacterData.prototype.replaceWith = ReplaceWith;
-if (!DocumentType.prototype.replaceWith)
-    DocumentType.prototype.replaceWith = ReplaceWith;

@@ -86,6 +86,21 @@ function OnLoad() {
 
             TransitionTo(config.startPanel);
         });
+        
+        
+        // Still need these, because the other listeners only listens when clicking the cards
+        document.body.addEventListener('touchmove',function(e){
+			e.preventDefault();
+		});
+		  
+		document.addEventListener('touchend', function (event) {
+		    var now = (new Date()).getTime();
+		    if (now - lastTouchEnd <= 300) {
+		        event.preventDefault();
+		    }
+		    lastTouchEnd = now;
+		}, false);	  
+        
 }
 
 function OnTransitionToIntro() {
@@ -119,38 +134,42 @@ function OnTransitionToGame() {
     FillCardStack(state.curYear);
     state.curCard = GetCard(GetRandomCard(state.curYear));
 
-    CreateCard(document.getElementById('card_wrapper'), state.curCard);
-    SetCurCard('card_cur');
-
-    var cardRect = state.cardElm.getBoundingClientRect();
-    state.movement = {};
-    state.movement.min = panelRect.left + padding;
-    state.movement.max = panelRect.left + panelRect.width - padding - cardRect.width;
-    state.movement.len = state.movement.max - state.movement.min;
-
-    state.curCardInitPos = {
-        x: cardRect.left,
-        y: cardRect.top
-    };
-    state.curPos = state.curCardInitPos;
-
-    SetAxesValue(config.axes, config.axesStartValue);
-    Object.keys(state.axisElms).forEach(function(axis) {
-        SetProgressBarValue(state.axisElms[axis].progressBar, state.axisValues[axis]);
+    CreateCard(document.getElementById('card_wrapper'), state.curCard, function(){
+	    SetCurCard('card_cur');	    
+	    
+	    var cardRect = state.cardElm.getBoundingClientRect();
+	    state.movement = {};
+	    state.movement.min = panelRect.left + padding;
+	    state.movement.max = panelRect.left + panelRect.width - padding - cardRect.width;
+	    state.movement.len = state.movement.max - state.movement.min;
+	
+	    state.curCardInitPos = {
+	        x: cardRect.left,
+	        y: cardRect.top
+	    };
+	    state.curPos = state.curCardInitPos;
+	
+	    SetAxesValue(config.axes, config.axesStartValue);
+	    Object.keys(state.axisElms).forEach(function(axis) {
+	        SetProgressBarValue(state.axisElms[axis].progressBar, state.axisValues[axis]);
+	    });
+	
+	    ClearCard();
+	    LoadCard(state.curCard, document.getElementById('card_cur'));
+	    ResetYears();
+	    HighlightCurYear();
+	
+		document.addEventListener('mousedown', OnPointerDown);
+	    document.addEventListener('touchstart', OnPointerDown);
+	
+	    state.updateRef = null;
     });
 
-    ClearCard();
-    LoadCard(state.curCard, document.getElementById('card_cur'));
-    ResetYears();
-    HighlightCurYear();
 
-    state.cardElm.addEventListener('pointerdown', OnPointerDown);
-    state.cardElm.addEventListener('touchstart', OnPointerDown);
-
-    state.updateRef = null;
 }
 
 function OnPointerDown(e) {
+	
     if (typeof e.button !== 'undefined' && e.button !== 0) {
         return;
     }
@@ -160,15 +179,19 @@ function OnPointerDown(e) {
 
     state.isDown = true;
     state.mouseDownPos = GetPageCoord(e);
+    state.mov = {x:0,y:0};    
+	state.curPos = state.curCardInitPos;    
 
     document.body.insertBefore(state.cardElm, document.body.firstChild);
     state.cardElm.classList.add('absolute');
 
-    state.cardElm.addEventListener('pointermove', OnPointerMove);
-    state.cardElm.addEventListener('pointerup', OnPointerUp);
-    state.cardElm.addEventListener('touchmove', OnPointerMove);
-    state.cardElm.addEventListener('touchend', OnPointerUp);
+    document.addEventListener('mousemove', OnPointerMove);    
+    document.addEventListener('mouseup', OnPointerUp);    
+    document.addEventListener('touchmove', OnPointerMove);
+    document.addEventListener('touchend', OnPointerUp);
 
+	Update();
+	
     if (state.updateRef === null) {
         state.updateRef = window.requestAnimationFrame(Update);
     }
@@ -189,16 +212,16 @@ function OnPointerUp(e) {
     if (now - lastTouchEnd <= 400) {
         event.preventDefault();
     }
-    lastTouchEnd = now;
+    lastTouchEnd = now;	
 
     state.isDown = false;
     state.curPos.x += state.mov.x;
     state.curPos.y += state.mov.y;
     state.mov = {x:0,y:0};
-    state.cardElm.removeEventListener('pointermove', OnPointerMove);
-    state.cardElm.removeEventListener('pointerup', OnPointerUp);
-    state.cardElm.removeEventListener('touchmove', OnPointerMove);
-    state.cardElm.removeEventListener('touchend', OnPointerUp);
+    document.removeEventListener('mousemove', OnPointerMove);    
+    document.removeEventListener('mouseup', OnPointerUp);    
+    document.removeEventListener('touchmove', OnPointerMove);
+    document.removeEventListener('touchend', OnPointerUp);
 }
 
 function Update(time) {
@@ -206,8 +229,15 @@ function Update(time) {
         var fallDuration = (time - state.fallTime) / 1000;
         var cardStack = document.getElementById('card_stack');
 
+
+        if (fallDuration >= 0.5 &&
+            state.killedBy !== null &&
+            state.curPanel === 'panel_game') {
+            TransitionTo('panel_endgame');
+        }
+        
         // Flip next card
-        if (fallDuration >= 0.3 &&
+        if (fallDuration >= 1.7 &&
             state.killedBy === null &&
             !state.cardFlipped) {
             state.cardFlipped = true;
@@ -215,39 +245,39 @@ function Update(time) {
             cardStack.setAttribute('class', 'card_stack flip');
             LoadCard(state.curCard, document.getElementById('card_next'));
         }
-
-        if (fallDuration >= 0.5 &&
-            state.killedBy !== null &&
-            state.curPanel === 'panel_game') {
-            TransitionTo('panel_endgame');
-        }
+        
 
         // Kill falling card
-        if (fallDuration >= 1.7) {
+        if (fallDuration >= 2) {
             state.cardFalling = false;
 
-            document.body.removeChild(state.cardElm);
+            if(state.cardElm!=null) document.body.removeChild(state.cardElm);
 
             if (state.killedBy === null) {
-                CreateCard(document.getElementById('card_wrapper'), state.curCard);
-                SetCurCard('card_cur');
-                state.cardElm.addEventListener('pointerdown', OnPointerDown);
-                state.cardElm.addEventListener('touchstart', OnPointerDown);
+                CreateCard(document.getElementById('card_wrapper'), state.curCard,function(){
+	                SetCurCard('card_cur');	
+					document.addEventListener('mousedown', OnPointerDown);
+	                document.addEventListener('touchstart', OnPointerDown);	
+	                
+	                var imgNext = document
+		                .getElementById('card_next')
+		                .querySelector('img')
+		                .setAttribute('src', 'cards/empty.png');
+		
+		            cardStack.setAttribute('class', 'card_stack flipimmediate');
+		
+
+	                                                
+                });
+
+	            window.cancelAnimationFrame(state.updateRef);
+	            state.updateRef = null;
+	
+	            state.mouseDownPos = {x:0,y:0};
+	            state.mov = {x:0,y:0};
+	            state.curPos = state.curCardInitPos;
+	            state.cardElm.style[prefixTransform] = 'translate(0px,0px) rotate(0deg)';
             }
-
-            document
-                .getElementById('card_next')
-                .querySelector('img')
-                .setAttribute('src', 'cards/empty.png');
-
-            cardStack.setAttribute('class', 'card_stack flipimmediate');
-
-            window.cancelAnimationFrame(state.updateRef);
-            state.updateRef = null;
-
-            state.mouseDownPos = {x:0,y:0};
-            state.mov = {x:0,y:0};
-            state.curPos = state.curCardInitPos;
 
             return;
         }
@@ -292,8 +322,8 @@ function Update(time) {
                 console.log('killed by: '+state.killedBy);
             }
 
-            state.cardElm.removeEventListener('pointerdown', OnPointerDown);
-            state.cardElm.removeEventListener('touchstart', OnPointerDown);
+            document.removeEventListener('mousedown', OnPointerDown);            
+            document.removeEventListener('touchstart', OnPointerDown);
 
             if (state.killedBy === null) {
                 LoadNextCard();
@@ -334,8 +364,8 @@ function GetPageCoord(e) {
 }
 
 function OnTransitionFromGame() {
-    state.cardElm.removeEventListener('pointerdown', OnPointerDown);
-    state.cardElm.removeEventListener('touchstart', OnPointerDown);
+    document.removeEventListener('mousedown', OnPointerDown);    
+    document.removeEventListener('touchstart', OnPointerDown);
     window.cancelAnimationFrame(state.updateRef);
     HideDots(config.axes);
 }

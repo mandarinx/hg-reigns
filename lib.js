@@ -155,40 +155,51 @@ function ClearCard() {
     ClearChildElements('card_description');
 }
 
-function LoadCard(card, elm) {
-    elm
-        .querySelector('img')
-        .setAttribute('src', 'cards/' + card.image + '.png');
+function LoadCard(card, elm, callback) {
+	var img = elm.querySelector('img');
+    img.onload = function() {
+		if(callback!=null) callback();
+    }
+    	
+    img.setAttribute('src', 'cards/' + card.image + '.png');
     document
         .getElementById('card_title')
         .innerHTML = card.title;
     document
         .getElementById('card_description')
         .innerHTML = card.description;
+        
+   
 }
 
-function CreateCard(parent, card) {
+function CreateCard(parent, card, callback) {
     var card_cur = document.createElement('div');
     card_cur.setAttribute('class', 'card_cur');
     card_cur.setAttribute('id', 'card_cur');
 
     var img = document.createElement('img');
+    img.onload = function(){
+	    card_cur.appendChild(img);
+	
+	    var option_bg = document.createElement('div');
+	    option_bg.setAttribute('class', 'option_bg');
+	    option_bg.setAttribute('id', 'option_bg');
+	    card_cur.appendChild(option_bg);
+	
+	    var p = document.createElement('p');
+	    p.setAttribute('id', 'option_description');
+	    option_bg.appendChild(p);
+	    card_cur.appendChild(option_bg);
+	
+	    parent.appendChild(card_cur);
+    	    
+		if(callback!=null) callback();
+    };
+    
     img.setAttribute('id', 'card_image');
     img.setAttribute('src', 'cards/' + card.image + '.png');
     img.setAttribute('draggable', false);
-    card_cur.appendChild(img);
 
-    var option_bg = document.createElement('div');
-    option_bg.setAttribute('class', 'option_bg');
-    option_bg.setAttribute('id', 'option_bg');
-    card_cur.appendChild(option_bg);
-
-    var p = document.createElement('p');
-    p.setAttribute('id', 'option_description');
-    option_bg.appendChild(p);
-    card_cur.appendChild(option_bg);
-
-    parent.appendChild(card_cur);
 }
 
 function SetCurCard(id) {
@@ -337,12 +348,11 @@ function ShowOption(content) {
 }
 
 function HideOption() {
-    document
-        .getElementById('option_bg')
-        .setAttribute('class', 'option_bg');
-    document
-        .getElementById('option_description')
-        .innerHTML = '';
+    var optionbg = document.getElementById('option_bg');
+    if(optionbg!=null) optionbg.setAttribute('class', 'option_bg');
+	
+	var optiondesc = document.getElementById('option_description');
+	if(optiondesc!=null) optiondesc.innerHTML = '';
 }
 
 function ShowDots(axis) {

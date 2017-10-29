@@ -18,6 +18,7 @@ html, body {
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 a {
@@ -304,6 +305,11 @@ a.close {
     transition: 0s;
 }
 
+.card_stack, .card_stack * {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
 .card_stack {
     position: relative;
     z-index: 1;
@@ -331,6 +337,8 @@ a.close {
 
 .card_stack .front {
     margin-top: -32vh;
+    z-index: 900;    
+
 }
 
 .card_stack .back {
@@ -368,7 +376,7 @@ a.close {
 .card_stack .front > img {
     display: block;
     position: relative;
-    height: 100%;
+    height: 100%;    
 }
 
 .card_cur.fall_right {

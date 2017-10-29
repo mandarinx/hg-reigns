@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 html, body {
     font-family: 'Rokkitt', serif;
     color: white;
@@ -20,17 +26,17 @@ a {
 
 .content {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
 }
 
 .panel_intro,
 .panel_game,
 .panel_endgame {
-    display: none;   
+    display: none;
 	width: 50.6vh;
 	height: 90vh;
 	min-width: 340px;
-	min-height: 600px;	
+	min-height: 600px;
 	position: relative;
 	top: 5vh;
 }
@@ -131,15 +137,14 @@ a {
 }
 
 /* GAME */
-.panel_game, .panel_endgame {
+.panel_game {
     display: none;
-    flex-direction: column;
-    justify-content: space-around;
+    grid-template-rows: 5em 22vh auto 5em;
     background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
 }
 
 .panel_game.show, .panel_endgame.show {
-    display: flex;
+    display: grid;
 }
 
 .howtoplay {
@@ -147,7 +152,7 @@ a {
     background-color: #604D40;
     position: absolute;
     width: 100%;
-    height: 100%;    	
+    height: 100%;
 	overflow: hidden;
 	top: 0;
 	left: 0;
@@ -175,7 +180,7 @@ a {
 	float: right;
 	margin: 0px 0px 20px 20px;
 	width: 140px;
-	height: 140px;	
+	height: 140px;
 }
 
 
@@ -262,12 +267,10 @@ a.close {
 }
 
 .card_about, .card_endtext {
-
     text-align: center;
-    flex-grow: 1;
-    flex-basis: 7em;
     padding: 0 2em;
     font-size: 1.2em;
+    align-self: center;
 }
 
 .card_about h1, .card_endtext h1 {
@@ -281,36 +284,137 @@ a.close {
   font-size: 1em;
   line-height: 1em;
   margin: 0 auto;
-
 }
 
-.card_image {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
+.card_wrapper {
+    justify-self: center;
     box-sizing: border-box;
+    position: relative;
+    /* For card flipping */
+    perspective: 1500px;
+    perspective-origin: 50% 16vh;
 }
 
-.card_frame {
+.card_stack.flip {
+    transform: rotateY(180deg);
+}
+
+.card_stack.flipimmediate {
+    transform: rotateY(0deg);
+    transition: 0s;
+}
+
+.card_stack {
+    position: relative;
+    z-index: 1;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    width: 32vh;
+    height: 32vh;
+}
+
+.card_stack .front,
+.card_stack .back {
+    transform: rotateY(180deg);
+}
+
+.card_cur,
+.card_stack .front,
+.card_stack .back {
+    backface-visibility: hidden;
+    width: 32vh;
+    height: 32vh;
+
+    border: 0.6em solid white;
+    border-radius: 0.4em;
+}
+
+.card_stack .front {
+    margin-top: -32vh;
+}
+
+.card_stack .back {
+    transform: rotateY(0deg);
+    background-image: url('cards/cardBack.png');
+    background-size: cover;
+}
+
+.card_cur {
+    position: relative;
     align-self: center;
     width: 32vh;
     height: 32vh;
     display: flex;
     justify-content: center;
-    position: relative;
     box-sizing: border-box;
-    border: 0.6em solid white;
-    border-radius: 0.4em;
+    transform-origin: 50% 75%;
+    margin-top: -32vh;
+    z-index: 2;
     -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
     -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
     box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.48);
 }
 
-.card_frame > img {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+.panel_endgame .card_cur {
+    margin-top: 0;
+}
+
+.card_cur.absolute {
+    position: absolute;
+    margin-top: 0vh;
+}
+
+.card_cur > img,
+.card_stack .front > img {
     display: block;
+    position: relative;
+    height: 100%;
+}
+
+.card_cur.fall_right {
+    -webkit-animation: card_fall_right 2s ease-in;
+    -moz-animation: card_fall_right 2s ease-in;
+    -ms-animation: card_fall_right 2s ease-in;
+    animation: card_fall_right 2s ease-in;
+}
+
+@keyframes card_fall_right {
+    100% { transform: translate(30em, 150vh) rotate(360deg); }
+}
+
+@-ms-keyframes card_fall_right {
+    100% { transform: translate(30em, 150vh) rotate(360deg); }
+}
+
+@-moz-keyframes card_fall_right {
+    100% { transform: translate(30em, 150vh) rotate(360deg); }
+}
+
+@-webkit-keyframes card_fall_right {
+    100% { transform: translate(30em, 150vh) rotate(360deg); }
+}
+
+.card_cur.fall_left {
+    -webkit-animation: card_fall_left 2s ease-in;
+    -moz-animation: card_fall_left 2s ease-in;
+    -ms-animation: card_fall_left 2s ease-in;
+    animation: card_fall_left 2s ease-in;
+}
+
+@keyframes card_fall_left {
+    100% { transform: translate(-10em, 150vh) rotate(-360deg); }
+}
+
+@-ms-keyframes card_fall_left {
+    100% { transform: translate(-10em, 150vh) rotate(-360deg); }
+}
+
+@-moz-keyframes card_fall_left {
+    100% { transform: translate(-10em, 150vh) rotate(-360deg); }
+}
+
+@-webkit-keyframes card_fall_left {
+    100% { transform: translate(-10em, 150vh) rotate(-360deg); }
 }
 
 .option_bg {
@@ -415,12 +519,12 @@ a.close {
 
 @media only screen and (min-height: 700px) {
 	.howtoplay p.ingress {
-		font-size: 27px;		
+		font-size: 27px;
 	}
 	.howtoplay p {
 		font-size: 18px;
 	}
-	
+
 	.howtoplay .card_frame {
 		width: 160px;
 		height: 160px;
@@ -429,16 +533,16 @@ a.close {
 
 @media only screen and (min-height: 800px) {
 	.howtoplay p.ingress {
-		font-size: 32px;		
+		font-size: 32px;
 	}
 	.howtoplay p {
 		font-size: 22px;
 	}
-	
+
 	.howtoplay .card_frame {
 		width: 200px;
 		height: 200px;
-	}	
+	}
 }
 
 @media only screen and (max-width: 480px) and (orientation:landscape), only screen and (max-device-width: 480px) and (orientation:landscape) {
@@ -484,4 +588,11 @@ a.close {
 
 .panel_endgame {
     background-color: #000;
+    display: none;
+    grid-template-rows: 5em 41vh auto 5em;
+    background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
+}
+
+.panel_endgame .card_wrapper {
+    align-self: center;
 }

@@ -112,7 +112,7 @@ function CrawlIndex(cardIDs) {
                 return card.id === id;
             });
 
-            if (typeof found === 'undefined') {
+            if (!found) {
                 cardIndex.push(Object.assign({}, card));
             }
         }
@@ -150,56 +150,68 @@ function GetRandomCard(year) {
     return Math.floor(Math.random() * curStack.length);
 }
 
-function HasMoreCards() {
-    return state.curCard < state.cards.length;
-}
-
 function ClearCard() {
     ClearChildElements('card_title');
     ClearChildElements('card_description');
 }
 
-function LoadCard(card) {
+function LoadCard(card, elm) {
+    elm
+        .querySelector('img')
+        .setAttribute('src', 'cards/' + card.image + '.png');
     document
         .getElementById('card_title')
         .innerHTML = card.title;
     document
         .getElementById('card_description')
         .innerHTML = card.description;
-    document
-        .getElementById('card_image')
-        .setAttribute('src', 'cards/' + card.image + '.png');
 }
-/*
+
+function CreateCard(parent, card) {
+    var card_cur = document.createElement('div');
+    card_cur.setAttribute('class', 'card_cur');
+    card_cur.setAttribute('id', 'card_cur');
+
+    var img = document.createElement('img');
+    img.setAttribute('id', 'card_image');
+    img.setAttribute('src', 'cards/' + card.image + '.png');
+    img.setAttribute('draggable', false);
+    card_cur.appendChild(img);
+
+    var option_bg = document.createElement('div');
+    option_bg.setAttribute('class', 'option_bg');
+    option_bg.setAttribute('id', 'option_bg');
+    card_cur.appendChild(option_bg);
+
+    var p = document.createElement('p');
+    p.setAttribute('id', 'option_description');
+    option_bg.appendChild(p);
+    card_cur.appendChild(option_bg);
+
+    parent.appendChild(card_cur);
+}
+
+function SetCurCard(id) {
+    var elm = document.getElementById(id);
+    elm.setAttribute('draggable', false);
+    state.cardElm = elm;
+
+    var cardRect = elm.getBoundingClientRect();
+    state.curCardInitPos = {
+        x: cardRect.left,
+        y: cardRect.top
+    };
+}
+
 function FetchJSON(file, callback) {
-	
-    return loadJSON(file)
+    return fetch(file)
         .then(function(response) {
-            return JSON.parse(response);
+            return response.json();
         })
         .then(callback);
-            
-}
-*/
-
-function FetchJSON(file, callback) {
-	
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', file, true);
-    xobj.onreadystatechange = function() {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-            callback(JSON.parse(xobj.responseText));
-        }
-    }
-    xobj.send(null);
-
 }
 
-
-
-
-function SetAxes(axes) {
+function CreateAxesElements(axes) {
     var g_axes = document.getElementById('g_axes');
     ClearChildElements('g_axes');
 
@@ -249,7 +261,7 @@ function SetAxes(axes) {
         });
 }
 
-function SetAxisValue(axis, value) {
+function SetAxesValue(axis, value) {
     Object
         .keys(axis)
         .forEach(function(id) {
@@ -257,33 +269,36 @@ function SetAxisValue(axis, value) {
             if (typeof value === 'function') {
                 v = value(id);
             }
-            SetAxesValue(id, v);
+            SetAxisValue(id, v);
         });
 }
 
-function SetAxesValue(id, value) {
-	
-	// Needed to clamp the value to make sure it animates (would not animate to less than 0)
-	var newVal = state.axisValues[id]+value;
-	if(newVal<0) newVal = 0;
-	else if(newVal>config.axesMaxValue) newVal = config.axesMaxValue;
+function SetAxisValue(id, value) {
+	var newVal = state.axisValues[id] + value;
+    newVal = Clamp(newVal, 0, config.axesMaxValue);
 
     state.axisValues[id] = newVal;
+}
+
+function ResetAxesValues() {
+    Object.keys(state.axisValues).forEach(function(axis) {
+        state.axisValues[axis] = 0;
+    });
+}
+
+function SetProgressBarValue(elm, value) {
     var color = '#8DBEB2';
 
-    var valpct = state.axisValues[id] / config.axesMaxValue;
+    var valpct = value / config.axesMaxValue;
     if(valpct < 0.15 || valpct > 0.85){
         color = '#F15F60';
     } else if(valpct < 0.30 || valpct > 0.70){
         color = '#F6B567';
     }
-    state
-        .axisElms[id]
-        .progressBar.style.width = Math.round(valpct * 100) + '%';
 
-    state
-        .axisElms[id]
-        .progressBar.style.backgroundColor = color;
+    var style = elm.style;
+    style.width = Math.round(valpct * 100) + '%';
+    style.backgroundColor = color;
 }
 
 function HighlightCurYear() {
@@ -324,8 +339,7 @@ function ShowOption(content) {
 function HideOption() {
     document
         .getElementById('option_bg')
-        .classList
-        .remove('show');
+        .setAttribute('class', 'option_bg');
     document
         .getElementById('option_description')
         .innerHTML = '';
@@ -383,17 +397,11 @@ function GetInvalidAxes() {
     return axes[i];
 }
 
-
-function ReplaceWith(Ele) {
-     if (this.parentNode) {
-		this.parentNode.replaceChild(Ele, this);
-	}
+function Clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
 }
 
-
-if (!Element.prototype.replaceWith)
-    Element.prototype.replaceWith = ReplaceWith;
-if (!CharacterData.prototype.replaceWith)
-    CharacterData.prototype.replaceWith = ReplaceWith;
-if (!DocumentType.prototype.replaceWith) 
-    DocumentType.prototype.replaceWith = ReplaceWith;
+function Map(value, xmin, xmax, ymin, ymax) {
+    var percent = (value - xmin) / (xmax - xmin);
+    return percent * (ymax - ymin) + ymin;
+}

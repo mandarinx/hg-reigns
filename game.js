@@ -248,7 +248,7 @@ function Update(time) {
 
 
         // Kill falling card
-        if (fallDuration >= 2) {
+        if (fallDuration >= 1.95) {
             state.cardFalling = false;
 
             if(state.cardElm!=null) document.body.removeChild(state.cardElm);

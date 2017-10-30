@@ -340,7 +340,7 @@ a.close {
 
 .card_stack .front {
     margin-top: -32vh;
-
+    z-index: 900;    
 }
 
 .card_stack .back {

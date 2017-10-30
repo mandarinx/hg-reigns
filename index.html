@@ -175,7 +175,7 @@
     </div>
 
     <script type="text/javascript">	    
-		if (navigator.userAgent.indexOf("(IE") != -1 || navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Edge") != -1) window.alert("DUDE!! Get a real browser!");	    
+		if ((!!window.MSInputMethodContext && !!document.documentMode) || navigator.userAgent.indexOf("(IE") != -1 || navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Edge") != -1) window.alert("DUDE!! Get a real browser!");	    
         OnLoad();
     </script>
 

@@ -2437,11 +2437,11 @@
     "year": 2,
     "options": {
         "no": "Lol, as if VR will ever work well",
-        "yes": "Smart move by Facebook!"
+        "yes": "VR is so exciting, let's get some dev kits."
     },
     "influences": {
         "no": {
-            "money": 0,
+            "money": -15,
             "happiness": 0,
             "fame": 0,
             "dignity": 10

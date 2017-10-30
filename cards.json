@@ -725,8 +725,8 @@
     "chance" : 1,
     "year": 4,
     "options": {
-        "yes": "I'm not sure that's a great idea..",
-        "no": "Hell yeah!"
+        "no": "I'm not sure that's a great idea..",
+        "yes": "Hell yeah!"
     },
     "influences": {
         "yes": {

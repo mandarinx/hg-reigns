@@ -8,7 +8,7 @@ html, body {
     font-family: 'Rokkitt', serif;
     color: white;
     margin: 0;
-
+    background: #352F2C !important; 
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -26,7 +26,6 @@ a {
 }
 
 .content {
-    background: #463e36;
     display: flex;
     justify-content: center;
 }

@@ -39,6 +39,17 @@
 	<meta name="twitter:image" content="http://hypergames.no/reign/img/share.jpg" />  
   
   
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41523612-25"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-41523612-25');
+	</script>
+	  
+	  
 </head>
 
 <body>
@@ -51,12 +62,12 @@
             <a id="i_btn_tutorial" class="button"  onclick="getElementById('howtoplay').style='display:block'">How to play</a>
 
             <div class="share">
-              <a href="https://twitter.com/intent/tweet?text=Play%20Hyper%20Games%20-%205%20Year%20Reign!" class="shareIcon"><img src="img/iconTwitter.png"></a>
-              <a href="#" class="shareIcon"><img src="img/iconFacebook.png"></a>
+              <a target="_blank" href="https://twitter.com/home?status=%235yearReign%20http%3A//hypergames.no/reign/%20" class="shareIcon"><img src="img/iconTwitter.png"></a>
+              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//hypergames.no/reign/" class="shareIcon"><img src="img/iconFacebook.png"></a>
             </div>
 
             <div class="footer">
-                <p>Based on the wonderful game <a href="https://www.devolverdigital.com/games/view/reigns">Reigns</a> by Nerial</p>
+                <p>Based on the wonderful game <a target="_blank" href="https://www.devolverdigital.com/games/view/reigns">Reigns</a> by Nerial</p>
             </div>
 
             <div id="howtoplay" class="howtoplay">
@@ -164,7 +175,7 @@
     </div>
 
     <script type="text/javascript">	    
-		if (navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Edge") != -1) window.alert("DUDE!! Get a real browser!");	    
+		if (navigator.userAgent.indexOf("(IE") != -1 || navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Edge") != -1) window.alert("DUDE!! Get a real browser!");	    
         OnLoad();
     </script>
 

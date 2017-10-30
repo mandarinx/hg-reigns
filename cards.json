@@ -1110,7 +1110,7 @@
             "money": 0,
             "happiness": 0,
             "fame": 0,
-            "dignity": -5
+            "dignity": 5
         },
         "yes": {
             "money": 0,

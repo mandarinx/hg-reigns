@@ -248,12 +248,19 @@ function Update(time) {
 
 
         // Kill falling card
-        if (fallDuration >= 1.95) {
+        if (fallDuration >= 1.95 && state.cardFalling) {
             state.cardFalling = false;
+			state.didFall = true;
+	        
 
-            if(state.cardElm!=null) document.body.removeChild(state.cardElm);
+            if(state.cardElm!==null) {
+	            console.log(state.cardElm);
+	            document.body.removeChild(state.cardElm);
+	            state.cardElm = null;
+	        }
 
             if (state.killedBy === null) {
+	            console.log("creating card");
                 CreateCard(document.getElementById('card_wrapper'), state.curCard);
 
 				SetCurCard('card_cur');
@@ -273,8 +280,9 @@ function Update(time) {
 
 	            state.mouseDownPos = {x:0,y:0};
 	            state.mov = {x:0,y:0};
-	            state.curPos = state.curCardInitPos;
-	            state.cardElm.style[prefixTransform] = 'translate(0px,0px) rotate(0deg)';
+	            state.curPos = {x:0,y:0};
+	            //state.cardElm.style[prefixTransform] = 'translate(0px,0px) rotate(0deg)';
+	            state.pu = 0;
             }
 
             return;
@@ -292,12 +300,18 @@ function Update(time) {
     if (!state.isDown) {
         // pull back card to center
         if (pos < 0.5) {
+	        if(state.cardElm.parent!=document.body) {
+				document.body.insertBefore(state.cardElm, document.body.firstChild);
+				state.cardElm.classList.add('absolute');
+		    }	        
             pos *= 0.2;
             var halfWidth = (state.movement.max - state.movement.min) * 0.5;
             state.curPos.x = state.curCardInitPos.x - (pos * sign * halfWidth);
+            state.curPos.y = state.curCardInitPos.y;
 
         // let the card fall
         } else {
+	        console.log("setting true");
             state.cardFalling = true;
             state.fallTime = time;
             state.cardElm.classList.add('fall_' + side);

@@ -202,6 +202,7 @@ function CreateCard(parent, card, callback) {
     img.setAttribute('src', 'cards/' + card.image + '.png');
     img.setAttribute('draggable', false);
 
+
 }
 
 function SetCurCard(id) {

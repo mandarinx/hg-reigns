@@ -2441,13 +2441,13 @@
     },
     "influences": {
         "no": {
-            "money": -15,
+            "money": 0,
             "happiness": 0,
             "fame": 0,
             "dignity": 10
         },
         "yes": {
-            "money": 0,
+            "money": -15,
             "happiness": 0,
             "fame": 0,
             "dignity": 0

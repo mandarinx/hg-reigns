@@ -380,7 +380,7 @@ function OnTransitionToEndGame() {
     });
 
     // Copy years
-    for (var i = 0; i < state.curYear + 1; ++i) {
+    for (var i = 0; i < state.curYear; ++i) {
         document
             .getElementById('e_progress_years')
             .querySelector('#e_year_' + i)
@@ -388,32 +388,24 @@ function OnTransitionToEndGame() {
     }
 
     var killedBy = state.killedBy;
-	if(killedBy==null) {
-		document
-	        .getElementById('e_title')
-	        .innerHTML = config.win.title;
-	    document
-	        .getElementById('e_description')
-	        .innerHTML = config.win.text;
-	    document
-	        .getElementById('e_card_image')
-	        .src = "cards/"+config.win.image+".png";
+    var endgame = {};
 
-	} else {
-	    var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
-	    var endgame = config.axes[killedBy].endgame[msgType];
-
-
-	    document
-	        .getElementById('e_title')
-	        .innerHTML = endgame.title;
-	    document
-	        .getElementById('e_description')
-	        .innerHTML = endgame.text;
-	    document
-	        .getElementById('e_card_image')
-	        .src = "cards/"+endgame.image+".png";
+    if (typeof killedBy === 'object') {
+        endgame = config.win;
+    } else {
+        var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
+        endgame = config.axes[killedBy].endgame[msgType];
     }
+
+    document
+        .getElementById('e_title')
+        .innerHTML = endgame.title;
+    document
+        .getElementById('e_description')
+        .innerHTML = endgame.text;
+    document
+        .getElementById('e_card_image')
+        .src = "cards/"+endgame.image+".png";
 
     EnableButton('e_retry');
 }
@@ -432,6 +424,7 @@ function OnRestartGame() {
 
 function LoadNextCard() {
     if (state.curYear >= config.maxYears) {
+        state.killedBy = config.win;
         TransitionTo('panel_endgame');
         return;
     }
@@ -442,7 +435,8 @@ function LoadNextCard() {
         ++state.curYear;
 
         if (state.curYear >= config.maxYears) {
-            console.log('Reigned for '+config.maxYears+' years. Congrats!');
+            state.killedBy = config.win;
+            TransitionTo('panel_endgame');
             return;
         }
 

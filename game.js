@@ -359,6 +359,7 @@ function Update(time) {
 
     if (pos >= 0.5 && !state.cardFalling) {
         ShowOption(state.curCard.options[option]);
+        HideDots(config.axes);
         ShowDots(state.curCard.influences[option]);
     } else {
         HideDots(config.axes);

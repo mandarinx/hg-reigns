@@ -179,22 +179,24 @@ function CreateCard(parent, card, callback) {
 
     var img = document.createElement('img');
     img.onload = function(){
-	    card_cur.appendChild(img);
-
-	    var option_bg = document.createElement('div');
-	    option_bg.setAttribute('class', 'option_bg');
-	    option_bg.setAttribute('id', 'option_bg');
-	    card_cur.appendChild(option_bg);
-
-	    var p = document.createElement('p');
-	    p.setAttribute('id', 'option_description');
-	    option_bg.appendChild(p);
-	    card_cur.appendChild(option_bg);
-
-	    parent.appendChild(card_cur);
 
 		if(callback!=null) callback();
     };
+
+    card_cur.appendChild(img);
+
+    var option_bg = document.createElement('div');
+    option_bg.setAttribute('class', 'option_bg');
+    option_bg.setAttribute('id', 'option_bg');
+    card_cur.appendChild(option_bg);
+
+    var p = document.createElement('p');
+    p.setAttribute('id', 'option_description');
+    option_bg.appendChild(p);
+    card_cur.appendChild(option_bg);
+
+    parent.appendChild(card_cur);
+
 
     img.setAttribute('id', 'card_image');
     img.setAttribute('src', 'cards/' + card.image + '.png');

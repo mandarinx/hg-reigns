@@ -11,6 +11,8 @@ var prefixTransform = 'transform';
 var lastTouchEnd = 0;
 
 function OnLoad() {
+	
+	
     if ('webkitTransform' in document.body.style) {
         prefixTransform = 'webkitTransform';
     }
@@ -40,7 +42,7 @@ function OnLoad() {
     });
 
     var file_cards = FetchJSON('cards.json', function(json) {
-        cards = json;
+        cards = json;        
     });
 
     Promise
@@ -134,37 +136,36 @@ function OnTransitionToGame() {
     FillCardStack(state.curYear);
     state.curCard = GetCard(GetRandomCard(state.curYear));
 
-    CreateCard(document.getElementById('card_wrapper'), state.curCard, function(){
-	    SetCurCard('card_cur');
+    CreateCard(document.getElementById('card_wrapper'), state.curCard);
 
-	    var cardRect = state.cardElm.getBoundingClientRect();
-	    state.movement = {};
-	    state.movement.min = panelRect.left + padding;
-	    state.movement.max = panelRect.left + panelRect.width - padding - cardRect.width;
-	    state.movement.len = state.movement.max - state.movement.min;
+    SetCurCard('card_cur');
 
-	    state.curCardInitPos = {
-	        x: cardRect.left,
-	        y: cardRect.top
-	    };
-	    state.curPos = state.curCardInitPos;
+    var cardRect = state.cardElm.getBoundingClientRect();
+    state.movement = {};
+    state.movement.min = panelRect.left + padding;
+    state.movement.max = panelRect.left + panelRect.width - padding - cardRect.width;
+    state.movement.len = state.movement.max - state.movement.min;
 
-	    SetAxesValue(config.axes, config.axesStartValue);
-	    Object.keys(state.axisElms).forEach(function(axis) {
-	        SetProgressBarValue(state.axisElms[axis].progressBar, state.axisValues[axis]);
-	    });
+    state.curCardInitPos = {
+        x: cardRect.left,
+        y: cardRect.top
+    };
+    state.curPos = state.curCardInitPos;
 
-	    ClearCard();
-	    LoadCard(state.curCard, document.getElementById('card_cur'));
-	    ResetYears();
-	    HighlightCurYear();
-
-		document.addEventListener('mousedown', OnPointerDown);
-	    document.addEventListener('touchstart', OnPointerDown);
-
-	    state.updateRef = null;
+    SetAxesValue(config.axes, config.axesStartValue);
+    Object.keys(state.axisElms).forEach(function(axis) {
+        SetProgressBarValue(state.axisElms[axis].progressBar, state.axisValues[axis]);
     });
 
+    ClearCard();
+    LoadCard(state.curCard, document.getElementById('card_cur'));
+    ResetYears();
+    HighlightCurYear();
+
+	document.addEventListener('mousedown', OnPointerDown);
+    document.addEventListener('touchstart', OnPointerDown);
+
+    state.updateRef = null;
 
 }
 
@@ -241,7 +242,6 @@ function Update(time) {
             state.killedBy === null &&
             !state.cardFlipped) {
             state.cardFlipped = true;
-
             cardStack.setAttribute('class', 'card_stack flip');
             LoadCard(state.curCard, document.getElementById('card_next'));
         }
@@ -254,21 +254,19 @@ function Update(time) {
             if(state.cardElm!=null) document.body.removeChild(state.cardElm);
 
             if (state.killedBy === null) {
-                CreateCard(document.getElementById('card_wrapper'), state.curCard,function(){
-	                SetCurCard('card_cur');
-					document.addEventListener('mousedown', OnPointerDown);
-	                document.addEventListener('touchstart', OnPointerDown);
+                CreateCard(document.getElementById('card_wrapper'), state.curCard);
 
-	                var imgNext = document
-		                .getElementById('card_next')
-		                .querySelector('img')
-		                .setAttribute('src', 'cards/empty.png');
+				SetCurCard('card_cur');
+				document.addEventListener('mousedown', OnPointerDown);
+                document.addEventListener('touchstart', OnPointerDown);
 
-		            cardStack.setAttribute('class', 'card_stack flipimmediate');
+                var imgNext = document
+	                .getElementById('card_next')
+	                .querySelector('img')
+	                .setAttribute('src', 'cards/empty.png');
 
+	            cardStack.setAttribute('class', 'card_stack flipimmediate');
 
-
-                });
 
 	            window.cancelAnimationFrame(state.updateRef);
 	            state.updateRef = null;

@@ -160,7 +160,7 @@ function LoadCard(card, elm, callback) {
     img.onload = function() {
 		if(callback!=null) callback();
     }
-    	
+
     img.setAttribute('src', 'cards/' + card.image + '.png');
     document
         .getElementById('card_title')
@@ -168,8 +168,8 @@ function LoadCard(card, elm, callback) {
     document
         .getElementById('card_description')
         .innerHTML = card.description;
-        
-   
+
+
 }
 
 function CreateCard(parent, card, callback) {
@@ -180,22 +180,22 @@ function CreateCard(parent, card, callback) {
     var img = document.createElement('img');
     img.onload = function(){
 	    card_cur.appendChild(img);
-	
+
 	    var option_bg = document.createElement('div');
 	    option_bg.setAttribute('class', 'option_bg');
 	    option_bg.setAttribute('id', 'option_bg');
 	    card_cur.appendChild(option_bg);
-	
+
 	    var p = document.createElement('p');
 	    p.setAttribute('id', 'option_description');
 	    option_bg.appendChild(p);
 	    card_cur.appendChild(option_bg);
-	
+
 	    parent.appendChild(card_cur);
-    	    
+
 		if(callback!=null) callback();
     };
-    
+
     img.setAttribute('id', 'card_image');
     img.setAttribute('src', 'cards/' + card.image + '.png');
     img.setAttribute('draggable', false);
@@ -350,7 +350,7 @@ function ShowOption(content) {
 function HideOption() {
     var optionbg = document.getElementById('option_bg');
     if(optionbg!=null) optionbg.setAttribute('class', 'option_bg');
-	
+
 	var optiondesc = document.getElementById('option_description');
 	if(optiondesc!=null) optiondesc.innerHTML = '';
 }

@@ -86,21 +86,21 @@ function OnLoad() {
 
             TransitionTo(config.startPanel);
         });
-        
-        
+
+
         // Still need these, because the other listeners only listens when clicking the cards
         document.body.addEventListener('touchmove',function(e){
 			e.preventDefault();
 		});
-		  
+
 		document.addEventListener('touchend', function (event) {
 		    var now = (new Date()).getTime();
 		    if (now - lastTouchEnd <= 300) {
 		        event.preventDefault();
 		    }
 		    lastTouchEnd = now;
-		}, false);	  
-        
+		}, false);
+
 }
 
 function OnTransitionToIntro() {
@@ -135,33 +135,33 @@ function OnTransitionToGame() {
     state.curCard = GetCard(GetRandomCard(state.curYear));
 
     CreateCard(document.getElementById('card_wrapper'), state.curCard, function(){
-	    SetCurCard('card_cur');	    
-	    
+	    SetCurCard('card_cur');
+
 	    var cardRect = state.cardElm.getBoundingClientRect();
 	    state.movement = {};
 	    state.movement.min = panelRect.left + padding;
 	    state.movement.max = panelRect.left + panelRect.width - padding - cardRect.width;
 	    state.movement.len = state.movement.max - state.movement.min;
-	
+
 	    state.curCardInitPos = {
 	        x: cardRect.left,
 	        y: cardRect.top
 	    };
 	    state.curPos = state.curCardInitPos;
-	
+
 	    SetAxesValue(config.axes, config.axesStartValue);
 	    Object.keys(state.axisElms).forEach(function(axis) {
 	        SetProgressBarValue(state.axisElms[axis].progressBar, state.axisValues[axis]);
 	    });
-	
+
 	    ClearCard();
 	    LoadCard(state.curCard, document.getElementById('card_cur'));
 	    ResetYears();
 	    HighlightCurYear();
-	
+
 		document.addEventListener('mousedown', OnPointerDown);
 	    document.addEventListener('touchstart', OnPointerDown);
-	
+
 	    state.updateRef = null;
     });
 
@@ -169,7 +169,7 @@ function OnTransitionToGame() {
 }
 
 function OnPointerDown(e) {
-	
+
     if (typeof e.button !== 'undefined' && e.button !== 0) {
         return;
     }
@@ -179,19 +179,19 @@ function OnPointerDown(e) {
 
     state.isDown = true;
     state.mouseDownPos = GetPageCoord(e);
-    state.mov = {x:0,y:0};    
-	state.curPos = state.curCardInitPos;    
+    state.mov = {x:0,y:0};
+	state.curPos = state.curCardInitPos;
 
     document.body.insertBefore(state.cardElm, document.body.firstChild);
     state.cardElm.classList.add('absolute');
 
-    document.addEventListener('mousemove', OnPointerMove);    
-    document.addEventListener('mouseup', OnPointerUp);    
+    document.addEventListener('mousemove', OnPointerMove);
+    document.addEventListener('mouseup', OnPointerUp);
     document.addEventListener('touchmove', OnPointerMove);
     document.addEventListener('touchend', OnPointerUp);
 
 	Update();
-	
+
     if (state.updateRef === null) {
         state.updateRef = window.requestAnimationFrame(Update);
     }
@@ -212,14 +212,14 @@ function OnPointerUp(e) {
     if (now - lastTouchEnd <= 400) {
         event.preventDefault();
     }
-    lastTouchEnd = now;	
+    lastTouchEnd = now;
 
     state.isDown = false;
     state.curPos.x += state.mov.x;
     state.curPos.y += state.mov.y;
     state.mov = {x:0,y:0};
-    document.removeEventListener('mousemove', OnPointerMove);    
-    document.removeEventListener('mouseup', OnPointerUp);    
+    document.removeEventListener('mousemove', OnPointerMove);
+    document.removeEventListener('mouseup', OnPointerUp);
     document.removeEventListener('touchmove', OnPointerMove);
     document.removeEventListener('touchend', OnPointerUp);
 }
@@ -235,7 +235,7 @@ function Update(time) {
             state.curPanel === 'panel_game') {
             TransitionTo('panel_endgame');
         }
-        
+
         // Flip next card
         if (fallDuration >= 1.7 &&
             state.killedBy === null &&
@@ -245,7 +245,7 @@ function Update(time) {
             cardStack.setAttribute('class', 'card_stack flip');
             LoadCard(state.curCard, document.getElementById('card_next'));
         }
-        
+
 
         // Kill falling card
         if (fallDuration >= 2) {
@@ -255,24 +255,24 @@ function Update(time) {
 
             if (state.killedBy === null) {
                 CreateCard(document.getElementById('card_wrapper'), state.curCard,function(){
-	                SetCurCard('card_cur');	
+	                SetCurCard('card_cur');
 					document.addEventListener('mousedown', OnPointerDown);
-	                document.addEventListener('touchstart', OnPointerDown);	
-	                
+	                document.addEventListener('touchstart', OnPointerDown);
+
 	                var imgNext = document
 		                .getElementById('card_next')
 		                .querySelector('img')
 		                .setAttribute('src', 'cards/empty.png');
-		
-		            cardStack.setAttribute('class', 'card_stack flipimmediate');
-		
 
-	                                                
+		            cardStack.setAttribute('class', 'card_stack flipimmediate');
+
+
+
                 });
 
 	            window.cancelAnimationFrame(state.updateRef);
 	            state.updateRef = null;
-	
+
 	            state.mouseDownPos = {x:0,y:0};
 	            state.mov = {x:0,y:0};
 	            state.curPos = state.curCardInitPos;
@@ -322,7 +322,7 @@ function Update(time) {
                 console.log('killed by: '+state.killedBy);
             }
 
-            document.removeEventListener('mousedown', OnPointerDown);            
+            document.removeEventListener('mousedown', OnPointerDown);
             document.removeEventListener('touchstart', OnPointerDown);
 
             if (state.killedBy === null) {
@@ -364,7 +364,7 @@ function GetPageCoord(e) {
 }
 
 function OnTransitionFromGame() {
-    document.removeEventListener('mousedown', OnPointerDown);    
+    document.removeEventListener('mousedown', OnPointerDown);
     document.removeEventListener('touchstart', OnPointerDown);
     window.cancelAnimationFrame(state.updateRef);
     HideDots(config.axes);
@@ -372,40 +372,40 @@ function OnTransitionFromGame() {
 
 function OnTransitionToEndGame() {
 
-
+    // Copy axis values
     Object.keys(state.axisValues).forEach(function(axis) {
         var elm = document.getElementById('e_axes')
             .querySelector('#e_' + axis + ' .progress > div');
         SetProgressBarValue(elm, state.axisValues[axis]);
     });
 
-    var killedBy = state.killedBy;
-	if(killedBy==null) {
-		document
-	        .getElementById('e_title')
-	        .innerHTML = config.win.title;
-	    document
-	        .getElementById('e_description')
-	        .innerHTML = config.win.text;
-	    document
-	        .getElementById('e_card_image')
-	        .src = "cards/"+config.win.image+".png";
-
-	} else {
-	    var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
-	    var endgame = config.axes[killedBy].endgame[msgType];
-
-
-	    document
-	        .getElementById('e_title')
-	        .innerHTML = endgame.title;
-	    document
-	        .getElementById('e_description')
-	        .innerHTML = endgame.text;
-	    document
-	        .getElementById('e_card_image')
-	        .src = "cards/"+endgame.image+".png";
+    // Copy years
+    for (var i = 0; i < state.curYear; ++i) {
+        document
+            .getElementById('e_progress_years')
+            .querySelector('#e_year_' + i)
+            .setAttribute('class', 'g_year selected');
     }
+
+    var killedBy = state.killedBy;
+    var endgame = {};
+
+    if (typeof killedBy === 'object') {
+        endgame = config.win;
+    } else {
+        var msgType = state.axisValues[killedBy] <= 0 ? 'low' : 'high';
+        endgame = config.axes[killedBy].endgame[msgType];
+    }
+
+    document
+        .getElementById('e_title')
+        .innerHTML = endgame.title;
+    document
+        .getElementById('e_description')
+        .innerHTML = endgame.text;
+    document
+        .getElementById('e_card_image')
+        .src = "cards/"+endgame.image+".png";
 
     EnableButton('e_retry');
 }
@@ -424,6 +424,7 @@ function OnRestartGame() {
 
 function LoadNextCard() {
     if (state.curYear >= config.maxYears) {
+        state.killedBy = config.win;
         TransitionTo('panel_endgame');
         return;
     }
@@ -434,7 +435,8 @@ function LoadNextCard() {
         ++state.curYear;
 
         if (state.curYear >= config.maxYears) {
-            console.log('Reigned for '+config.maxYears+' years. Congrats!');
+            state.killedBy = config.win;
+            TransitionTo('panel_endgame');
             return;
         }
 

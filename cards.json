@@ -725,8 +725,8 @@
     "chance" : 1,
     "year": 4,
     "options": {
-        "yes": "I'm not sure that's a great idea..",
-        "no": "Hell yeah!"
+        "no": "I'm not sure that's a great idea..",
+        "yes": "Hell yeah!"
     },
     "influences": {
         "yes": {
@@ -1490,7 +1490,7 @@
             "dignity": -10
         },
         "no": {
-            "money": 0,
+            "money": -10,
             "happiness": 0,
             "fame": 0,
             "dignity": 10

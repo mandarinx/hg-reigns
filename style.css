@@ -612,3 +612,11 @@ a.close {
 .panel_endgame .card_wrapper {
     align-self: center;
 }
+
+
+.preloader {
+	position: absolute;
+	height: 0px;
+	width: 0px;
+	bottom: 0;
+}

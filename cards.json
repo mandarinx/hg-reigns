@@ -1490,7 +1490,7 @@
             "dignity": -10
         },
         "no": {
-            "money": 0,
+            "money": -10,
             "happiness": 0,
             "fame": 0,
             "dignity": 10

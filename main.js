@@ -27,12 +27,13 @@ var app = express()
             styleSrc: [
                 "'self'",
                 "'unsafe-inline'",
-                'fonts.googleapis.com',
+                'fonts.googleapis.com'
             ],
             scriptSrc: [
                 "'self'",
                 "'unsafe-inline'",
                 'www.google-analytics.com',
+                'www.googletagmanager.com'
             ],
             fontSrc: [
                 "'self'",
@@ -42,10 +43,10 @@ var app = express()
             ],
             imgSrc: [
                 "'self'",
-                'www.google-analytics.com',
+                'www.google-analytics.com'
             ],
             objectSrc: [
-                "'none'",
+                "'none'"
             ]
         },
         browserSniff: true,

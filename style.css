@@ -177,7 +177,7 @@ a {
 
 }
 
-.howtoplay .card_frame {
+.howtoplay .card_cur {
 	float: right;
 	margin: 0px 0px 20px 20px;
 	width: 140px;
@@ -269,11 +269,14 @@ a.close {
 
 .card_about, .card_endtext {
     text-align: center;
-    padding: 0 2em;
-    font-size: 1.2em;
-    align-self: center;
+    padding: 2em;
+    font-size: 1em;
+    align-self: center;    
 }
 
+.card_endtext {
+	    padding: 0 2em 4em 2em;
+}
 .card_about h1, .card_endtext h1 {
     color: #E8D061;
     font-size: bold;
@@ -337,7 +340,6 @@ a.close {
 
 .card_stack .front {
     margin-top: -32vh;
-    z-index: 900;    
 
 }
 
@@ -365,6 +367,7 @@ a.close {
 
 .panel_endgame .card_cur {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .card_cur.absolute {
@@ -599,6 +602,11 @@ a.close {
     display: none;
     grid-template-rows: 5em 41vh auto 5em;
     background-image: linear-gradient(45deg, #735F52 0%, #9C8272 100%);
+}
+
+.panel_endgame h1 {
+	margin: 0;
+	padding: 0;
 }
 
 .panel_endgame .card_wrapper {
